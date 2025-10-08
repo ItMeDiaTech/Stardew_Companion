@@ -10,7 +10,6 @@ jobs:
     runs-on: windows-latest
     permissions:
       contents: write  # Required to create releases
-      packages: write  # Optional, for package publishing
 
     steps:
       - name: Checkout code
@@ -25,22 +24,7 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build application
-        run: npm run build
-
-      - name: Package application
-        run: npm run package:win
+      - name: Build and Publish
+        run: npm run publish
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Upload Release Assets
-        uses: softprops/action-gh-release@v1
-        with:
-          files: |
-            release/*.exe
-            release/*.blockmap
-            release/latest.yml
-          draft: false
-          prerelease: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
