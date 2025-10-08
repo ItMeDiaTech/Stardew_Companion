@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline';">
+    <title>Crafting - Stardew Companion</title>
+</head>
+<body>
+    <div id="app">
+        <header class="titlebar">
+            <div class="titlebar-drag-region">
+                <div class="app-title">Stardew Companion - Crafting</div>
+            </div>
+            <div class="window-controls">
+                <button class="window-button" id="minimize-btn" aria-label="Minimize">
+                    <svg width="12" height="12" viewBox="0 0 12 12">
+                        <rect x="0" y="5" width="12" height="2"/>
+                    </svg>
+                </button>
+                <button class="window-button" id="maximize-btn" aria-label="Maximize">
+                    <svg width="12" height="12" viewBox="0 0 12 12">
+                        <rect x="0" y="0" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1"/>
+                    </svg>
+                </button>
+                <button class="window-button close-btn" id="close-btn" aria-label="Close">
+                    <svg width="12" height="12" viewBox="0 0 12 12">
+                        <path d="M 0 0 L 12 12 M 12 0 L 0 12" stroke="currentColor" stroke-width="1.5"/>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <nav class="navbar">
+            <a href="index.html" class="nav-link">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M8 2L2 7h2v6h3V9h2v4h3V7h2L8 2z"/>
+                </svg>
+                Home
+            </a>
+            <a href="villagers.html" class="nav-link">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M8 8c1.7 0 3-1.3 3-3S9.7 2 8 2 5 3.3 5 5s1.3 3 3 3zm0 2c-2.3 0-7 1.2-7 3.5V15h14v-1.5C15 11.2 10.3 10 8 10z"/>
+                </svg>
+                Villagers
+            </a>
+            <a href="shops.html" class="nav-link">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M14 2H2L1 6v1c0 1.1.9 2 2 2 .4 0 .7-.1 1-.3.3.2.6.3 1 .3s.7-.1 1-.3c.3.2.6.3 1 .3s.7-.1 1-.3c.3.2.6.3 1 .3s.7-.1 1-.3c.3.2.6.3 1 .3 1.1 0 2-.9 2-2V6l-1-4zm-1 5c0 .6-.4 1-1 1s-1-.4-1-1V5h2v2zm-3-2v2c0 .6-.4 1-1 1s-1-.4-1-1V5h2zm-3 0v2c0 .6-.4 1-1 1s-1-.4-1-1V5h2zm-3 0v2c0 .6-.4 1-1 1s-1-.4-1-1V5h2zm11 4H2v6h12V9z"/>
+                </svg>
+                Shops
+            </a>
+            <a href="calendar.html" class="nav-link">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M4 1v1H2v12h12V2h-2V1h-2v1H6V1H4zm8 3v1h2v1H2V5h2V4h8v0zM2 8h12v5H2V8z"/>
+                </svg>
+                Calendar
+            </a>
+            <a href="crafting.html" class="nav-link active">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M14 0H2L0 4v1h2l1 9h10l1-9h2V4L14 0zM2 3l1-2h10l1 2H2z"/>
+                </svg>
+                Crafting
+            </a>
+            <a href="notes.html" class="nav-link">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M2 2v12h12V2H2zm11 11H3V3h10v10zM4 5h8v1H4V5zm0 2h8v1H4V7zm0 2h5v1H4V9z"/>
+                </svg>
+                Notes
+            </a>
+            <a href="tasks.html" class="nav-link">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M14 2H2v12h12V2zM6 12L3 9l1-1 2 2 4-4 1 1-5 5z"/>
+                </svg>
+                Daily Tasks
+            </a>
+        </nav>
+
+        <main class="content">
+            <div class="crafting-container">
+                <div class="crafting-header">
+                    <h1>Stardew Valley Crafting</h1>
+                    <p>Browse all craftable items, materials needed, and how to unlock recipes</p>
+                </div>
+
+                <div class="crafting-controls">
+                    <div class="search-box">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                            <path d="M11.7 10.3c.9-1.2 1.4-2.7 1.4-4.3 0-3.9-3.1-7-7-7s-7 3.1-7 7 3.1 7 7 7c1.6 0 3.1-.5 4.3-1.4l4.3 4.3 1.4-1.4-4.4-4.2zM6 11c-2.8 0-5-2.2-5-5s2.2-5 5-5 5 2.2 5 5-2.2 5-5 5z"/>
+                        </svg>
+                        <input type="text" id="search-input" placeholder="Search recipes or materials..." />
+                    </div>
+
+                    <div class="filters-row">
+                        <select id="category-filter" class="filter-select">
+                            <option value="all">All Categories</option>
+                            <option value="bombs">Bombs</option>
+                            <option value="fences">Fences</option>
+                            <option value="sprinklers">Sprinklers</option>
+                            <option value="artisan">Artisan Equipment</option>
+                            <option value="fertilizer">Fertilizer</option>
+                            <option value="refining">Refining Equipment</option>
+                            <option value="equipment">Equipment</option>
+                            <option value="consumables">Consumables</option>
+                            <option value="furniture">Furniture</option>
+                            <option value="lighting">Lighting</option>
+                            <option value="fishing">Fishing</option>
+                            <option value="rings">Rings</option>
+                            <option value="flooring">Flooring</option>
+                            <option value="other">Other</option>
+                        </select>
+
+                        <select id="unlock-filter" class="filter-select">
+                            <option value="all">All Unlock Methods</option>
+                            <option value="starter">Starter Recipes</option>
+                            <option value="skill">Skill Unlocks</option>
+                            <option value="friendship">Friendship</option>
+                            <option value="purchase">Purchase</option>
+                            <option value="special_order">Special Orders</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="recipes-grid" class="recipes-grid">
+                    <!-- Recipe cards will be inserted here by JavaScript -->
+                </div>
+
+                <!-- Recipe Detail Modal -->
+                <div id="recipe-modal" class="modal" style="display: none;">
+                    <div class="modal-content recipe-modal-content">
+                        <div class="modal-header">
+                            <div>
+                                <h2 id="modal-recipe-name"></h2>
+                                <p id="modal-recipe-category" class="recipe-category-badge"></p>
+                            </div>
+                            <button class="modal-close" id="modal-close-btn">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="recipe-detail-section">
+                                <p id="modal-recipe-description" class="recipe-description"></p>
+
+                                <div class="unlock-info">
+                                    <h3>How to Unlock</h3>
+                                    <div id="modal-recipe-unlock" class="unlock-details"></div>
+                                </div>
+
+                                <div class="materials-section">
+                                    <h3>Required Materials</h3>
+                                    <div id="modal-recipe-materials" class="materials-list">
+                                        <!-- Material badges will be inserted here -->
+                                    </div>
+                                </div>
+
+                                <div id="modal-crafting-station" class="crafting-station-info" style="display: none;">
+                                    <h3>Crafting Station</h3>
+                                    <p id="modal-station-name"></p>
+                                </div>
+
+                                <div id="modal-output-info" class="output-info" style="display: none;">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                        <path d="M8 1l1 3h3l-2.5 2 1 3L8 7.5 5.5 9l1-3L4 4h3l1-3z"/>
+                                    </svg>
+                                    <span id="modal-output-text"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Material Detail Modal -->
+                <div id="material-modal" class="modal" style="display: none;">
+                    <div class="modal-content material-modal-content">
+                        <div class="modal-header">
+                            <div>
+                                <h2 id="material-name"></h2>
+                                <div id="material-types" class="material-types"></div>
+                            </div>
+                            <button class="modal-close" id="material-close-btn">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <p id="material-description" class="material-description"></p>
+
+                            <!-- Forage Locations -->
+                            <div id="material-forage" class="material-source-section" style="display: none;">
+                                <h3>
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                        <path d="M8 2C5.8 2 4 3.8 4 6c0 1.4.7 2.6 1.8 3.3-.1.2-.2.4-.2.7 0 .6.4 1 1 1h3c.6 0 1-.4 1-1 0-.2-.1-.5-.2-.7C11.3 8.6 12 7.4 12 6c0-2.2-1.8-4-4-4z"/>
+                                    </svg>
+                                    Forage Locations
+                                </h3>
+                                <div id="material-forage-list" class="source-list"></div>
+                            </div>
+
+                            <!-- Mining Locations -->
+                            <div id="material-mining" class="material-source-section" style="display: none;">
+                                <h3>
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                        <path d="M3 5l5-4 5 4v9H3V5z"/>
+                                    </svg>
+                                    Mining Locations
+                                </h3>
+                                <div id="material-mining-list" class="source-list"></div>
+                            </div>
+
+                            <!-- Shops -->
+                            <div id="material-shops" class="material-source-section" style="display: none;">
+                                <h3>
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                        <path d="M14 2H2L1 6v1c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V6l-1-4zM2 9v6h12V9H2z"/>
+                                    </svg>
+                                    Available at Shops
+                                </h3>
+                                <div id="material-shops-list" class="source-list"></div>
+                            </div>
+
+                            <!-- Farming Info -->
+                            <div id="material-farming" class="material-source-section" style="display: none;">
+                                <h3>
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                        <path d="M8 2l-1 1v3h2V3l-1-1zM5 6l-1 1 1 1h6l1-1-1-1H5z"/>
+                                    </svg>
+                                    How to Obtain
+                                </h3>
+                                <p id="material-farming-text" class="source-text"></p>
+                            </div>
+
+                            <!-- Monster Drops -->
+                            <div id="material-monsters" class="material-source-section" style="display: none;">
+                                <h3>
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                        <path d="M8 1L6 5l-4 1 3 3-1 4 4-2 4 2-1-4 3-3-4-1-2-4z"/>
+                                    </svg>
+                                    Monster Drops
+                                </h3>
+                                <div id="material-monsters-list" class="source-list"></div>
+                            </div>
+
+                            <!-- Used In Recipes -->
+                            <div id="material-recipes" class="material-source-section" style="display: none;">
+                                <h3>
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                        <path d="M14 0H2L0 4v1h2l1 9h10l1-9h2V4L14 0z"/>
+                                    </svg>
+                                    Used in <span id="material-recipe-count"></span> Recipes
+                                </h3>
+                                <div id="material-recipes-list" class="recipes-using-material"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="statusbar">
+            <div class="status-left" id="recipe-count">Loading recipes...</div>
+            <div class="status-right" id="filter-status">Showing: All</div>
+        </footer>
+    </div>
+</body>
+</html>

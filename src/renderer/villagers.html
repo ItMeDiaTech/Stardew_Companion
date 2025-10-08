@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:;">
+    <title>Villagers - Stardew Companion</title>
+</head>
+<body>
+    <div id="app">
+        <header class="titlebar">
+            <div class="titlebar-drag-region">
+                <div class="app-title">Stardew Companion - Villagers</div>
+            </div>
+            <div class="window-controls">
+                <button class="window-button" id="minimize-btn" aria-label="Minimize">
+                    <svg width="12" height="12" viewBox="0 0 12 12">
+                        <rect x="0" y="5" width="12" height="2"/>
+                    </svg>
+                </button>
+                <button class="window-button" id="maximize-btn" aria-label="Maximize">
+                    <svg width="12" height="12" viewBox="0 0 12 12">
+                        <rect x="0" y="0" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1"/>
+                    </svg>
+                </button>
+                <button class="window-button close-btn" id="close-btn" aria-label="Close">
+                    <svg width="12" height="12" viewBox="0 0 12 12">
+                        <path d="M 0 0 L 12 12 M 12 0 L 0 12" stroke="currentColor" stroke-width="1.5"/>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <nav class="navbar">
+            <a href="index.html" class="nav-link">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M8 2L2 7h2v6h3V9h2v4h3V7h2L8 2z"/>
+                </svg>
+                Home
+            </a>
+            <a href="villagers.html" class="nav-link active">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M8 8c1.7 0 3-1.3 3-3S9.7 2 8 2 5 3.3 5 5s1.3 3 3 3zm0 2c-2.3 0-7 1.2-7 3.5V15h14v-1.5C15 11.2 10.3 10 8 10z"/>
+                </svg>
+                Villagers
+            </a>
+            <a href="shops.html" class="nav-link">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M14 2H2L1 6v1c0 1.1.9 2 2 2 .4 0 .7-.1 1-.3.3.2.6.3 1 .3s.7-.1 1-.3c.3.2.6.3 1 .3s.7-.1 1-.3c.3.2.6.3 1 .3s.7-.1 1-.3c.3.2.6.3 1 .3 1.1 0 2-.9 2-2V6l-1-4zm-1 5c0 .6-.4 1-1 1s-1-.4-1-1V5h2v2zm-3-2v2c0 .6-.4 1-1 1s-1-.4-1-1V5h2zm-3 0v2c0 .6-.4 1-1 1s-1-.4-1-1V5h2zm-3 0v2c0 .6-.4 1-1 1s-1-.4-1-1V5h2zm11 4H2v6h12V9z"/>
+                </svg>
+                Shops
+            </a>
+            <a href="calendar.html" class="nav-link">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M4 1v1H2v12h12V2h-2V1h-2v1H6V1H4zm8 3v1h2v1H2V5h2V4h8v0zM2 8h12v5H2V8z"/>
+                </svg>
+                Calendar
+            </a>
+            <a href="crafting.html" class="nav-link">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M14 0H2L0 4v1h2l1 9h10l1-9h2V4L14 0zM2 3l1-2h10l1 2H2z"/>
+                </svg>
+                Crafting
+            </a>
+            <a href="notes.html" class="nav-link">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M2 2v12h12V2H2zm11 11H3V3h10v10zM4 5h8v1H4V5zm0 2h8v1H4V7zm0 2h5v1H4V9z"/>
+                </svg>
+                Notes
+            </a>
+            <a href="tasks.html" class="nav-link">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M14 2H2v12h12V2zM6 12L3 9l1-1 2 2 4-4 1 1-5 5z"/>
+                </svg>
+                Daily Tasks
+            </a>
+        </nav>
+
+        <main class="content">
+            <div class="villagers-container">
+                <div class="villagers-header">
+                    <h1>Stardew Valley Villagers</h1>
+                    <p>Track gift preferences and locations for all giftable villagers</p>
+                </div>
+
+                <div class="villagers-controls">
+                    <div class="search-box">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                            <path d="M11.7 10.3c.9-1.2 1.4-2.7 1.4-4.3 0-3.9-3.1-7-7-7s-7 3.1-7 7 3.1 7 7 7c1.6 0 3.1-.5 4.3-1.4l4.3 4.3 1.4-1.4-4.4-4.2zM6 11c-2.8 0-5-2.2-5-5s2.2-5 5-5 5 2.2 5 5-2.2 5-5 5z"/>
+                        </svg>
+                        <input type="text" id="search-input" placeholder="Search villagers..." />
+                    </div>
+
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all">All (34)</button>
+                        <button class="filter-btn" data-filter="marriageable">Marriage Candidates (12)</button>
+                        <button class="filter-btn" data-filter="male">Bachelors (6)</button>
+                        <button class="filter-btn" data-filter="female">Bachelorettes (6)</button>
+                        <button class="filter-btn" data-filter="other">Other Villagers (22)</button>
+                    </div>
+                </div>
+
+                <div id="villagers-grid" class="villagers-grid">
+                    <!-- Villager cards will be inserted here by JavaScript -->
+                </div>
+
+                <!-- Villager Detail Modal -->
+                <div id="villager-modal" class="modal" style="display: none;">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 id="modal-villager-name"></h2>
+                            <button class="modal-close" id="modal-close-btn">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="villager-detail-layout">
+                                <div class="villager-portrait-large">
+                                    <img id="modal-villager-portrait" src="" alt="" />
+                                </div>
+                                <div class="villager-info">
+                                    <div class="info-row">
+                                        <span class="info-label">Birthday:</span>
+                                        <span id="modal-villager-birthday" class="info-value"></span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span class="info-label">Gender:</span>
+                                        <span id="modal-villager-gender" class="info-value"></span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span class="info-label">Location:</span>
+                                        <span id="modal-villager-location" class="info-value"></span>
+                                    </div>
+                                    <div class="info-row description">
+                                        <p id="modal-villager-description"></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Schedule Section -->
+                            <div id="schedule-section" class="schedule-section" style="display: none;">
+                                <h3 class="section-title">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                        <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm0 14c-3.3 0-6-2.7-6-6s2.7-6 6-6 6 2.7 6 6-2.7 6-6 6zm1-9H7v5l4.2 2.5.8-1.3-3-1.8V5z"/>
+                                    </svg>
+                                    Daily Schedule
+                                </h3>
+                                <div class="schedule-content">
+                                    <div class="schedule-row">
+                                        <span class="schedule-label">General:</span>
+                                        <span id="modal-schedule-general" class="schedule-value"></span>
+                                    </div>
+                                    <div class="schedule-row">
+                                        <span class="schedule-label">Morning (6am-12pm):</span>
+                                        <span id="modal-schedule-morning" class="schedule-value"></span>
+                                    </div>
+                                    <div class="schedule-row">
+                                        <span class="schedule-label">Afternoon (12pm-6pm):</span>
+                                        <span id="modal-schedule-afternoon" class="schedule-value"></span>
+                                    </div>
+                                    <div class="schedule-row">
+                                        <span class="schedule-label">Evening (6pm-12am):</span>
+                                        <span id="modal-schedule-evening" class="schedule-value"></span>
+                                    </div>
+                                    <div id="modal-schedule-notes-row" class="schedule-row notes" style="display: none;">
+                                        <span class="schedule-label">Notes:</span>
+                                        <span id="modal-schedule-notes" class="schedule-value"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="gifts-section">
+                                <div class="gifts-column">
+                                    <h3 class="gifts-title loved">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                            <path d="M8 15l-1.4-1.3C2.4 9.8 0 7.6 0 5c0-2.2 1.8-4 4-4 1.3 0 2.5.6 3.3 1.5L8 3.1l.7-.6C9.5 1.6 10.7 1 12 1c2.2 0 4 1.8 4 4 0 2.6-2.4 4.8-6.6 8.7L8 15z"/>
+                                        </svg>
+                                        Loved Gifts
+                                    </h3>
+                                    <ul id="modal-loved-gifts" class="gifts-list loved"></ul>
+                                </div>
+
+                                <div class="gifts-column">
+                                    <h3 class="gifts-title hated">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                            <path d="M8 1L6.5 2.5 8 4 9.5 2.5 8 1zM4 6.5L2.5 8 4 9.5 5.5 8 4 6.5zm8 0L10.5 8 12 9.5 13.5 8 12 6.5zM8 11l-1.5 1.5L8 14l1.5-1.5L8 11z"/>
+                                        </svg>
+                                        Hated Gifts
+                                    </h3>
+                                    <ul id="modal-hated-gifts" class="gifts-list hated"></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="statusbar">
+            <div class="status-left">34 Villagers (12 Marriage Candidates)</div>
+            <div class="status-right" id="filter-status">Showing: All</div>
+        </footer>
+    </div>
+</body>
+</html>

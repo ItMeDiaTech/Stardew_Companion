@@ -1,0 +1,44 @@
+# Portrait Images Directory
+
+This directory contains portrait images for Stardew Valley villagers.
+
+## Required Images
+
+Place the following portrait images in this directory:
+
+**Bachelors:**
+- alex.png
+- elliott.png
+- harvey.png
+- sam.png
+- sebastian.png
+- shane.png
+
+**Bachelorettes:**
+- abigail.png
+- emily.png
+- haley.png
+- leah.png
+- maru.png
+- penny.png
+
+## Image Specifications
+
+- Format: PNG with transparency
+- Recommended size: 128x128 pixels
+- Source: Stardew Valley Wiki (https://stardewvalleywiki.com/)
+
+## How to Obtain Images
+
+1. Visit each character's page on the Stardew Valley Wiki
+2. Download their official portrait image
+3. Save with the naming convention above (lowercase, .png extension)
+4. Place in this directory
+
+## Example URLs
+
+- Alex: https://stardewvalleywiki.com/Alex
+- Abigail: https://stardewvalleywiki.com/Abigail
+- (etc.)
+
+Each character page has their portrait image available for download.

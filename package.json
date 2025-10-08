@@ -1,0 +1,80 @@
+{
+  "name": "stardew-companion",
+  "version": "0.2.0",
+  "description": "Stardew Valley Companion Application",
+  "main": "dist/main/index.js",
+  "author": "DiaTech",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm run dev:main\" \"npm run dev:renderer\"",
+    "dev:main": "cross-env NODE_ENV=development webpack --config webpack.main.config.js --mode development --watch",
+    "dev:renderer": "cross-env NODE_ENV=development webpack serve --config webpack.renderer.config.js --mode development",
+    "build": "npm run build:main && npm run build:renderer",
+    "build:main": "cross-env NODE_ENV=production webpack --config webpack.main.config.js --mode production",
+    "build:renderer": "cross-env NODE_ENV=production webpack --config webpack.renderer.config.js --mode production",
+    "start": "electron .",
+    "package": "npm run build && electron-builder build --publish never",
+    "package:win": "npm run build && electron-builder build --win --publish never",
+    "package:mac": "npm run build && electron-builder build --mac --publish never",
+    "package:linux": "npm run build && electron-builder build --linux --publish never",
+    "publish": "npm run build && electron-builder build --publish always"
+  },
+  "dependencies": {
+    "electron-updater": "^6.1.7"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@typescript-eslint/eslint-plugin": "^6.19.0",
+    "@typescript-eslint/parser": "^6.19.0",
+    "concurrently": "^8.2.2",
+    "copy-webpack-plugin": "^13.0.1",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.9.1",
+    "electron": "^28.2.0",
+    "electron-builder": "^24.9.1",
+    "eslint": "^8.56.0",
+    "html-webpack-plugin": "^5.6.0",
+    "style-loader": "^3.3.4",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.3.3",
+    "webpack": "^5.90.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  },
+  "build": {
+    "appId": "com.diatech.stardewcompanion",
+    "productName": "Stardew Companion",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "package.json"
+    ],
+    "publish": {
+      "provider": "github",
+      "owner": "ItMeDiaTech",
+      "repo": "Stardew_Companion"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "mac": {
+      "target": [
+        "dmg"
+      ],
+      "icon": "build/icon.icns",
+      "category": "public.app-category.utilities"
+    },
+    "linux": {
+      "target": [
+        "AppImage"
+      ],
+      "icon": "build/icon.png",
+      "category": "Utility"
+    }
+  }
+}

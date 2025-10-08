@@ -1,0 +1,68 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+release/
+out/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Testing
+coverage/
+.nyc_output/
+
+# TypeScript
+*.tsbuildinfo
+
+# Electron
+*.asar
+
+# Temporary files
+tmp/
+temp/
+
+# Package managers
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Claude AI context files (keep private)
+claude.md
+CLAUDE.md
+**/claude.md
+**/CLAUDE.md
+
+# Build documentation (temporary)
+BUILD_COMPLETE.md
+
+# Workspace files
+*.code-workspace
+
+# Windows reserved filename (if accidentally created)
+nul

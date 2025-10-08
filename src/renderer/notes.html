@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline';">
+    <title>Notes - Stardew Companion</title>
+</head>
+<body>
+    <div id="app">
+        <header class="titlebar">
+            <div class="titlebar-drag-region">
+                <div class="app-title">Stardew Companion - Notes</div>
+            </div>
+            <div class="window-controls">
+                <button class="window-button" id="minimize-btn" aria-label="Minimize">
+                    <svg width="12" height="12" viewBox="0 0 12 12">
+                        <rect x="0" y="5" width="12" height="2"/>
+                    </svg>
+                </button>
+                <button class="window-button" id="maximize-btn" aria-label="Maximize">
+                    <svg width="12" height="12" viewBox="0 0 12 12">
+                        <rect x="0" y="0" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1"/>
+                    </svg>
+                </button>
+                <button class="window-button close-btn" id="close-btn" aria-label="Close">
+                    <svg width="12" height="12" viewBox="0 0 12 12">
+                        <path d="M 0 0 L 12 12 M 12 0 L 0 12" stroke="currentColor" stroke-width="1.5"/>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <nav class="navbar">
+            <a href="index.html" class="nav-link">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M8 2L2 7h2v6h3V9h2v4h3V7h2L8 2z"/>
+                </svg>
+                Home
+            </a>
+            <a href="villagers.html" class="nav-link">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M8 8c1.7 0 3-1.3 3-3S9.7 2 8 2 5 3.3 5 5s1.3 3 3 3zm0 2c-2.3 0-7 1.2-7 3.5V15h14v-1.5C15 11.2 10.3 10 8 10z"/>
+                </svg>
+                Villagers
+            </a>
+            <a href="shops.html" class="nav-link">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M14 2H2L1 6v1c0 1.1.9 2 2 2 .4 0 .7-.1 1-.3.3.2.6.3 1 .3s.7-.1 1-.3c.3.2.6.3 1 .3s.7-.1 1-.3c.3.2.6.3 1 .3s.7-.1 1-.3c.3.2.6.3 1 .3 1.1 0 2-.9 2-2V6l-1-4zm-1 5c0 .6-.4 1-1 1s-1-.4-1-1V5h2v2zm-3-2v2c0 .6-.4 1-1 1s-1-.4-1-1V5h2zm-3 0v2c0 .6-.4 1-1 1s-1-.4-1-1V5h2zm-3 0v2c0 .6-.4 1-1 1s-1-.4-1-1V5h2zm11 4H2v6h12V9z"/>
+                </svg>
+                Shops
+            </a>
+            <a href="calendar.html" class="nav-link">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M4 1v1H2v12h12V2h-2V1h-2v1H6V1H4zm8 3v1h2v1H2V5h2V4h8v0zM2 8h12v5H2V8z"/>
+                </svg>
+                Calendar
+            </a>
+            <a href="crafting.html" class="nav-link">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M14 0H2L0 4v1h2l1 9h10l1-9h2V4L14 0zM2 3l1-2h10l1 2H2z"/>
+                </svg>
+                Crafting
+            </a>
+            <a href="notes.html" class="nav-link active">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M2 2v12h12V2H2zm11 11H3V3h10v10zM4 5h8v1H4V5zm0 2h8v1H4V7zm0 2h5v1H4V9z"/>
+                </svg>
+                Notes
+            </a>
+            <a href="tasks.html" class="nav-link">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M14 2H2v12h12V2zM6 12L3 9l1-1 2 2 4-4 1 1-5 5z"/>
+                </svg>
+                Daily Tasks
+            </a>
+            <a href="profit-calculator.html" class="nav-link">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M8 0C6.3 0 5 1.3 5 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3zm0 5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm6 3h-2.5l-1.4 1.4c.6.4 1 1.1 1 1.9V14h3V8zm-11.1 1.4L1.5 8H1c-.6 0-1 .4-1 1v5h3v-2.7c0-.8.4-1.5 1-1.9L2.9 9.4zm7.2-.3L8 11.2 5.9 9.1c-.4-.4-1-.4-1.4 0s-.4 1 0 1.4l2.1 2.1v2.4h2.8v-2.4l2.1-2.1c.4-.4.4-1 0-1.4s-1-.4-1.4 0z"/>
+                </svg>
+                Profit Calc
+            </a>
+        </nav>
+
+        <main class="content notes-container">
+            <aside class="notes-sidebar">
+                <div class="sidebar-header">
+                    <h2>My Notes</h2>
+                    <button id="new-note-btn" class="primary-btn" title="Create New Note">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                            <path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        New
+                    </button>
+                </div>
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="Search notes..." class="search-input">
+                </div>
+                <div id="notes-list" class="notes-list">
+                    <div class="empty-state">
+                        <p>No notes yet</p>
+                        <p class="hint">Click "New" to create your first note</p>
+                    </div>
+                </div>
+            </aside>
+
+            <section class="notes-editor">
+                <div id="no-note-selected" class="no-selection">
+                    <svg width="64" height="64" viewBox="0 0 16 16" fill="currentColor" opacity="0.3">
+                        <path d="M2 2v12h12V2H2zm11 11H3V3h10v10zM4 5h8v1H4V5zm0 2h8v1H4V7zm0 2h5v1H4V9z"/>
+                    </svg>
+                    <p>Select a note to view or edit</p>
+                    <p class="hint">Or create a new note to get started</p>
+                </div>
+
+                <div id="note-editor" class="editor-container" style="display: none;">
+                    <div class="editor-header">
+                        <input type="text" id="note-title" placeholder="Note Title" class="note-title-input">
+                        <div class="editor-actions">
+                            <button id="delete-note-btn" class="danger-btn" title="Delete Note">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                    <path d="M6 2V1h4v1h4v2H2V2h4zM3 5h10v9H3V5zm2 2v5h1V7H5zm3 0v5h1V7H8zm3 0v5h1V7h-1z"/>
+                                </svg>
+                                Delete
+                            </button>
+                        </div>
+                    </div>
+                    <textarea id="note-content" placeholder="Start writing..." class="note-content-input"></textarea>
+                    <div class="editor-footer">
+                        <span id="note-meta" class="note-meta"></span>
+                        <span id="save-status" class="save-status">Saved</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="statusbar">
+            <div class="status-left" id="note-count">0 notes</div>
+            <div class="status-right">Notes</div>
+        </footer>
+    </div>
+</body>
+</html>
