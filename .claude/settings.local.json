@@ -12,7 +12,13 @@
       "Bash(npx tsc:*)",
       "Bash(git init:*)",
       "Bash(git remote add:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nInitial commit - Stardew Companion v0.2.0\n\nFeatures:\n- Villager Gift Tracker (34 villagers with detailed schedules)\n- Shops Browser\n- Calendar & Events\n- Crafting Guide with material sources\n- Notes with persistent storage\n- Daily Tasks with progress tracking\n- Crop Profit Calculator with processing options (Keg/Preserves Jar)\n\nTechnical:\n- Electron 28.2.0 with TypeScript\n- Auto-updater integration with GitHub releases\n- GitHub Actions workflow for automated builds\n- Webpack bundling for main and renderer processes\n- Secure IPC communication via contextBridge\nEOF\n)\")",
+      "Bash(git branch:*)",
+      "Bash(git push:*)",
+      "Bash(git tag:*)",
+      "Bash(npm install)",
+      "Bash(git commit:*)"
     ],
     "deny": [],
     "ask": []

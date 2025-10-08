@@ -2,6 +2,7 @@ import './villagers.css';
 import { ElectronAPI } from '@preload/index';
 import { Villager, VillagerGender } from '@shared/types';
 import { VILLAGERS, getBachelors, getBachelorettes, getOtherVillagers } from '@shared/data/villagers';
+import { getUniversalGiftCategory, isUniversalGift } from '@shared/data/universalGifts';
 
 // Extend the Window interface
 declare global {
@@ -263,7 +264,7 @@ function showVillagerDetail(villager: Villager) {
   // Populate loved gifts
   if (lovedGiftsEl) {
     lovedGiftsEl.innerHTML = villager.lovedGifts
-      .map(gift => `<li>${gift}</li>`)
+      .map(gift => `<li>${makeGiftInteractive(gift)}</li>`)
       .join('');
   }
 
@@ -271,7 +272,7 @@ function showVillagerDetail(villager: Villager) {
   if (likedGiftsEl) {
     if (villager.likedGifts && villager.likedGifts.length > 0) {
       likedGiftsEl.innerHTML = villager.likedGifts
-        .map(gift => `<li>${gift}</li>`)
+        .map(gift => `<li>${makeGiftInteractive(gift)}</li>`)
         .join('');
     } else {
       likedGiftsEl.innerHTML = '<li class="no-data">No data available</li>';
@@ -282,7 +283,7 @@ function showVillagerDetail(villager: Villager) {
   if (dislikedGiftsEl) {
     if (villager.dislikedGifts && villager.dislikedGifts.length > 0) {
       dislikedGiftsEl.innerHTML = villager.dislikedGifts
-        .map(gift => `<li>${gift}</li>`)
+        .map(gift => `<li>${makeGiftInteractive(gift)}</li>`)
         .join('');
     } else {
       dislikedGiftsEl.innerHTML = '<li class="no-data">No data available</li>';
@@ -292,7 +293,7 @@ function showVillagerDetail(villager: Villager) {
   // Populate hated gifts
   if (hatedGiftsEl) {
     hatedGiftsEl.innerHTML = villager.hatedGifts
-      .map(gift => `<li>${gift}</li>`)
+      .map(gift => `<li>${makeGiftInteractive(gift)}</li>`)
       .join('');
   }
 
@@ -405,5 +406,95 @@ function hideModal() {
   modal.style.display = 'none';
 }
 
+/**
+ * Helper function to convert gift text into clickable elements for universal gifts
+ */
+function makeGiftInteractive(gift: string): string {
+  if (isUniversalGift(gift)) {
+    return `<span class="universal-gift-link" data-gift-text="${gift}">
+      ${gift}
+      <span class="info-icon">i</span>
+    </span>`;
+  }
+  return gift;
+}
+
+/**
+ * Show universal gifts tooltip
+ */
+function showUniversalGiftsTooltip(giftText: string) {
+  const tooltip = document.getElementById('universal-gifts-tooltip');
+  const categoryName = document.getElementById('tooltip-category-name');
+  const categoryDescription = document.getElementById('tooltip-category-description');
+  const itemsList = document.getElementById('tooltip-items-list');
+
+  if (!tooltip || !categoryName || !categoryDescription || !itemsList) return;
+
+  const category = getUniversalGiftCategory(giftText);
+  if (!category) return;
+
+  // Populate tooltip
+  categoryName.textContent = category.name;
+  categoryDescription.textContent = category.description;
+  itemsList.innerHTML = category.items
+    .map(item => `<li>${item}</li>`)
+    .join('');
+
+  // Show tooltip
+  tooltip.style.display = 'block';
+}
+
+/**
+ * Hide universal gifts tooltip
+ */
+function hideUniversalGiftsTooltip() {
+  const tooltip = document.getElementById('universal-gifts-tooltip');
+  if (tooltip) {
+    tooltip.style.display = 'none';
+  }
+}
+
+/**
+ * Setup universal gifts tooltip event handlers
+ */
+function setupUniversalGiftsTooltip() {
+  // Close button
+  const tooltipCloseBtn = document.getElementById('tooltip-close-btn');
+  if (tooltipCloseBtn) {
+    tooltipCloseBtn.addEventListener('click', hideUniversalGiftsTooltip);
+  }
+
+  // Click outside to close
+  const tooltip = document.getElementById('universal-gifts-tooltip');
+  if (tooltip) {
+    tooltip.addEventListener('click', (e) => {
+      if (e.target === tooltip) {
+        hideUniversalGiftsTooltip();
+      }
+    });
+  }
+
+  // Delegate click events for universal gift links
+  document.addEventListener('click', (e) => {
+    const target = e.target as HTMLElement;
+    const link = target.closest('.universal-gift-link') as HTMLElement;
+
+    if (link) {
+      const giftText = link.getAttribute('data-gift-text');
+      if (giftText) {
+        showUniversalGiftsTooltip(giftText);
+      }
+    }
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      hideUniversalGiftsTooltip();
+    }
+  });
+}
+
 // Initialize the app
 init();
+setupUniversalGiftsTooltip();
