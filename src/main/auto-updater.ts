@@ -13,7 +13,7 @@ export class AutoUpdater {
 
   private initialize(): void {
     // Configure auto-updater
-    autoUpdater.autoDownload = false;
+    autoUpdater.autoDownload = true;
     autoUpdater.autoInstallOnAppQuit = true;
 
     // Set up event handlers
