@@ -397,6 +397,103 @@ export interface DailyTask {
   createdAt: number;       // Timestamp
 }
 
+// Items Database Types
+
+/**
+ * Item category
+ */
+export type ItemCategory = 'forage' | 'fish' | 'minerals' | 'artifacts' | 'cooking' |
+  'artisan' | 'resources' | 'crops' | 'seeds' | 'animal-products' |
+  'equipment' | 'weapons' | 'bait' | 'fertilizer' | 'other';
+
+/**
+ * Item rarity level
+ */
+export type ItemRarity = 'common' | 'uncommon' | 'rare' | 'legendary';
+
+/**
+ * Location where item can be found
+ */
+export interface ItemLocation {
+  area: string;              // e.g., "Cindersap Forest", "The Mines (1-40)"
+  season?: Season[];         // For seasonal items
+  weather?: 'any' | 'sunny' | 'rainy';
+  timeOfDay?: string;        // e.g., "6am-2am"
+  condition?: string;        // Special conditions
+}
+
+/**
+ * Monster drop information
+ */
+export interface MonsterDrop {
+  monsterName: string;
+  dropRate: string;          // e.g., "50%", "Common", "Rare"
+  floors?: string;           // e.g., "1-29" for mine floors
+}
+
+/**
+ * Shop source for purchasing items
+ */
+export interface ItemShopSource {
+  shopName: string;
+  price: number;
+  availability?: {
+    seasons?: Season[];
+    year?: number;
+    condition?: string;
+  };
+}
+
+/**
+ * Gift preference information
+ */
+export interface GiftInfo {
+  lovedBy?: string[];        // Villager names who love this item
+  likedBy?: string[];        // Villager names who like this item
+}
+
+/**
+ * Complete item information
+ */
+export interface Item {
+  id: string;
+  name: string;
+  category: ItemCategory;
+  description: string;
+  sellPrice: number;
+  edibility?: number;        // HP/Energy restored (-1 for inedible)
+
+  // Source information
+  forageLocations?: ItemLocation[];
+  fishingLocations?: ItemLocation[];
+  miningLocations?: string[];     // e.g., "The Mines (1-40)", "Geodes"
+  monsterDrops?: MonsterDrop[];
+  shops?: ItemShopSource[];
+  farmingInfo?: string;           // How to grow/obtain
+  craftingRecipe?: string;        // Recipe ID if craftable
+  artisanSource?: string;         // e.g., "Keg + Wheat"
+
+  // Usage
+  usedInRecipes?: string[];       // Recipe IDs
+  usedInBundles?: string[];       // Bundle names
+  giftInfo?: GiftInfo;
+
+  // Additional info
+  rarity?: ItemRarity;
+  stackSize?: number;             // Max stack (default 999)
+  quality?: boolean;              // Can have quality stars?
+}
+
+/**
+ * Item filter options
+ */
+export interface ItemFilter {
+  category?: ItemCategory;
+  season?: Season;
+  searchTerm?: string;
+  source?: string;              // Filter by source type
+}
+
 // Crop Profit Calculator Types
 
 /**

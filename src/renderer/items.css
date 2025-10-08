@@ -1,0 +1,617 @@
+@import './styles.css';
+
+/* Items Container */
+.items-container {
+  padding: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.items-header {
+  margin-bottom: 24px;
+}
+
+.items-header h1 {
+  font-size: 32px;
+  margin: 0 0 8px 0;
+  color: #e8e6e3;
+}
+
+.items-header p {
+  margin: 0;
+  color: #9d9d9d;
+  font-size: 14px;
+}
+
+/* Controls */
+.items-controls {
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #2d2d30;
+  border: 1px solid #3e3e42;
+  border-radius: 4px;
+  padding: 8px 12px;
+  flex: 1;
+}
+
+.search-box svg {
+  color: #9d9d9d;
+  flex-shrink: 0;
+}
+
+.search-box input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  color: #e8e6e3;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.search-box input::placeholder {
+  color: #6c6c6c;
+}
+
+.filters-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.filter-select {
+  flex: 1;
+  min-width: 180px;
+  background: #2d2d30;
+  border: 1px solid #3e3e42;
+  border-radius: 4px;
+  padding: 8px 12px;
+  color: #e8e6e3;
+  font-size: 14px;
+  font-family: inherit;
+  cursor: pointer;
+  outline: none;
+}
+
+.filter-select:hover {
+  background: #333337;
+  border-color: #007acc;
+}
+
+.filter-select:focus {
+  border-color: #007acc;
+}
+
+/* Items Grid */
+.items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.item-card {
+  background: #2d2d30;
+  border: 1px solid #3e3e42;
+  border-radius: 6px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.item-card:hover {
+  background: #333337;
+  border-color: #007acc;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.item-card-header {
+  margin-bottom: 12px;
+}
+
+.item-card-header h3 {
+  font-size: 16px;
+  margin: 0 0 8px 0;
+  color: #e8e6e3;
+}
+
+.item-badges {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.category-badge {
+  display: inline-block;
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 3px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Category colors */
+.category-forage { background: #22c55e; color: #fff; }
+.category-fish { background: #3b82f6; color: #fff; }
+.category-minerals { background: #8b5cf6; color: #fff; }
+.category-artifacts { background: #f59e0b; color: #fff; }
+.category-cooking { background: #ef4444; color: #fff; }
+.category-artisan { background: #ec4899; color: #fff; }
+.category-resources { background: #78716c; color: #fff; }
+.category-crops { background: #84cc16; color: #fff; }
+.category-seeds { background: #65a30d; color: #fff; }
+.category-animal-products { background: #f97316; color: #fff; }
+.category-equipment { background: #6366f1; color: #fff; }
+.category-weapons { background: #dc2626; color: #fff; }
+.category-bait { background: #06b6d4; color: #fff; }
+.category-fertilizer { background: #a3e635; color: #333; }
+.category-other { background: #64748b; color: #fff; }
+
+.rarity-badge {
+  display: inline-block;
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 3px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.rarity-common { background: #9ca3af; color: #fff; }
+.rarity-uncommon { background: #22c55e; color: #fff; }
+.rarity-rare { background: #3b82f6; color: #fff; }
+.rarity-legendary {
+  background: linear-gradient(45deg, #f59e0b, #ef4444, #8b5cf6);
+  color: #fff;
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+.item-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.item-short-desc {
+  margin: 0;
+  font-size: 13px;
+  color: #9d9d9d;
+  line-height: 1.4;
+}
+
+.item-price {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #fbbf24;
+  font-weight: 600;
+}
+
+.item-price svg {
+  color: #fbbf24;
+}
+
+.item-sources-preview {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  font-size: 12px;
+}
+
+.sources-label {
+  color: #9d9d9d;
+  font-weight: 600;
+}
+
+.sources-text {
+  color: #e8e6e3;
+}
+
+.more-sources {
+  color: #007acc;
+  font-size: 11px;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal-content {
+  background: #252526;
+  border: 1px solid #3e3e42;
+  border-radius: 8px;
+  max-width: 700px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  padding: 20px 24px;
+  border-bottom: 1px solid #3e3e42;
+  position: sticky;
+  top: 0;
+  background: #252526;
+  z-index: 1;
+}
+
+.modal-header h2 {
+  margin: 0 0 8px 0;
+  font-size: 24px;
+  color: #e8e6e3;
+}
+
+.modal-badges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.item-category-badge {
+  display: inline-block;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.item-rarity-badge {
+  display: inline-block;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  color: #9d9d9d;
+  font-size: 32px;
+  cursor: pointer;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+.modal-close:hover {
+  background: #3e3e42;
+  color: #e8e6e3;
+}
+
+.modal-body {
+  padding: 24px;
+}
+
+.item-detail-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.item-description {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #e8e6e3;
+}
+
+.item-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: #2d2d30;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #3e3e42;
+}
+
+.info-label {
+  font-size: 12px;
+  color: #9d9d9d;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.info-value {
+  font-size: 16px;
+  color: #e8e6e3;
+  font-weight: 600;
+}
+
+/* Source Sections */
+.source-section {
+  border-top: 1px solid #3e3e42;
+  padding-top: 16px;
+}
+
+.source-section h3 {
+  margin: 0 0 12px 0;
+  font-size: 16px;
+  color: #e8e6e3;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.source-section h3 svg {
+  color: #007acc;
+}
+
+.source-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.source-item {
+  display: flex;
+  align-items: start;
+  gap: 8px;
+  background: #2d2d30;
+  padding: 10px 12px;
+  border-radius: 4px;
+  border: 1px solid #3e3e42;
+}
+
+.source-item svg {
+  color: #007acc;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.source-item div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.source-name {
+  font-size: 14px;
+  color: #e8e6e3;
+  font-weight: 500;
+}
+
+.season-info,
+.weather-info,
+.time-info,
+.condition-info {
+  font-size: 12px;
+  color: #9d9d9d;
+}
+
+.season-info {
+  color: #22c55e;
+}
+
+.weather-info {
+  color: #3b82f6;
+}
+
+.time-info {
+  color: #fbbf24;
+}
+
+.condition-info {
+  color: #ec4899;
+  font-style: italic;
+}
+
+/* Monster Drop Item */
+.monster-drop-item {
+  display: flex;
+  align-items: start;
+  gap: 8px;
+}
+
+.monster-drop-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.monster-name {
+  font-size: 14px;
+  color: #e8e6e3;
+  font-weight: 500;
+}
+
+.drop-rate {
+  font-size: 12px;
+  color: #fbbf24;
+  font-weight: 600;
+}
+
+.floor-info {
+  font-size: 12px;
+  color: #9d9d9d;
+}
+
+/* Shop Item */
+.shop-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.shop-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.shop-name {
+  font-size: 14px;
+  color: #e8e6e3;
+  font-weight: 500;
+}
+
+.shop-price {
+  font-size: 14px;
+  color: #fbbf24;
+  font-weight: 600;
+}
+
+.shop-availability {
+  font-size: 12px;
+  color: #9d9d9d;
+  padding-left: 22px;
+}
+
+/* Source Text */
+.source-text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #e8e6e3;
+  margin: 0;
+}
+
+/* Used In */
+.used-in-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.used-in-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #e8e6e3;
+  padding: 6px 0;
+}
+
+.used-in-item svg {
+  color: #007acc;
+}
+
+/* Gift Info */
+.gift-info-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.gift-preference-group {
+  background: #2d2d30;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #3e3e42;
+}
+
+.gift-preference-label {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.gift-preference-label.love {
+  color: #ef4444;
+}
+
+.gift-preference-label.like {
+  color: #22c55e;
+}
+
+.gift-villagers {
+  margin: 0;
+  font-size: 13px;
+  color: #e8e6e3;
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .items-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .filters-row {
+    flex-direction: column;
+  }
+
+  .filter-select {
+    width: 100%;
+  }
+
+  .modal-content {
+    max-width: 100%;
+  }
+
+  .item-info-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Scrollbar */
+.modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: #1e1e1e;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: #3e3e42;
+  border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background: #4e4e52;
+}

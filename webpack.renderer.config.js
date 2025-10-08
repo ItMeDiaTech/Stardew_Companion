@@ -10,6 +10,7 @@ module.exports = {
     shops: './src/renderer/shops.ts',
     calendar: './src/renderer/calendar.ts',
     crafting: './src/renderer/crafting.ts',
+    items: './src/renderer/items.ts',
     notes: './src/renderer/notes.ts',
     tasks: './src/renderer/tasks.ts',
     'profit-calculator': './src/renderer/profit-calculator.ts'
@@ -75,6 +76,11 @@ module.exports = {
       template: './src/renderer/crafting.html',
       filename: 'crafting.html',
       chunks: ['crafting']
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/renderer/items.html',
+      filename: 'items.html',
+      chunks: ['items']
     }),
     new HtmlWebpackPlugin({
       template: './src/renderer/notes.html',
