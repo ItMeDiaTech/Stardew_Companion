@@ -178,6 +178,8 @@ function applyFilters() {
       v.description.toLowerCase().includes(currentSearchTerm) ||
       v.location.toLowerCase().includes(currentSearchTerm) ||
       v.lovedGifts.some(g => g.toLowerCase().includes(currentSearchTerm)) ||
+      (v.likedGifts && v.likedGifts.some(g => g.toLowerCase().includes(currentSearchTerm))) ||
+      (v.dislikedGifts && v.dislikedGifts.some(g => g.toLowerCase().includes(currentSearchTerm))) ||
       v.hatedGifts.some(g => g.toLowerCase().includes(currentSearchTerm))
     );
   }
@@ -239,6 +241,8 @@ function showVillagerDetail(villager: Villager) {
   const locationEl = document.getElementById('modal-villager-location');
   const descriptionEl = document.getElementById('modal-villager-description');
   const lovedGiftsEl = document.getElementById('modal-loved-gifts');
+  const likedGiftsEl = document.getElementById('modal-liked-gifts');
+  const dislikedGiftsEl = document.getElementById('modal-disliked-gifts');
   const hatedGiftsEl = document.getElementById('modal-hated-gifts');
 
   if (nameEl) nameEl.textContent = villager.name;
@@ -261,6 +265,28 @@ function showVillagerDetail(villager: Villager) {
     lovedGiftsEl.innerHTML = villager.lovedGifts
       .map(gift => `<li>${gift}</li>`)
       .join('');
+  }
+
+  // Populate liked gifts
+  if (likedGiftsEl) {
+    if (villager.likedGifts && villager.likedGifts.length > 0) {
+      likedGiftsEl.innerHTML = villager.likedGifts
+        .map(gift => `<li>${gift}</li>`)
+        .join('');
+    } else {
+      likedGiftsEl.innerHTML = '<li class="no-data">No data available</li>';
+    }
+  }
+
+  // Populate disliked gifts
+  if (dislikedGiftsEl) {
+    if (villager.dislikedGifts && villager.dislikedGifts.length > 0) {
+      dislikedGiftsEl.innerHTML = villager.dislikedGifts
+        .map(gift => `<li>${gift}</li>`)
+        .join('');
+    } else {
+      dislikedGiftsEl.innerHTML = '<li class="no-data">No data available</li>';
+    }
   }
 
   // Populate hated gifts
