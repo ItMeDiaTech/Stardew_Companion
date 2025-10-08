@@ -54,6 +54,14 @@ const modalUsedIn = document.getElementById('modal-used-in') as HTMLElement;
 const modalUsedInList = document.getElementById('modal-used-in-list') as HTMLElement;
 const modalGiftInfo = document.getElementById('modal-gift-info') as HTMLElement;
 const modalGiftInfoContent = document.getElementById('modal-gift-info-content') as HTMLElement;
+const modalWeaponStats = document.getElementById('modal-weapon-stats') as HTMLElement;
+const modalWeaponStatsContent = document.getElementById('modal-weapon-stats-content') as HTMLElement;
+const modalBootStats = document.getElementById('modal-boot-stats') as HTMLElement;
+const modalBootStatsContent = document.getElementById('modal-boot-stats-content') as HTMLElement;
+const modalRingEffects = document.getElementById('modal-ring-effects') as HTMLElement;
+const modalRingEffectsContent = document.getElementById('modal-ring-effects-content') as HTMLElement;
+const modalGeodeContents = document.getElementById('modal-geode-contents') as HTMLElement;
+const modalGeodeContentsList = document.getElementById('modal-geode-contents-list') as HTMLElement;
 
 // State
 let currentFilter = '';
@@ -216,6 +224,60 @@ function openItemModal(item: Item) {
     modalEdibilityValue.textContent = `+${energy} Energy / +${health} Health`;
   } else {
     modalEdibility.style.display = 'none';
+  }
+
+  // Weapon Stats
+  if (item.weaponStats) {
+    modalWeaponStats.style.display = 'block';
+    const stats = item.weaponStats;
+    let statsHtml = `<div class="stat-item"><strong>Type:</strong> ${stats.type.charAt(0).toUpperCase() + stats.type.slice(1)}</div>`;
+    statsHtml += `<div class="stat-item"><strong>Damage:</strong> ${stats.damage}</div>`;
+    if (stats.critChance) statsHtml += `<div class="stat-item"><strong>Crit Chance:</strong> ${(stats.critChance * 100).toFixed(0)}%</div>`;
+    if (stats.critMultiplier) statsHtml += `<div class="stat-item"><strong>Crit Multiplier:</strong> ${stats.critMultiplier}x</div>`;
+    if (stats.speed) statsHtml += `<div class="stat-item"><strong>Speed:</strong> ${stats.speed}</div>`;
+    if (stats.defense) statsHtml += `<div class="stat-item"><strong>Defense:</strong> +${stats.defense}</div>`;
+    if (stats.weight) statsHtml += `<div class="stat-item"><strong>Weight:</strong> ${stats.weight}</div>`;
+    if (stats.precision) statsHtml += `<div class="stat-item"><strong>Precision:</strong> ${stats.precision}</div>`;
+    if (stats.special) statsHtml += `<div class="stat-item special"><strong>Special:</strong> ${stats.special}</div>`;
+    modalWeaponStatsContent.innerHTML = statsHtml;
+  } else {
+    modalWeaponStats.style.display = 'none';
+  }
+
+  // Boot Stats
+  if (item.bootStats) {
+    modalBootStats.style.display = 'block';
+    const stats = item.bootStats;
+    let statsHtml = `<div class="stat-item"><strong>Defense:</strong> +${stats.defense}</div>`;
+    statsHtml += `<div class="stat-item"><strong>Immunity:</strong> +${stats.immunity}</div>`;
+    modalBootStatsContent.innerHTML = statsHtml;
+  } else {
+    modalBootStats.style.display = 'none';
+  }
+
+  // Ring Effects
+  if (item.ringEffects) {
+    modalRingEffects.style.display = 'block';
+    let effectsHtml = `<div class="stat-item"><strong>Effect:</strong> ${item.ringEffects.effect}</div>`;
+    effectsHtml += `<div class="stat-item"><strong>Stackable:</strong> ${item.ringEffects.stackable ? 'Yes' : 'No'}</div>`;
+    modalRingEffectsContent.innerHTML = effectsHtml;
+  } else {
+    modalRingEffects.style.display = 'none';
+  }
+
+  // Geode Contents
+  if (item.geodeContents && item.geodeContents.length > 0) {
+    modalGeodeContents.style.display = 'block';
+    modalGeodeContentsList.innerHTML = item.geodeContents.map(content => `
+      <div class="source-item">
+        <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor">
+          <circle cx="8" cy="8" r="2"/>
+        </svg>
+        <span>${content}</span>
+      </div>
+    `).join('');
+  } else {
+    modalGeodeContents.style.display = 'none';
   }
 
   // Forage locations

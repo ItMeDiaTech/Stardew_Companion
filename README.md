@@ -1,59 +1,89 @@
 # Stardew Companion
 
-A local desktop companion application for Stardew Valley built with Electron and TypeScript. Track villager gift preferences, manage friendships, and optimize your farming strategy!
+A comprehensive desktop companion application for Stardew Valley built with Electron and TypeScript. Track villager relationships, browse items, manage notes, calculate crop profits, and optimize your farming strategy!
 
-## Application Features
+## Features
 
-### Villager Gift Tracker
-- **Complete Database** - All 34 giftable villagers with gift preferences and locations
-- **Visual Portraits** - Each villager has their own portrait image
-- **Gift Categories** - View loved and hated gifts for each villager
-- **Search & Filter** - Find villagers by name, location, gender, marriageability, or gifts
-- **Detailed View** - Click any villager for complete information including birthday, location, and description
+### 🎁 Villager Gift Tracker
+- **Complete Database** - All 34 giftable villagers with full gift preferences
+- **Visual Portraits** - High-quality portrait for each villager
+- **Gift Categories** - View loved, liked, neutral, disliked, and hated gifts
+- **Smart Search & Filter** - Find villagers by name, location, gender, or marriageability
+- **Detailed Information** - Birthdays, locations, descriptions, and schedules
 
-### All Giftable Villagers (34 Total)
+### 📦 Items Browser
+- **444 Items** - Comprehensive database including weapons, boots, rings & more
+- **Equipment Database** - 62 Weapons, 18 Boots, 28 Rings with complete stats
+- **Multiple Categories** - Minerals (53), Artifacts (42), Fish (41), Forage (33), Equipment, Geodes
+- **Equipment Stats** - Damage, defense, immunity, special abilities for all gear
+- **Source Information** - Know exactly where to find each item
+- **Monster Drops** - Complete list with drop rates and floor locations
+- **Filter by Source** - Browse by forage locations, fishing spots, mining areas, shops, monster drops
+- **Detailed Modal View** - Click any item for complete information including stats
+
+### 🏪 Shops Browser
+- **All Shops** - Complete list with operating hours and locations
+- **Item Catalog** - Browse everything each shop sells with prices
+- **Seasonal Availability** - See which items are available in each season
+- **Search & Filter** - Find items and shops quickly
+
+### 📅 Calendar & Events
+- **Festivals** - All seasonal festivals with dates and locations
+- **Birthdays** - Never miss a villager's birthday
+- **Event Details** - Times, requirements, and what to bring
+- **Filter by Season** - View events for specific seasons
+
+### 🔨 Crafting Guide
+- **Complete Recipe List** - All crafting and cooking recipes
+- **Material Sources** - Where to find each ingredient
+- **Unlock Requirements** - Know what you need to unlock recipes
+- **Category Filters** - Browse by crafting station or recipe type
+
+### 📝 Notes
+- **Personal Note-Taking** - Create and manage your own notes
+- **Auto-Save** - Never lose your progress
+- **Search** - Find notes by title or content
+- **Persistent Storage** - Data saved locally and survives app updates
+
+### ✅ Daily Tasks
+- **Task Checklist** - Track your daily Stardew Valley routine
+- **Progress Tracking** - Visual progress bar shows completion
+- **Quick-Add Templates** - Common tasks (water crops, pet animals, etc.)
+- **Reorder & Customize** - Organize tasks your way
+- **Reset Function** - Start fresh each day
+
+### 💰 Crop Profit Calculator
+- **40+ Crops** - All crops from Spring, Summer, Fall, and special crops
+- **Advanced Calculations** - Profit per day, total profit, ROI percentage
+- **Farming Bonuses** - Account for farming level, Tiller profession, quality multipliers
+- **Season Planning** - Input current day to see max harvests remaining
+- **Smart Indicators** - Highlights top 3 crops, multi-harvest crops, and late planting warnings
+
+## All Villagers (34 Total)
 
 **Marriage Candidates (12):**
 - **Bachelors (6):** Alex, Elliott, Harvey, Sam, Sebastian, Shane
 - **Bachelorettes (6):** Abigail, Emily, Haley, Leah, Maru, Penny
 
 **Other Villagers (22):**
-- **Adults:** Caroline, Clint, Demetrius, Dwarf, Evelyn, George, Gus, Jodi, Kent, Krobus, Leo, Lewis, Linus, Marnie, Pam, Pierre, Robin, Sandy, Willy, Wizard
-- **Children:** Jas, Vincent
+Caroline, Clint, Demetrius, Dwarf, Evelyn, George, Gus, Jas, Jodi, Kent, Krobus, Leo, Lewis, Linus, Marnie, Pam, Pierre, Robin, Sandy, Vincent, Willy, Wizard
 
 ## Technical Features
 
-✅ **TypeScript Throughout** - Fully typed codebase for safety and maintainability
-✅ **Auto-Updates** - Seamless updates from GitHub releases using electron-updater
-✅ **Secure IPC** - Context-isolated communication between processes
-✅ **Modern UI** - Dark-themed interface with custom window controls
-✅ **Cross-Platform** - Supports Windows, macOS, and Linux
-✅ **Production-Ready** - Complete build and distribution setup
+✅ **TypeScript** - Fully typed for reliability
+✅ **Auto-Updates** - Seamless updates from GitHub releases
+✅ **Secure Architecture** - Context-isolated, secure IPC communication
+✅ **Modern UI** - Dark theme with custom window controls
+✅ **Cross-Platform** - Windows, macOS, and Linux support
+✅ **Offline-First** - All data stored locally, no internet required
 
 ## Tech Stack
 
 - **[Electron](https://electronjs.org/)** - Desktop application framework
-- **[TypeScript](https://www.typescriptlang.org/)** - Type-safe JavaScript
-- **[Webpack](https://webpack.js.org/)** - Module bundler
+- **[TypeScript](https://www.typescriptlang.org/)** - Type-safe development
+- **[Webpack](https://webpack.js.org/)** - Module bundling
 - **[electron-updater](https://www.electron.build/auto-update)** - Auto-update system
 - **[electron-builder](https://www.electron.build/)** - Build and packaging
-
-## Project Structure
-
-```
-Stardew_Companion/
-├── src/
-│   ├── main/          # Main process (Node.js environment)
-│   ├── renderer/      # Renderer process (UI)
-│   ├── preload/       # IPC bridge
-│   └── shared/        # Shared types and constants
-├── build/             # Build resources (icons)
-├── dist/              # Compiled output
-├── release/           # Built packages
-└── claude.md          # Project documentation
-```
-
-Each directory contains a `claude.md` file with detailed documentation.
 
 ## Getting Started
 
@@ -102,225 +132,115 @@ npm run package:linux  # Linux
 
 Built packages will be in the `release/` directory.
 
-## Auto-Update Setup
+## Distribution
 
-### 1. GitHub Repository
+### Creating Releases
 
-Create a GitHub repository for your app.
-
-### 2. Update Configuration
-
-Edit `package.json` and `electron-builder.yml`:
-
-```json
-// package.json
-{
-  "build": {
-    "publish": {
-      "provider": "github",
-      "owner": "your-github-username",
-      "repo": "stardew-companion"
-    }
-  }
-}
-```
-
-### 3. Create GitHub Token
-
-1. Go to GitHub Settings → Developer settings → Personal access tokens
-2. Generate new token with `repo` scope
-3. Copy the token
-
-### 4. Publish Release
+1. Update version in `package.json`
+2. Create a GitHub release with the new version tag
+3. Build and publish:
 
 ```bash
 # Set GitHub token
 export GH_TOKEN="your-github-token"
 
-# Build and publish
+# Build and publish to GitHub
 npm run publish
 ```
 
 This will:
-- Build the app
-- Create a GitHub release
-- Upload installers as release assets
-- Future app launches will check for updates
+- Build the application
+- Create installers for all platforms
+- Upload to GitHub releases
+- Enable auto-update for users
+
+### Auto-Updates
+
+The app automatically checks for updates on launch and downloads them in the background. Users are notified when an update is ready to install.
 
 ## Scripts
 
 | Script | Description |
 |--------|-------------|
-| `npm run dev` | Start webpack in watch mode |
-| `npm start` | Launch Electron app |
+| `npm run dev` | Start development with hot reload |
+| `npm start` | Launch Electron application |
 | `npm run build` | Production build |
-| `npm run package` | Build and package app |
-| `npm run package:win` | Build for Windows |
-| `npm run package:mac` | Build for macOS |
-| `npm run package:linux` | Build for Linux |
+| `npm run package` | Build and package (no publish) |
+| `npm run package:win` | Build for Windows only |
+| `npm run package:mac` | Build for macOS only |
+| `npm run package:linux` | Build for Linux only |
 | `npm run publish` | Build and publish to GitHub |
 
-## Architecture
-
-### Three-Process Model
-
-1. **Main Process** - Node.js environment, window management, system access
-2. **Renderer Process** - Browser environment, UI rendering
-3. **Preload Script** - Secure bridge between main and renderer
-
-### Security
-
-- ✅ Context isolation enabled
-- ✅ Node integration disabled in renderer
-- ✅ Secure IPC via contextBridge
-- ✅ Content Security Policy configured
-
-### Communication Flow
+## Project Structure
 
 ```
-Renderer → electronAPI (preload) → IPC → Main Process
-Main Process → IPC → Renderer (events)
+Stardew_Companion/
+├── src/
+│   ├── main/          # Main process (Node.js)
+│   ├── renderer/      # Renderer process (UI)
+│   ├── preload/       # IPC bridge
+│   └── shared/        # Shared types and data
+├── build/             # App icons and resources
+├── dist/              # Compiled output
+└── release/           # Built installers
 ```
 
-## Configuration Files
+## Configuration
 
 | File | Purpose |
 |------|---------|
-| `package.json` | Dependencies, scripts, build config |
-| `tsconfig.json` | TypeScript configuration |
+| `package.json` | Dependencies and build configuration |
+| `tsconfig.json` | TypeScript compiler options |
 | `webpack.main.config.js` | Main process build config |
 | `webpack.renderer.config.js` | Renderer process build config |
-| `electron-builder.yml` | Packaging and distribution |
+| `electron-builder.yml` | Packaging and distribution settings |
 
-## Adding Features
+## Data Sources
 
-### 1. Define Types
-
-Add to `src/shared/types.ts`:
-```typescript
-export interface MyFeature {
-  field: string;
-}
-
-export const IPC_CHANNELS = {
-  // ... existing
-  MY_CHANNEL: 'my:channel',
-} as const;
-```
-
-### 2. Add Main Process Handler
-
-In `src/main/index.ts`:
-```typescript
-ipcMain.handle(IPC_CHANNELS.MY_CHANNEL, async (event, arg) => {
-  // Implementation
-  return result;
-});
-```
-
-### 3. Expose in Preload
-
-In `src/preload/index.ts`:
-```typescript
-myMethod: (arg: string): Promise<Result> => {
-  return ipcRenderer.invoke(IPC_CHANNELS.MY_CHANNEL, arg);
-}
-```
-
-### 4. Use in Renderer
-
-In `src/renderer/index.ts`:
-```typescript
-const result = await window.electronAPI.myMethod(arg);
-```
-
-## Villager Portraits
-
-Portrait images for villagers should be placed in `src/renderer/assets/portraits/`:
-
-- Download from Stardew Valley Wiki: https://stardewvalleywiki.com/
-- Format: PNG (recommended 128x128px)
-- Naming: lowercase name (e.g., `alex.png`, `abigail.png`)
-
-See `src/renderer/assets/portraits/.gitkeep` for the complete list.
-
-## Icons
-
-Place app icons in the `build/` directory:
-
-- `icon.ico` - Windows (256x256)
-- `icon.icns` - macOS (512x512@2x)
-- `icon.png` - Linux (512x512)
-
-See `build/claude.md` for detailed icon requirements.
-
-## Troubleshooting
-
-### Auto-update not working
-
-- Ensure `GH_TOKEN` is set when publishing
-- Check GitHub release was created
-- Verify app is not in development mode
-- Check console for update errors
-
-### Build fails
-
-```bash
-# Clear cache and rebuild
-rm -rf node_modules dist
-npm install
-npm run build
-```
-
-### TypeScript errors
-
-```bash
-# Check TypeScript version
-npx tsc --version
-
-# Rebuild
-npm run build
-```
-
-## Documentation
-
-Detailed documentation is available in `claude.md` files:
-
-- `/claude.md` - Project overview
-- `/src/main/claude.md` - Main process
-- `/src/renderer/claude.md` - Renderer process
-- `/src/preload/claude.md` - Preload script
-- `/src/shared/claude.md` - Shared types
-- `/src/shared/data/claude.md` - Game data documentation
-- `/build/claude.md` - Build resources
-
-## License
-
-MIT
-
-## Contributing
-
-Contributions are welcome! Please read the documentation in `claude.md` files before contributing.
+All game data is sourced from the official [Stardew Valley Wiki](https://stardewvalleywiki.com/) and verified for accuracy.
 
 ## Roadmap
 
-**Completed:**
-- [x] Villager gift tracker with all 34 giftable villagers
-- [x] Complete database of 12 marriage candidates + 22 other villagers
-- [x] Search and filter functionality (by name, location, marriageability)
-- [x] Visual portraits for each villager
-- [x] Gift preferences (loved/hated) for all villagers
-- [x] Location information for finding villagers
+**Current Version (v0.7.0):**
+- [x] Villager gift tracker (34 villagers)
+- [x] Items browser (444 items)
+- [x] Complete equipment database (62 weapons, 18 boots, 28 rings)
+- [x] Equipment stats and monster drops
+- [x] Shops browser
+- [x] Calendar & events
+- [x] Crafting guide
+- [x] Notes system
+- [x] Daily tasks
+- [x] Crop profit calculator
 
-**Planned:**
-- [ ] Detailed schedules (time/location throughout the day)
-- [ ] Complete gift preference lists (liked, neutral, disliked categories)
+**Planned Features:**
+- [ ] Expanded cooking recipes (80+ dishes)
+- [ ] Detailed villager schedules (hour-by-hour)
 - [ ] Friendship level tracking
-- [ ] Birthday reminder system
 - [ ] Bundle completion tracker
-- [ ] Crop planning calendar
-- [ ] Save file parsing and analysis
+- [ ] Fish timing guide (season, weather, time)
+- [ ] Community center planner
+- [ ] Save file import and analysis
+
+## Contributing
+
+Contributions are welcome! This project follows standard Git workflow:
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
+
+## License
+
+MIT License - See LICENSE file for details
+
+## Acknowledgments
+
+- Game data from [Stardew Valley Wiki](https://stardewvalleywiki.com/)
+- Built with [Electron](https://electronjs.org/)
+- Villager portraits from the official game assets
 
 ---
 
-**Status**: ✅ Complete villager database (34/34)! Ready for schedule & advanced features.
+**Status**: v0.7.0 - Complete equipment database with 444 items! ⚔️🎉

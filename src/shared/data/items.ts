@@ -1320,6 +1320,350 @@ export const ITEMS: Item[] = [
     miningLocations: ['Magma Geodes', 'Omni Geodes'],
     giftInfo: { lovedBy: [], likedBy: [] }
   },
+  {
+    id: 'baryte',
+    name: 'Baryte',
+    category: 'minerals',
+    description: 'The best specimens resemble a desert rose.',
+    sellPrice: 50,
+    edibility: -50,
+    miningLocations: ['Magma Geodes', 'Omni Geodes'],
+    giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
+  },
+  {
+    id: 'aerinite',
+    name: 'Aerinite',
+    category: 'minerals',
+    description: 'These crystals are curiously light.',
+    sellPrice: 125,
+    edibility: -50,
+    miningLocations: ['Frozen Geodes', 'Omni Geodes'],
+    giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
+  },
+  {
+    id: 'calcite',
+    name: 'Calcite',
+    category: 'minerals',
+    description: 'This yellow crystal is speckled with shimmering nodules.',
+    sellPrice: 75,
+    edibility: -50,
+    miningLocations: ['Geodes', 'Omni Geodes'],
+    giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
+  },
+  {
+    id: 'dolomite',
+    name: 'Dolomite',
+    category: 'minerals',
+    description: 'It can occur in coral reefs, often near an underwater volcano.',
+    sellPrice: 300,
+    edibility: -50,
+    miningLocations: ['Magma Geodes', 'Omni Geodes'],
+    giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
+  },
+  {
+    id: 'esperite',
+    name: 'Esperite',
+    category: 'minerals',
+    description: 'The crystals glow bright green when stimulated.',
+    sellPrice: 100,
+    edibility: -50,
+    miningLocations: ['Frozen Geodes', 'Omni Geodes'],
+    giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
+  },
+  {
+    id: 'fluorapatite',
+    name: 'Fluorapatite',
+    category: 'minerals',
+    description: 'Small amounts are found in human teeth.',
+    sellPrice: 200,
+    edibility: -50,
+    miningLocations: ['Frozen Geodes', 'Omni Geodes'],
+    giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
+  },
+  {
+    id: 'geminite',
+    name: 'Geminite',
+    category: 'minerals',
+    description: 'Occurs in brilliant clusters.',
+    sellPrice: 150,
+    edibility: -50,
+    miningLocations: ['Frozen Geodes', 'Omni Geodes'],
+    giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
+  },
+  {
+    id: 'helvite',
+    name: 'Helvite',
+    category: 'minerals',
+    description: 'It grows in a triangular column.',
+    sellPrice: 450,
+    edibility: -50,
+    miningLocations: ['Magma Geodes', 'Omni Geodes'],
+    giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
+  },
+  {
+    id: 'jamborite',
+    name: 'Jamborite',
+    category: 'minerals',
+    description: 'The crystals are so tightly packed it almost looks fuzzy.',
+    sellPrice: 150,
+    edibility: -50,
+    miningLocations: ['Geodes', 'Omni Geodes'],
+    giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
+  },
+  {
+    id: 'jagoite',
+    name: 'Jagoite',
+    category: 'minerals',
+    description: 'A high volume of tiny crystals makes it very glittery.',
+    sellPrice: 115,
+    edibility: -50,
+    miningLocations: ['Geodes', 'Omni Geodes'],
+    giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
+  },
+  {
+    id: 'kyanite',
+    name: 'Kyanite',
+    category: 'minerals',
+    description: 'The geometric faces are as smooth as glass.',
+    sellPrice: 250,
+    edibility: -50,
+    miningLocations: ['Frozen Geodes', 'Omni Geodes'],
+    giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
+  },
+  {
+    id: 'lunarite',
+    name: 'Lunarite',
+    category: 'minerals',
+    description: 'The cratered white orbs form a tight cluster.',
+    sellPrice: 200,
+    edibility: -50,
+    miningLocations: ['Frozen Geodes', 'Omni Geodes'],
+    giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
+  },
+  {
+    id: 'neptunite',
+    name: 'Neptunite',
+    category: 'minerals',
+    description: 'A jet-black crystal that is unusually reflective.',
+    sellPrice: 400,
+    edibility: -50,
+    miningLocations: ['Magma Geodes', 'Omni Geodes'],
+    monsterDrops: [
+      { monsterName: 'Black Slime', dropRate: 'Uncommon' }
+    ],
+    giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
+  },
+  {
+    id: 'lemon_stone',
+    name: 'Lemon Stone',
+    category: 'minerals',
+    description: 'Some claim the powdered crystal is a dwarvish delicacy.',
+    sellPrice: 200,
+    edibility: -50,
+    miningLocations: ['Magma Geodes', 'Omni Geodes'],
+    giftInfo: { lovedBy: ['Dwarf'], likedBy: ['Wizard'] }
+  },
+  {
+    id: 'nekoite',
+    name: 'Nekoite',
+    category: 'minerals',
+    description: 'The delicate shards form a tiny pink meadow.',
+    sellPrice: 80,
+    edibility: -50,
+    miningLocations: ['Geodes', 'Omni Geodes'],
+    giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
+  },
+  {
+    id: 'orpiment',
+    name: 'Orpiment',
+    category: 'minerals',
+    description: 'Despite its high toxicity, this mineral is widely used in manufacturing and folk medicine.',
+    sellPrice: 80,
+    edibility: -50,
+    miningLocations: ['Geodes', 'Omni Geodes'],
+    giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
+  },
+  {
+    id: 'petrified_slime',
+    name: 'Petrified Slime',
+    category: 'minerals',
+    description: 'This little guy may be 100,000 years old.',
+    sellPrice: 120,
+    edibility: -50,
+    miningLocations: ['Geodes', 'Omni Geodes'],
+    giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
+  },
+  {
+    id: 'thunder_egg',
+    name: 'Thunder Egg',
+    category: 'minerals',
+    description: 'According to legend, angry thunder spirits would throw these stones at one another.',
+    sellPrice: 100,
+    edibility: -50,
+    miningLocations: ['Geodes', 'Omni Geodes'],
+    giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
+  },
+  {
+    id: 'pyrite',
+    name: 'Pyrite',
+    category: 'minerals',
+    description: 'Commonly known as "Fool\'s Gold".',
+    sellPrice: 120,
+    edibility: -50,
+    miningLocations: ['Frozen Geodes', 'Omni Geodes'],
+    giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
+  },
+  {
+    id: 'ocean_stone',
+    name: 'Ocean Stone',
+    category: 'minerals',
+    description: 'An old legend claims these stones are the mosaics of ancient mermaids.',
+    sellPrice: 220,
+    edibility: -50,
+    miningLocations: ['Frozen Geodes', 'Omni Geodes'],
+    giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
+  },
+  {
+    id: 'ghost_crystal',
+    name: 'Ghost Crystal',
+    category: 'minerals',
+    description: 'There is an aura of coldness around this crystal.',
+    sellPrice: 200,
+    edibility: -50,
+    miningLocations: ['Frozen Geodes', 'Omni Geodes'],
+    giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
+  },
+  {
+    id: 'celestine',
+    name: 'Celestine',
+    category: 'minerals',
+    description: 'Some early life forms had bones made from this.',
+    sellPrice: 125,
+    edibility: -50,
+    miningLocations: ['Geodes', 'Omni Geodes'],
+    giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
+  },
+  {
+    id: 'marble',
+    name: 'Marble',
+    category: 'minerals',
+    description: 'A very popular material for sculptures and construction.',
+    sellPrice: 110,
+    edibility: -50,
+    miningLocations: ['Frozen Geodes', 'Omni Geodes'],
+    craftingRecipe: 'marble_brazier',
+    giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
+  },
+  {
+    id: 'sandstone',
+    name: 'Sandstone',
+    category: 'minerals',
+    description: 'A common type of stone with red and brown striations.',
+    sellPrice: 60,
+    edibility: -50,
+    miningLocations: ['Geodes', 'Omni Geodes'],
+    giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
+  },
+  {
+    id: 'granite',
+    name: 'Granite',
+    category: 'minerals',
+    description: 'A speckled mineral that is commonly used in construction.',
+    sellPrice: 75,
+    edibility: -50,
+    miningLocations: ['Geodes', 'Omni Geodes'],
+    giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
+  },
+  {
+    id: 'basalt',
+    name: 'Basalt',
+    category: 'minerals',
+    description: 'Forms near searing hot magma.',
+    sellPrice: 175,
+    edibility: -50,
+    miningLocations: ['Magma Geodes', 'Omni Geodes'],
+    giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
+  },
+  {
+    id: 'limestone',
+    name: 'Limestone',
+    category: 'minerals',
+    description: 'A very common type of stone. It\'s not worth very much.',
+    sellPrice: 15,
+    edibility: -50,
+    miningLocations: ['Geodes', 'Omni Geodes'],
+    giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
+  },
+  {
+    id: 'soapstone',
+    name: 'Soapstone',
+    category: 'minerals',
+    description: 'Because of its relatively soft consistency, this stone is very popular for carving.',
+    sellPrice: 120,
+    edibility: -50,
+    miningLocations: ['Frozen Geodes', 'Omni Geodes'],
+    giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
+  },
+  {
+    id: 'hematite',
+    name: 'Hematite',
+    category: 'minerals',
+    description: 'An iron-based mineral with interesting magnetic properties.',
+    sellPrice: 150,
+    edibility: -50,
+    miningLocations: ['Frozen Geodes', 'Omni Geodes'],
+    giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
+  },
+  {
+    id: 'mudstone',
+    name: 'Mudstone',
+    category: 'minerals',
+    description: 'A fine-grained rock made from ancient clay or mud.',
+    sellPrice: 25,
+    edibility: -50,
+    miningLocations: ['Geodes', 'Omni Geodes'],
+    giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
+  },
+  {
+    id: 'obsidian',
+    name: 'Obsidian',
+    category: 'minerals',
+    description: 'A volcanic glass that forms when lava cools rapidly.',
+    sellPrice: 200,
+    edibility: -50,
+    miningLocations: ['Magma Geodes', 'Omni Geodes'],
+    giftInfo: { lovedBy: ['Sebastian'], likedBy: ['Wizard'] }
+  },
+  {
+    id: 'slate',
+    name: 'Slate',
+    category: 'minerals',
+    description: 'It\'s extremely resistant to water, making it a good roofing material.',
+    sellPrice: 85,
+    edibility: -50,
+    miningLocations: ['Geodes', 'Omni Geodes'],
+    giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
+  },
+  {
+    id: 'fairy_stone',
+    name: 'Fairy Stone',
+    category: 'minerals',
+    description: 'An old miner\'s song suggests these are made from the bones of ancient fairies.',
+    sellPrice: 250,
+    edibility: -50,
+    miningLocations: ['Frozen Geodes', 'Omni Geodes'],
+    giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
+  },
+  {
+    id: 'star_shards',
+    name: 'Star Shards',
+    category: 'minerals',
+    description: 'No one knows how these form. Some scientists claim that the microscopic structure displays unnatural regularity.',
+    sellPrice: 500,
+    edibility: -50,
+    miningLocations: ['Magma Geodes', 'Omni Geodes'],
+    giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
+  },
 
   // ==================== RESOURCES (~40) ====================
 
@@ -1347,6 +1691,11 @@ export const ITEMS: Item[] = [
     sellPrice: 2,
     edibility: -300,
     miningLocations: ['Breaking rocks anywhere', 'The Mines', 'Quarry'],
+    monsterDrops: [
+      { monsterName: 'Rock Crab', dropRate: 'Common' },
+      { monsterName: 'Stone Golem', dropRate: 'Common' },
+      { monsterName: 'Wilderness Golem', dropRate: 'Common' }
+    ],
     shops: [
       { shopName: 'Robin\'s Carpenter Shop', price: 20 }
     ],
@@ -1429,6 +1778,11 @@ export const ITEMS: Item[] = [
     sellPrice: 5,
     edibility: -300,
     miningLocations: ['The Mines (1-39)', 'Skull Cavern', 'Quarry'],
+    monsterDrops: [
+      { monsterName: 'Green Slime', dropRate: 'Uncommon' },
+      { monsterName: 'Copper Slime', dropRate: 'Common' },
+      { monsterName: 'Duggy', dropRate: 'Uncommon' }
+    ],
     giftInfo: { lovedBy: [], likedBy: [] }
   },
   {
@@ -1454,6 +1808,12 @@ export const ITEMS: Item[] = [
     sellPrice: 10,
     edibility: -300,
     miningLocations: ['The Mines (40-79)', 'Skull Cavern', 'Quarry'],
+    monsterDrops: [
+      { monsterName: 'Metal Head', dropRate: 'Common' },
+      { monsterName: 'Stone Golem', dropRate: 'Common' },
+      { monsterName: 'Iron Slime', dropRate: 'Common' },
+      { monsterName: 'Shadow Brute', dropRate: 'Uncommon' }
+    ],
     giftInfo: { lovedBy: [], likedBy: [] }
   },
   {
@@ -1479,6 +1839,11 @@ export const ITEMS: Item[] = [
     sellPrice: 25,
     edibility: -300,
     miningLocations: ['The Mines (80-120)', 'Skull Cavern', 'Quarry'],
+    monsterDrops: [
+      { monsterName: 'Ghost', dropRate: 'Uncommon' },
+      { monsterName: 'Mummy', dropRate: 'Common' },
+      { monsterName: 'Purple Slime', dropRate: 'Uncommon' }
+    ],
     giftInfo: { lovedBy: [], likedBy: [] }
   },
   {
@@ -2435,6 +2800,352 @@ export const ITEMS: Item[] = [
     miningLocations: ['The Mines (floors 1-39)'],
     giftInfo: { lovedBy: [], likedBy: [] }
   },
+  {
+    id: 'chipped_amphora',
+    name: 'Chipped Amphora',
+    category: 'artifacts',
+    description: 'An ancient vessel made of ceramic material. Used to transport both dry and wet goods.',
+    sellPrice: 40,
+    edibility: -300,
+    forageLocations: [
+      { area: 'Artifact Spots', season: ['Spring', 'Summer', 'Fall', 'Winter'], condition: 'Town' }
+    ],
+    giftInfo: { lovedBy: [], likedBy: ['Dwarf', 'Penny'] }
+  },
+  {
+    id: 'chewing_stick',
+    name: 'Chewing Stick',
+    category: 'artifacts',
+    description: 'Ancient people chewed on these to keep their teeth clean.',
+    sellPrice: 50,
+    edibility: -300,
+    forageLocations: [
+      { area: 'Artifact Spots', season: ['Spring', 'Summer', 'Fall', 'Winter'], condition: 'Mountain, Forest, Town' }
+    ],
+    giftInfo: { lovedBy: [], likedBy: ['Dwarf', 'Penny'] }
+  },
+  {
+    id: 'ornamental_fan',
+    name: 'Ornamental Fan',
+    category: 'artifacts',
+    description: 'This exquisite fan most likely belonged to a noblewoman. Historians believe that the valley was a popular sixth-era vacation spot for the wealthy.',
+    sellPrice: 300,
+    edibility: -300,
+    forageLocations: [
+      { area: 'Artifact Spots', season: ['Spring', 'Summer', 'Fall', 'Winter'], condition: 'Beach, Forest, Town' }
+    ],
+    giftInfo: { lovedBy: [], likedBy: ['Dwarf', 'Penny'] }
+  },
+  {
+    id: 'ancient_sword',
+    name: 'Ancient Sword',
+    category: 'artifacts',
+    description: 'It\'s the remains of an ancient sword. Most of the blade has turned to rust, but the hilt is very finely crafted.',
+    sellPrice: 100,
+    edibility: -300,
+    forageLocations: [
+      { area: 'Artifact Spots', season: ['Spring', 'Summer', 'Fall', 'Winter'], condition: 'Forest, Mountain' }
+    ],
+    giftInfo: { lovedBy: [], likedBy: ['Dwarf', 'Penny'] }
+  },
+  {
+    id: 'rusty_cog',
+    name: 'Rusty Cog',
+    category: 'artifacts',
+    description: 'A well preserved cog that must have been part of some ancient machine. This could be dwarven technology.',
+    sellPrice: 25,
+    edibility: -300,
+    forageLocations: [
+      { area: 'Artifact Spots', season: ['Spring', 'Summer', 'Fall', 'Winter'], condition: 'Mountain' }
+    ],
+    miningLocations: ['The Mines', 'Skull Cavern'],
+    giftInfo: { lovedBy: [], likedBy: ['Dwarf', 'Penny'] }
+  },
+  {
+    id: 'chicken_statue',
+    name: 'Chicken Statue',
+    category: 'artifacts',
+    description: 'It\'s a statue of a chicken on a bronze base. The ancient people of this area must have been very fond of chickens.',
+    sellPrice: 50,
+    edibility: -300,
+    forageLocations: [
+      { area: 'Artifact Spots', season: ['Spring', 'Summer', 'Fall', 'Winter'], condition: 'Farm' }
+    ],
+    giftInfo: { lovedBy: [], likedBy: ['Dwarf', 'Penny'] }
+  },
+  {
+    id: 'prehistoric_tool',
+    name: 'Prehistoric Tool',
+    category: 'artifacts',
+    description: 'Some kind of gnarly old digging tool.',
+    sellPrice: 50,
+    edibility: -300,
+    forageLocations: [
+      { area: 'Artifact Spots', season: ['Spring', 'Summer', 'Fall', 'Winter'], condition: 'Bus Stop, Forest, Mountain' }
+    ],
+    giftInfo: { lovedBy: [], likedBy: ['Dwarf', 'Penny'] }
+  },
+  {
+    id: 'prehistoric_handaxe',
+    name: 'Prehistoric Handaxe',
+    category: 'artifacts',
+    description: 'One of the earliest tools employed by humans. This "crude" tool was created by striking one rock with another to form a sharp edge.',
+    sellPrice: 50,
+    edibility: -300,
+    forageLocations: [
+      { area: 'Artifact Spots', season: ['Spring', 'Summer', 'Fall', 'Winter'], condition: 'Bus Stop, Forest, Mountain' }
+    ],
+    giftInfo: { lovedBy: [], likedBy: ['Dwarf', 'Penny'] }
+  },
+  {
+    id: 'dried_starfish',
+    name: 'Dried Starfish',
+    category: 'artifacts',
+    description: 'A starfish from the primordial ocean. It\'s an unusually pristine specimen!',
+    sellPrice: 40,
+    edibility: -300,
+    forageLocations: [
+      { area: 'Artifact Spots', season: ['Spring', 'Summer', 'Fall', 'Winter'], condition: 'Beach' }
+    ],
+    giftInfo: { lovedBy: [], likedBy: ['Dwarf', 'Penny'] }
+  },
+  {
+    id: 'anchor',
+    name: 'Anchor',
+    category: 'artifacts',
+    description: 'It may have belonged to ancient pirates.',
+    sellPrice: 100,
+    edibility: -300,
+    forageLocations: [
+      { area: 'Artifact Spots', season: ['Spring', 'Summer', 'Fall', 'Winter'], condition: 'Beach' }
+    ],
+    giftInfo: { lovedBy: [], likedBy: ['Dwarf', 'Penny'] }
+  },
+  {
+    id: 'glass_shards',
+    name: 'Glass Shards',
+    category: 'artifacts',
+    description: 'A mixture of glass shards smoothed by centuries of ocean surf.',
+    sellPrice: 20,
+    edibility: -300,
+    forageLocations: [
+      { area: 'Artifact Spots', season: ['Spring', 'Summer', 'Fall', 'Winter'], condition: 'Beach' }
+    ],
+    giftInfo: { lovedBy: [], likedBy: ['Dwarf', 'Penny'] }
+  },
+  {
+    id: 'bone_flute',
+    name: 'Bone Flute',
+    category: 'artifacts',
+    description: 'A prehistoric wind instrument carved from an animal\'s bone.',
+    sellPrice: 100,
+    edibility: -300,
+    forageLocations: [
+      { area: 'Artifact Spots', season: ['Spring', 'Summer', 'Fall', 'Winter'], condition: 'Forest, Mountain, Town' }
+    ],
+    giftInfo: { lovedBy: ['Abigail'], likedBy: ['Dwarf', 'Penny'] }
+  },
+  {
+    id: 'dwarvish_helm',
+    name: 'Dwarvish Helm',
+    category: 'artifacts',
+    description: 'It\'s one of the helmets commonly worn by dwarves. The thick metal plating protects them from falling debris and stalactites.',
+    sellPrice: 100,
+    edibility: -300,
+    miningLocations: ['The Mines (floors 1-39)', 'Geodes', 'Omni Geodes'],
+    giftInfo: { lovedBy: [], likedBy: ['Dwarf', 'Penny'] }
+  },
+  {
+    id: 'dwarf_gadget',
+    name: 'Dwarf Gadget',
+    category: 'artifacts',
+    description: 'It\'s a piece of the advanced technology once known to the dwarves. It\'s still glowing and humming, but you\'re unable to understand how it works.',
+    sellPrice: 200,
+    edibility: -300,
+    miningLocations: ['The Mines (floors 40-79)', 'Magma Geodes', 'Omni Geodes'],
+    giftInfo: { lovedBy: ['Maru'], likedBy: ['Dwarf', 'Penny'] }
+  },
+  {
+    id: 'strange_doll_green',
+    name: 'Strange Doll (green)',
+    category: 'artifacts',
+    description: '???',
+    sellPrice: 1000,
+    edibility: -300,
+    rarity: 'rare',
+    forageLocations: [
+      { area: 'Artifact Spots', season: ['Spring', 'Summer', 'Fall', 'Winter'], condition: 'All locations (very rare)' }
+    ],
+    fishingLocations: [
+      { area: 'All fishing locations', season: ['Spring', 'Summer', 'Fall', 'Winter'], condition: 'Treasure Chest (very rare)' }
+    ],
+    miningLocations: ['The Mines', 'Skull Cavern'],
+    giftInfo: { lovedBy: ['Jas'], likedBy: [] }
+  },
+  {
+    id: 'strange_doll_yellow',
+    name: 'Strange Doll (yellow)',
+    category: 'artifacts',
+    description: '???',
+    sellPrice: 1000,
+    edibility: -300,
+    rarity: 'rare',
+    forageLocations: [
+      { area: 'Artifact Spots', season: ['Spring', 'Summer', 'Fall', 'Winter'], condition: 'All locations (very rare)' }
+    ],
+    fishingLocations: [
+      { area: 'All fishing locations', season: ['Spring', 'Summer', 'Fall', 'Winter'], condition: 'Treasure Chest (very rare)' }
+    ],
+    miningLocations: ['The Mines', 'Skull Cavern'],
+    giftInfo: { lovedBy: ['Jas'], likedBy: [] }
+  },
+  {
+    id: 'prehistoric_scapula',
+    name: 'Prehistoric Scapula',
+    category: 'artifacts',
+    description: 'Commonly known as a "shoulder blade"... It\'s unclear what species it belonged to.',
+    sellPrice: 100,
+    edibility: -300,
+    forageLocations: [
+      { area: 'Artifact Spots', season: ['Spring', 'Summer', 'Fall', 'Winter'], condition: 'Forest, Town' }
+    ],
+    monsterDrops: [
+      { monsterName: 'Skeleton', dropRate: 'Uncommon' }
+    ],
+    giftInfo: { lovedBy: [], likedBy: ['Dwarf', 'Penny'] }
+  },
+  {
+    id: 'prehistoric_tibia',
+    name: 'Prehistoric Tibia',
+    category: 'artifacts',
+    description: 'A thick and sturdy leg bone.',
+    sellPrice: 100,
+    edibility: -300,
+    forageLocations: [
+      { area: 'Artifact Spots', season: ['Spring', 'Summer', 'Fall', 'Winter'], condition: 'Railroad, Forest' }
+    ],
+    monsterDrops: [
+      { monsterName: 'Pepper Rex', dropRate: 'Common' }
+    ],
+    giftInfo: { lovedBy: [], likedBy: ['Dwarf', 'Penny'] }
+  },
+  {
+    id: 'prehistoric_skull',
+    name: 'Prehistoric Skull',
+    category: 'artifacts',
+    description: 'This is definitely a mammalian skull.',
+    sellPrice: 100,
+    edibility: -300,
+    forageLocations: [
+      { area: 'Artifact Spots', season: ['Spring', 'Summer', 'Fall', 'Winter'], condition: 'Mountain' }
+    ],
+    monsterDrops: [
+      { monsterName: 'Haunted Skull', dropRate: 'Uncommon' }
+    ],
+    giftInfo: { lovedBy: [], likedBy: ['Dwarf', 'Penny'] }
+  },
+  {
+    id: 'skeletal_hand',
+    name: 'Skeletal Hand',
+    category: 'artifacts',
+    description: 'It\'s a wonder all these ancient little pieces lasted so long.',
+    sellPrice: 100,
+    edibility: -300,
+    forageLocations: [
+      { area: 'Artifact Spots', season: ['Spring', 'Summer', 'Fall', 'Winter'], condition: 'Backwoods, Beach' }
+    ],
+    monsterDrops: [
+      { monsterName: 'Haunted Skull', dropRate: 'Uncommon' }
+    ],
+    giftInfo: { lovedBy: [], likedBy: ['Dwarf', 'Penny'] }
+  },
+  {
+    id: 'prehistoric_rib',
+    name: 'Prehistoric Rib',
+    category: 'artifacts',
+    description: 'Little gouge marks on the side suggest that this rib was someone\'s dinner.',
+    sellPrice: 100,
+    edibility: -300,
+    forageLocations: [
+      { area: 'Artifact Spots', season: ['Spring', 'Summer', 'Fall', 'Winter'], condition: 'Town, Farm' }
+    ],
+    monsterDrops: [
+      { monsterName: 'Pepper Rex', dropRate: 'Common' }
+    ],
+    giftInfo: { lovedBy: [], likedBy: ['Dwarf', 'Penny'] }
+  },
+  {
+    id: 'prehistoric_vertebra',
+    name: 'Prehistoric Vertebra',
+    category: 'artifacts',
+    description: 'A segment of some prehistoric creature\'s spine.',
+    sellPrice: 100,
+    edibility: -300,
+    forageLocations: [
+      { area: 'Artifact Spots', season: ['Spring', 'Summer', 'Fall', 'Winter'], condition: 'Bus Stop' }
+    ],
+    monsterDrops: [
+      { monsterName: 'Pepper Rex', dropRate: 'Common' }
+    ],
+    giftInfo: { lovedBy: [], likedBy: ['Dwarf', 'Penny'] }
+  },
+  {
+    id: 'skeletal_tail',
+    name: 'Skeletal Tail',
+    category: 'artifacts',
+    description: 'It\'s pretty short for a tail.',
+    sellPrice: 100,
+    edibility: -300,
+    miningLocations: ['The Mines', 'Skull Cavern'],
+    fishingLocations: [
+      { area: 'All fishing locations', season: ['Spring', 'Summer', 'Fall', 'Winter'], condition: 'Treasure Chest' }
+    ],
+    giftInfo: { lovedBy: [], likedBy: ['Dwarf', 'Penny'] }
+  },
+  {
+    id: 'nautilus_fossil',
+    name: 'Nautilus Fossil',
+    category: 'artifacts',
+    description: 'This must\'ve washed up ages ago from an ancient coral reef.',
+    sellPrice: 80,
+    edibility: -300,
+    forageLocations: [
+      { area: 'Artifact Spots', season: ['Spring', 'Summer', 'Fall', 'Winter'], condition: 'Beach' }
+    ],
+    fishingLocations: [
+      { area: 'All fishing locations', season: ['Spring', 'Summer', 'Fall', 'Winter'], condition: 'Treasure Chest' }
+    ],
+    giftInfo: { lovedBy: [], likedBy: ['Dwarf', 'Penny'] }
+  },
+  {
+    id: 'amphibian_fossil',
+    name: 'Amphibian Fossil',
+    category: 'artifacts',
+    description: 'The relatively short hind legs suggest some kind of primordial toad.',
+    sellPrice: 150,
+    edibility: -300,
+    forageLocations: [
+      { area: 'Artifact Spots', season: ['Spring', 'Summer', 'Fall', 'Winter'], condition: 'Forest, Mountain' }
+    ],
+    fishingLocations: [
+      { area: 'All fishing locations', season: ['Spring', 'Summer', 'Fall', 'Winter'], condition: 'Treasure Chest' }
+    ],
+    giftInfo: { lovedBy: [], likedBy: ['Dwarf', 'Penny'] }
+  },
+  {
+    id: 'palm_fossil',
+    name: 'Palm Fossil',
+    category: 'artifacts',
+    description: 'Palm Fossils are relatively common, but this happens to be a particularly well-preserved specimen.',
+    sellPrice: 100,
+    edibility: -300,
+    forageLocations: [
+      { area: 'Artifact Spots', season: ['Spring', 'Summer', 'Fall', 'Winter'], condition: 'Desert, Forest, Beach' }
+    ],
+    giftInfo: { lovedBy: [], likedBy: ['Dwarf', 'Penny'] }
+  },
+
+  // ==================== COOKING (~80 items - sample) ====================
 
   // Adding a few more cooking items for variety
   {
@@ -2591,6 +3302,1989 @@ export const ITEMS: Item[] = [
     giftInfo: { lovedBy: [], likedBy: [] }
   },
 
+  // ==================== BOOTS (18) ====================
+
+  {
+    id: 'sneakers',
+    name: 'Sneakers',
+    category: 'boots',
+    description: 'A little flimsy... but fashionable!',
+    sellPrice: 50,
+    edibility: -300,
+    bootStats: {
+      defense: 1,
+      immunity: 0
+    },
+    miningLocations: ['The Mines (1-39)'],
+    shops: [
+      { shopName: "Adventurer's Guild", price: 500, availability: { condition: 'After "Initiation" quest' } }
+    ]
+  },
+  {
+    id: 'rubber_boots',
+    name: 'Rubber Boots',
+    category: 'boots',
+    description: 'Protection from the elements.',
+    sellPrice: 50,
+    edibility: -300,
+    bootStats: {
+      defense: 0,
+      immunity: 1
+    },
+    miningLocations: ['The Mines (1-39)']
+  },
+  {
+    id: 'leather_boots',
+    name: 'Leather Boots',
+    category: 'boots',
+    description: 'The leather is very supple.',
+    sellPrice: 100,
+    edibility: -300,
+    bootStats: {
+      defense: 1,
+      immunity: 1
+    },
+    miningLocations: ['The Mines (Reward from Floor 10)'],
+    shops: [
+      { shopName: "Adventurer's Guild", price: 500, availability: { condition: 'After reaching Floor 10' } }
+    ]
+  },
+  {
+    id: 'work_boots',
+    name: 'Work Boots',
+    category: 'boots',
+    description: 'Steel-toed for extra protection.',
+    sellPrice: 100,
+    edibility: -300,
+    bootStats: {
+      defense: 2,
+      immunity: 0
+    },
+    shops: [
+      { shopName: "Adventurer's Guild", price: 700, availability: { condition: 'After reaching Floor 10' } }
+    ]
+  },
+  {
+    id: 'combat_boots',
+    name: 'Combat Boots',
+    category: 'boots',
+    description: 'Reinforced with iron mesh.',
+    sellPrice: 150,
+    edibility: -300,
+    bootStats: {
+      defense: 3,
+      immunity: 0
+    },
+    miningLocations: ['The Mines (61-79)'],
+    shops: [
+      { shopName: "Adventurer's Guild", price: 1250, availability: { condition: 'After reaching Floor 40' } }
+    ]
+  },
+  {
+    id: 'tundra_boots',
+    name: 'Tundra Boots',
+    category: 'boots',
+    description: 'The fuzzy lining keeps your ankles so warm.',
+    sellPrice: 150,
+    edibility: -300,
+    bootStats: {
+      defense: 2,
+      immunity: 1
+    },
+    miningLocations: ['The Mines (Reward from Floor 50)'],
+    shops: [
+      { shopName: "Adventurer's Guild", price: 750, availability: { condition: 'After reaching Floor 50' } }
+    ]
+  },
+  {
+    id: 'thermal_boots',
+    name: 'Thermal Boots',
+    category: 'boots',
+    description: 'Designed with extreme weather in mind.',
+    sellPrice: 150,
+    edibility: -300,
+    bootStats: {
+      defense: 1,
+      immunity: 2
+    },
+    miningLocations: ['The Mines (41-79)']
+  },
+  {
+    id: 'leprechaun_shoes',
+    name: 'Leprechaun Shoes',
+    category: 'boots',
+    description: "The buckle's made of solid gold.",
+    sellPrice: 150,
+    edibility: -300,
+    rarity: 'uncommon',
+    bootStats: {
+      defense: 2,
+      immunity: 1
+    },
+    farmingInfo: 'Dropped by trains passing through Stardew Valley'
+  },
+  {
+    id: 'cowboy_boots',
+    name: 'Cowboy Boots',
+    category: 'boots',
+    description: "It's the height of country fashion.",
+    sellPrice: 200,
+    edibility: -300,
+    rarity: 'rare',
+    bootStats: {
+      defense: 2,
+      immunity: 2
+    },
+    farmingInfo: 'Currently unobtainable in game'
+  },
+  {
+    id: 'dark_boots',
+    name: 'Dark Boots',
+    category: 'boots',
+    description: 'Made from thick black leather.',
+    sellPrice: 300,
+    edibility: -300,
+    bootStats: {
+      defense: 4,
+      immunity: 2
+    },
+    miningLocations: ['The Mines (81-119)', 'Skull Cavern', 'Quarry Mine'],
+    shops: [
+      { shopName: "Adventurer's Guild", price: 2500, availability: { condition: 'After reaching Floor 80' } }
+    ]
+  },
+  {
+    id: 'firewalker_boots',
+    name: 'Firewalker Boots',
+    category: 'boots',
+    description: "It's said these can withstand the hottest magma.",
+    sellPrice: 300,
+    edibility: -300,
+    bootStats: {
+      defense: 3,
+      immunity: 3
+    },
+    miningLocations: ['The Mines (Reward from Floor 80)'],
+    shops: [
+      { shopName: "Adventurer's Guild", price: 2000, availability: { condition: 'After reaching Floor 80' } }
+    ]
+  },
+  {
+    id: 'genie_shoes',
+    name: 'Genie Shoes',
+    category: 'boots',
+    description: 'A curious energy permeates the fabric.',
+    sellPrice: 350,
+    edibility: -300,
+    rarity: 'rare',
+    bootStats: {
+      defense: 1,
+      immunity: 6
+    },
+    miningLocations: ['The Mines (81-119)', 'Skull Cavern', 'Quarry Mine']
+  },
+  {
+    id: 'space_boots',
+    name: 'Space Boots',
+    category: 'boots',
+    description: 'An iridium weave gives them a purple sheen.',
+    sellPrice: 400,
+    edibility: -300,
+    rarity: 'rare',
+    bootStats: {
+      defense: 4,
+      immunity: 4
+    },
+    miningLocations: ['The Mines (Reward from Floor 110)'],
+    shops: [
+      { shopName: "Adventurer's Guild", price: 5000, availability: { condition: 'After reaching Floor 110' } }
+    ]
+  },
+  {
+    id: 'crystal_shoes',
+    name: 'Crystal Shoes',
+    category: 'boots',
+    description: 'These sparkling shoes will keep your feet very safe.',
+    sellPrice: 400,
+    edibility: -300,
+    rarity: 'rare',
+    bootStats: {
+      defense: 3,
+      immunity: 5
+    },
+    miningLocations: ['Skull Cavern', 'Quarry Mine']
+  },
+  {
+    id: 'emilys_magic_boots',
+    name: "Emily's Magic Boots",
+    category: 'boots',
+    description: 'Made with love by Emily. 100% compostable!',
+    sellPrice: 400,
+    edibility: -300,
+    rarity: 'rare',
+    bootStats: {
+      defense: 4,
+      immunity: 4
+    },
+    farmingInfo: "Received during Emily's 14-heart event"
+  },
+  {
+    id: 'cinderclown_shoes',
+    name: 'Cinderclown Shoes',
+    category: 'boots',
+    description: 'These magic shoes belonged to a famous Dwarvish jester.',
+    sellPrice: 550,
+    edibility: -300,
+    rarity: 'rare',
+    bootStats: {
+      defense: 6,
+      immunity: 5
+    },
+    shops: [
+      { shopName: 'Volcano Dungeon Shop', price: 100, availability: { condition: 'Costs 100 Cinder Shards' } }
+    ]
+  },
+  {
+    id: 'mermaid_boots',
+    name: 'Mermaid Boots',
+    category: 'boots',
+    description: 'Mermaid scales gives these boots a protective aura.',
+    sellPrice: 650,
+    edibility: -300,
+    rarity: 'rare',
+    bootStats: {
+      defense: 5,
+      immunity: 8
+    },
+    miningLocations: ['Volcano Dungeon (Rare Chest)']
+  },
+  {
+    id: 'dragonscale_boots',
+    name: 'Dragonscale Boots',
+    category: 'boots',
+    description: 'These shimmering boots are extremely tough.',
+    sellPrice: 350,
+    edibility: -300,
+    rarity: 'legendary',
+    bootStats: {
+      defense: 7,
+      immunity: 0
+    },
+    miningLocations: ['Volcano Dungeon (Rare Chest)']
+  },
+
+  // ==================== SWORDS (29) ====================
+
+  {
+    id: 'rusty_sword',
+    name: 'Rusty Sword',
+    category: 'weapons',
+    description: 'A rusty, dull old sword.',
+    sellPrice: 50,
+    edibility: -300,
+    weaponStats: {
+      type: 'sword',
+      damage: '2-5',
+      critChance: 0.02,
+    },
+    shops: [
+      { shopName: 'Adventurer\'s Guild', price: 250 }
+    ],
+    miningLocations: ['Mines entrance (starting weapon)']
+  },
+
+  {
+    id: 'wooden_blade',
+    name: 'Wooden Blade',
+    category: 'weapons',
+    description: 'Not bad for a piece of carved wood.',
+    sellPrice: 50,
+    edibility: -300,
+    weaponStats: {
+      type: 'sword',
+      damage: '3-7',
+      critChance: 0.02,
+    },
+    shops: [
+      { shopName: 'Adventurer\'s Guild', price: 250 }
+    ],
+    miningLocations: ['Floor 10 chest (remixed)']
+  },
+
+  {
+    id: 'steel_smallsword',
+    name: 'Steel Smallsword',
+    category: 'weapons',
+    description: 'A light but solid blade.',
+    sellPrice: 50,
+    edibility: -300,
+    weaponStats: {
+      type: 'sword',
+      damage: '4-8',
+      critChance: 0.02,
+      speed: 2,
+    },
+    shops: [
+      { shopName: 'Adventurer\'s Guild', price: 750, availability: { condition: 'After Floor 20' } }
+    ],
+    miningLocations: ['Floor 20 chest']
+  },
+
+  {
+    id: 'silver_saber',
+    name: 'Silver Saber',
+    category: 'weapons',
+    description: 'Plated with silver to deter rust.',
+    sellPrice: 100,
+    edibility: -300,
+    weaponStats: {
+      type: 'sword',
+      damage: '8-15',
+      critChance: 0.02,
+      defense: 1,
+    },
+    shops: [
+      { shopName: 'Adventurer\'s Guild', price: 750, availability: { condition: 'After Floor 20' } }
+    ],
+    miningLocations: ['Floor 50 chest (remixed)']
+  },
+
+  {
+    id: 'pirates_sword',
+    name: 'Pirate\'s Sword',
+    category: 'weapons',
+    description: 'It looks like a pirate owned this once.',
+    sellPrice: 100,
+    edibility: -300,
+    weaponStats: {
+      type: 'sword',
+      damage: '8-14',
+      critChance: 0.02,
+      speed: 2,
+    },
+    shops: [
+      { shopName: 'Adventurer\'s Guild', price: 850, availability: { condition: 'After Floor 25' } }
+    ],
+    miningLocations: ['Floor 50 chest (remixed)']
+  },
+
+  {
+    id: 'forest_sword',
+    name: 'Forest Sword',
+    category: 'weapons',
+    description: 'Made powerful by forest magic.',
+    sellPrice: 150,
+    edibility: -300,
+    weaponStats: {
+      type: 'sword',
+      damage: '8-18',
+      critChance: 0.02,
+      speed: 2,
+      defense: 1,
+    },
+    miningLocations: ['The Mines (20-59)', 'Breaking boxes/barrels (20-59)'],
+    monsterDrops: [
+      { monsterName: 'Special monster drops', dropRate: 'Uncommon', floors: '20-59' }
+    ]
+  },
+
+  {
+    id: 'cutlass',
+    name: 'Cutlass',
+    category: 'weapons',
+    description: 'A curved pirate\'s blade.',
+    sellPrice: 150,
+    edibility: -300,
+    weaponStats: {
+      type: 'sword',
+      damage: '9-17',
+      critChance: 0.02,
+      speed: 2,
+    },
+    shops: [
+      { shopName: 'Adventurer\'s Guild', price: 1500, availability: { condition: 'After Floor 25' } }
+    ],
+    miningLocations: ['Floor 60 chest (remixed)']
+  },
+
+  {
+    id: 'iron_edge',
+    name: 'Iron Edge',
+    category: 'weapons',
+    description: 'A heavy iron blade.',
+    sellPrice: 150,
+    edibility: -300,
+    weaponStats: {
+      type: 'sword',
+      damage: '12-25',
+      critChance: 0.02,
+      speed: -2,
+      defense: 1,
+      weight: 3,
+    },
+    miningLocations: ['The Mines (40-59)', 'Breaking boxes/barrels (40-59)', 'Floor 60 chest (remixed)'],
+    monsterDrops: [
+      { monsterName: 'Special monster drops', dropRate: 'Uncommon', floors: '40-59' }
+    ]
+  },
+
+  {
+    id: 'bone_sword',
+    name: 'Bone Sword',
+    category: 'weapons',
+    description: 'It\'s a little creepy.',
+    sellPrice: 250,
+    edibility: -300,
+    weaponStats: {
+      type: 'sword',
+      damage: '20-30',
+      critChance: 0.02,
+      speed: 4,
+      weight: 2,
+    },
+    shops: [
+      { shopName: 'Adventurer\'s Guild', price: 6000, availability: { condition: 'After Floor 75' } }
+    ],
+    miningLocations: ['Floor 90 chest (remixed)'],
+    monsterDrops: [
+      { monsterName: 'Skeleton', dropRate: '4%', floors: '71-79' }
+    ]
+  },
+
+  {
+    id: 'claymore',
+    name: 'Claymore',
+    category: 'weapons',
+    description: 'It\'s really heavy.',
+    sellPrice: 250,
+    edibility: -300,
+    weaponStats: {
+      type: 'sword',
+      damage: '20-32',
+      critChance: 0.02,
+      speed: -4,
+      defense: 2,
+      weight: 3,
+    },
+    shops: [
+      { shopName: 'Adventurer\'s Guild', price: 2000, availability: { condition: 'After Floor 45' } }
+    ],
+    miningLocations: ['Floor 80 chest (remixed)']
+  },
+
+  {
+    id: 'insect_head',
+    name: 'Insect Head',
+    category: 'weapons',
+    description: 'Not very pleasant to wield.',
+    sellPrice: 300,
+    edibility: -300,
+    weaponStats: {
+      type: 'sword',
+      damage: '20-30',
+      critChance: 0.04,
+      speed: 2,
+    },
+    shops: [
+      { shopName: 'Adventurer\'s Guild', price: 10000, availability: { condition: 'Kill 80 Cave Insects' } }
+    ]
+  },
+
+  {
+    id: 'templars_blade',
+    name: 'Templar\'s Blade',
+    category: 'weapons',
+    description: 'It once belonged to an honorable knight.',
+    sellPrice: 250,
+    edibility: -300,
+    weaponStats: {
+      type: 'sword',
+      damage: '22-29',
+      critChance: 0.02,
+      defense: 1,
+    },
+    shops: [
+      { shopName: 'Adventurer\'s Guild', price: 4000, availability: { condition: 'After Floor 55' } }
+    ],
+    miningLocations: ['Floor 80 chest (remixed)']
+  },
+
+  {
+    id: 'meowmere',
+    name: 'Meowmere',
+    category: 'weapons',
+    description: 'The stuff of nightmares. Deadly.',
+    sellPrice: 200,
+    edibility: -300,
+    rarity: 'legendary',
+    weaponStats: {
+      type: 'sword',
+      damage: '20-20',
+      critChance: 0.02,
+      speed: 4,
+      weight: 2,
+      special: 'Enemies explode into rainbow sparkles when killed',
+    },
+    miningLocations: ['Place Far Away Stone on plant pedestal in Wizard\'s Tower basement']
+  },
+
+  {
+    id: 'holy_blade',
+    name: 'Holy Blade',
+    category: 'weapons',
+    description: 'It feels hopeful to wield.',
+    sellPrice: 350,
+    edibility: -300,
+    weaponStats: {
+      type: 'sword',
+      damage: '20-27',
+      critChance: 0.02,
+      speed: 4,
+      defense: 2,
+      special: 'Crusader enchantment',
+    },
+    miningLocations: ['The Mines (80+)', 'Special item drop']
+  },
+
+  {
+    id: 'yeti_tooth',
+    name: 'Yeti Tooth',
+    category: 'weapons',
+    description: 'It\'s a good thing yetis aren\'t real...',
+    sellPrice: 350,
+    edibility: -300,
+    weaponStats: {
+      type: 'sword',
+      damage: '26-42',
+      critChance: 0.02,
+      defense: 4,
+      critMultiplier: 10,
+    },
+    miningLocations: ['The Mines (80-99)', 'Breaking boxes/barrels (80-99)']
+  },
+
+  {
+    id: 'ossified_blade',
+    name: 'Ossified Blade',
+    category: 'weapons',
+    description: 'A large, sharp blade formed from bone.',
+    sellPrice: 300,
+    edibility: -300,
+    weaponStats: {
+      type: 'sword',
+      damage: '26-42',
+      critChance: 0.02,
+      speed: -2,
+      defense: 1,
+      weight: 2,
+    },
+    miningLocations: ['Floor 90 chest (remixed)', 'Mystery Box at Blacksmith']
+  },
+
+  {
+    id: 'steel_falchion',
+    name: 'Steel Falchion',
+    category: 'weapons',
+    description: 'A curved blade for quick strikes.',
+    sellPrice: 400,
+    edibility: -300,
+    weaponStats: {
+      type: 'sword',
+      damage: '28-46',
+      critChance: 0.02,
+      speed: 4,
+      critMultiplier: 20,
+    },
+    shops: [
+      { shopName: 'Adventurer\'s Guild', price: 9000, availability: { condition: 'After Floor 90' } }
+    ],
+    miningLocations: ['The Mines (100-119)', 'Skull Cavern', 'Quarry Mine', 'Floor 110 chest (remixed)']
+  },
+
+  {
+    id: 'tempered_broadsword',
+    name: 'Tempered Broadsword',
+    category: 'weapons',
+    description: 'It looks like it could withstand anything.',
+    sellPrice: 350,
+    edibility: -300,
+    weaponStats: {
+      type: 'sword',
+      damage: '29-44',
+      critChance: 0.02,
+      speed: -3,
+      defense: 3,
+      weight: 3,
+    },
+    miningLocations: ['The Mines (81-99)', 'Skull Cavern', 'Quarry Mine', 'Floor 90 chest (remixed)']
+  },
+
+  {
+    id: 'dark_sword',
+    name: 'Dark Sword',
+    category: 'weapons',
+    description: 'It\'s glowing with vampire energy.',
+    sellPrice: 450,
+    edibility: -300,
+    weaponStats: {
+      type: 'sword',
+      damage: '30-45',
+      critChance: 0.04,
+      speed: -5,
+      weight: 5,
+      special: 'Vampiric (9% healing)',
+    },
+    monsterDrops: [
+      { monsterName: 'Haunted Skull', dropRate: 'Rare', floors: 'Quarry Mine' }
+    ]
+  },
+
+  {
+    id: 'obsidian_edge',
+    name: 'Obsidian Edge',
+    category: 'weapons',
+    description: 'Forged from volcanic glass.',
+    sellPrice: 300,
+    edibility: -300,
+    weaponStats: {
+      type: 'sword',
+      damage: '30-45',
+      critChance: 0.02,
+      speed: -1,
+      critMultiplier: 10,
+    },
+    shops: [
+      { shopName: 'Adventurer\'s Guild', price: 9000, availability: { condition: 'After Floor 90' } }
+    ],
+    miningLocations: ['Floor 90 chest']
+  },
+
+  {
+    id: 'neptunes_glaive',
+    name: 'Neptune\'s Glaive',
+    category: 'weapons',
+    description: 'An heirloom from beyond the Gem Sea.',
+    sellPrice: 250,
+    edibility: -300,
+    weaponStats: {
+      type: 'sword',
+      damage: '18-35',
+      critChance: 0.02,
+      speed: -1,
+      defense: 2,
+      weight: 4,
+    },
+    fishingLocations: [
+      { area: 'Fishing Treasure Chests', condition: 'Fishing level 2+, 0.6% drop rate' }
+    ]
+  },
+
+  {
+    id: 'haleys_iron',
+    name: 'Haley\'s Iron',
+    category: 'weapons',
+    description: 'It\'s searing hot and smells like Haley\'s hair.',
+    sellPrice: 300,
+    edibility: -300,
+    weaponStats: {
+      type: 'sword',
+      damage: '30-45',
+      critChance: 0.02,
+      speed: -1,
+      critMultiplier: 10,
+    },
+    shops: [
+      { shopName: 'Haley (Desert Festival)', price: 70, availability: { condition: '70 Calico Eggs' } }
+    ]
+  },
+
+  {
+    id: 'leahs_whittler',
+    name: 'Leah\'s Whittler',
+    category: 'weapons',
+    description: 'It looks well used.',
+    sellPrice: 300,
+    edibility: -300,
+    weaponStats: {
+      type: 'sword',
+      damage: '30-45',
+      critChance: 0.02,
+      speed: -1,
+      critMultiplier: 10,
+    },
+    shops: [
+      { shopName: 'Leah (Desert Festival)', price: 70, availability: { condition: '70 Calico Eggs' } }
+    ]
+  },
+
+  {
+    id: 'lava_katana',
+    name: 'Lava Katana',
+    category: 'weapons',
+    description: 'A powerful blade forged in a pool of churning lava.',
+    sellPrice: 500,
+    edibility: -300,
+    weaponStats: {
+      type: 'sword',
+      damage: '55-64',
+      critChance: 0.02,
+      defense: 3,
+      critMultiplier: 25,
+      weight: 3,
+    },
+    shops: [
+      { shopName: 'Adventurer\'s Guild', price: 25000, availability: { condition: 'Reach bottom of The Mines' } }
+    ]
+  },
+
+  {
+    id: 'galaxy_sword',
+    name: 'Galaxy Sword',
+    category: 'weapons',
+    description: 'It\'s unlike anything you\'ve ever seen.',
+    sellPrice: 650,
+    edibility: -300,
+    rarity: 'legendary',
+    weaponStats: {
+      type: 'sword',
+      damage: '60-80',
+      critChance: 0.02,
+      speed: 4,
+    },
+    miningLocations: ['Desert: Place Prismatic Shard at Three Pillars']
+  },
+
+  {
+    id: 'dwarf_sword',
+    name: 'Dwarf Sword',
+    category: 'weapons',
+    description: 'It\'s ancient, but the blade never dulls.',
+    sellPrice: 650,
+    edibility: -300,
+    weaponStats: {
+      type: 'sword',
+      damage: '65-75',
+      critChance: 0.02,
+      speed: 2,
+      defense: 4,
+    },
+    miningLocations: ['Volcano Dungeon chests (Ginger Island)']
+  },
+
+  {
+    id: 'dragontooth_cutlass',
+    name: 'Dragontooth Cutlass',
+    category: 'weapons',
+    description: 'A formidable weapon.',
+    sellPrice: 650,
+    edibility: -300,
+    weaponStats: {
+      type: 'sword',
+      damage: '75-90',
+      critChance: 0.02,
+      critMultiplier: 50,
+    },
+    miningLocations: ['Volcano Dungeon chests (Ginger Island)']
+  },
+
+  {
+    id: 'infinity_blade',
+    name: 'Infinity Blade',
+    category: 'weapons',
+    description: 'The true form of the Galaxy Sword.',
+    sellPrice: 850,
+    edibility: -300,
+    rarity: 'legendary',
+    weaponStats: {
+      type: 'sword',
+      damage: '80-100',
+      critChance: 0.02,
+      speed: 4,
+      defense: 2,
+    },
+    craftingRecipe: 'Forge: Galaxy Sword + 3 Galaxy Souls + 60 Cinder Shards'
+  },
+
+  // ==================== DAGGERS (16) ====================
+
+  {
+    id: 'carving_knife',
+    name: 'Carving Knife',
+    category: 'weapons',
+    description: 'A small, light blade.',
+    sellPrice: 50,
+    edibility: -300,
+    weaponStats: {
+      type: 'dagger',
+      damage: '1-3',
+      critChance: 0.04,
+    },
+    miningLocations: ['The Mines (1-19)', 'Breaking boxes/barrels (1-19)'],
+    monsterDrops: [
+      { monsterName: 'Special monster drops', dropRate: 'Common', floors: '1-19' }
+    ]
+  },
+
+  {
+    id: 'iron_dirk',
+    name: 'Iron Dirk',
+    category: 'weapons',
+    description: 'A common dagger.',
+    sellPrice: 50,
+    edibility: -300,
+    weaponStats: {
+      type: 'dagger',
+      damage: '2-4',
+      critChance: 0.03,
+    },
+    shops: [
+      { shopName: 'Adventurer\'s Guild', price: 500, availability: { condition: 'After Floor 15' } }
+    ],
+    miningLocations: ['Floor 10 chest (remixed)']
+  },
+
+  {
+    id: 'wind_spire',
+    name: 'Wind Spire',
+    category: 'weapons',
+    description: 'The blade whistles as it cuts through the air.',
+    sellPrice: 50,
+    edibility: -300,
+    weaponStats: {
+      type: 'dagger',
+      damage: '1-5',
+      critChance: 0.02,
+      critMultiplier: 10,
+      weight: 5,
+    },
+    miningLocations: ['The Mines (20-39)', 'Breaking boxes/barrels (20-39)', 'Floor 10 chest (remixed)']
+  },
+
+  {
+    id: 'elf_blade',
+    name: 'Elf Blade',
+    category: 'weapons',
+    description: 'Only the nimble hands of an elf could craft this.',
+    sellPrice: 100,
+    edibility: -300,
+    weaponStats: {
+      type: 'dagger',
+      damage: '3-5',
+      critChance: 0.04,
+    },
+    shops: [
+      { shopName: 'Adventurer\'s Guild', price: 750, availability: { condition: 'After Floor 20' } }
+    ],
+    miningLocations: ['Floor 20 chest (remixed)']
+  },
+
+  {
+    id: 'crystal_dagger',
+    name: 'Crystal Dagger',
+    category: 'weapons',
+    description: 'Made from a rare crystal.',
+    sellPrice: 200,
+    edibility: -300,
+    weaponStats: {
+      type: 'dagger',
+      damage: '4-10',
+      critChance: 0.03,
+      critMultiplier: 50,
+      weight: 5,
+    },
+    shops: [
+      { shopName: 'Adventurer\'s Guild', price: 4500, availability: { condition: 'After Floor 60' } }
+    ],
+    miningLocations: ['Floor 60 chest']
+  },
+
+  {
+    id: 'burglars_shank',
+    name: 'Burglar\'s Shank',
+    category: 'weapons',
+    description: 'A favored tool of thieves and murderers.',
+    sellPrice: 200,
+    edibility: -300,
+    weaponStats: {
+      type: 'dagger',
+      damage: '7-12',
+      critChance: 0.04,
+      critMultiplier: 25,
+    },
+    miningLocations: ['The Mines (81-119)', 'Skull Cavern', 'Quarry Mine', 'Floor 60 chest (remixed)']
+  },
+
+  {
+    id: 'broken_trident',
+    name: 'Broken Trident',
+    category: 'weapons',
+    description: 'It came from the sea, but it\'s still sharp.',
+    sellPrice: 250,
+    edibility: -300,
+    weaponStats: {
+      type: 'dagger',
+      damage: '15-26',
+      critChance: 0.02,
+    },
+    fishingLocations: [
+      { area: 'Fishing Treasure Chests', condition: 'Fishing level 2+, 0.6% drop rate' }
+    ]
+  },
+
+  {
+    id: 'shadow_dagger',
+    name: 'Shadow Dagger',
+    category: 'weapons',
+    description: 'When you hold the blade to your ear you can hear 1,000 souls shrieking.',
+    sellPrice: 200,
+    edibility: -300,
+    weaponStats: {
+      type: 'dagger',
+      damage: '10-20',
+      critChance: 0.04,
+    },
+    miningLocations: ['The Mines (60-79, 100+)', 'Breaking boxes/barrels (60-79)', 'Floor 80 chest (remixed)']
+  },
+
+  {
+    id: 'elliots_pencil',
+    name: 'Elliott\'s Pencil',
+    category: 'weapons',
+    description: 'Elliott used this to write his book. It\'s sharp!',
+    sellPrice: 400,
+    edibility: -300,
+    weaponStats: {
+      type: 'dagger',
+      damage: '24-30',
+      critChance: 0.06,
+    },
+    shops: [
+      { shopName: 'Elliott (Desert Festival)', price: 70, availability: { condition: '70 Calico Eggs' } }
+    ]
+  },
+
+  {
+    id: 'abbys_planchette',
+    name: 'Abby\'s Planchette',
+    category: 'weapons',
+    description: 'Made from fine marblewood.',
+    sellPrice: 200,
+    edibility: -300,
+    weaponStats: {
+      type: 'dagger',
+      damage: '24-30',
+      critChance: 0.06,
+    },
+    shops: [
+      { shopName: 'Abigail (Desert Festival)', price: 70, availability: { condition: '70 Calico Eggs' } }
+    ]
+  },
+
+  {
+    id: 'wicked_kris',
+    name: 'Wicked Kris',
+    category: 'weapons',
+    description: 'The blade is made of an iridium alloy.',
+    sellPrice: 400,
+    edibility: -300,
+    weaponStats: {
+      type: 'dagger',
+      damage: '24-30',
+      critChance: 0.06,
+    },
+    miningLocations: ['Floor 90 chest (remixed)', 'Skull Cavern', 'Quarry Mine']
+  },
+
+  {
+    id: 'iridium_needle',
+    name: 'Iridium Needle',
+    category: 'weapons',
+    description: 'The most powerful dagger. Only obtained after activating Danger in the Deep.',
+    sellPrice: 600,
+    edibility: -300,
+    rarity: 'legendary',
+    weaponStats: {
+      type: 'dagger',
+      damage: '20-35',
+      critChance: 0.1,
+      critMultiplier: 200,
+    },
+    monsterDrops: [
+      { monsterName: 'Special Slimes', dropRate: '14%', floors: 'Danger In The Deep' }
+    ]
+  },
+
+  {
+    id: 'galaxy_dagger',
+    name: 'Galaxy Dagger',
+    category: 'weapons',
+    description: 'It\'s unlike anything you\'ve seen.',
+    sellPrice: 400,
+    edibility: -300,
+    rarity: 'legendary',
+    weaponStats: {
+      type: 'dagger',
+      damage: '30-40',
+      critChance: 0.02,
+      speed: 1,
+    },
+    shops: [
+      { shopName: 'Adventurer\'s Guild', price: 35000, availability: { condition: 'After obtaining Galaxy Sword' } }
+    ]
+  },
+
+  {
+    id: 'dwarf_dagger',
+    name: 'Dwarf Dagger',
+    category: 'weapons',
+    description: 'It\'s ancient, but the blade never dulls.',
+    sellPrice: 550,
+    edibility: -300,
+    weaponStats: {
+      type: 'dagger',
+      damage: '32-38',
+      critChance: 0.02,
+      speed: 1,
+      defense: 6,
+      weight: 5,
+    },
+    miningLocations: ['Volcano Dungeon chests (Ginger Island)']
+  },
+
+  {
+    id: 'dragontooth_shiv',
+    name: 'Dragontooth Shiv',
+    category: 'weapons',
+    description: 'The blade was forged from a magical tooth.',
+    sellPrice: 600,
+    edibility: -300,
+    weaponStats: {
+      type: 'dagger',
+      damage: '40-50',
+      critChance: 0.05,
+      critMultiplier: 100,
+      weight: 5,
+    },
+    miningLocations: ['Volcano Dungeon chests (Ginger Island)']
+  },
+
+  {
+    id: 'infinity_dagger',
+    name: 'Infinity Dagger',
+    category: 'weapons',
+    description: 'The ultimate dagger.',
+    sellPrice: 800,
+    edibility: -300,
+    rarity: 'legendary',
+    weaponStats: {
+      type: 'dagger',
+      damage: '50-70',
+      critChance: 0.06,
+      speed: 1,
+      defense: 3,
+      weight: 5,
+    },
+    craftingRecipe: 'Forge: Galaxy Dagger + 3 Galaxy Souls + 60 Cinder Shards'
+  },
+
+  // ==================== CLUBS (15) ====================
+
+  {
+    id: 'femur',
+    name: 'Femur',
+    category: 'weapons',
+    description: 'An old, heavy bone caked in centuries of grime.',
+    sellPrice: 100,
+    edibility: -300,
+    weaponStats: {
+      type: 'club',
+      damage: '6-11',
+      critChance: 0.02,
+      speed: 2,
+    },
+    shops: [
+      { shopName: 'Adventurer\'s Guild', price: 350, availability: { condition: 'After Floor 10' } }
+    ],
+    miningLocations: ['Floor 10 chest (remixed)']
+  },
+
+  {
+    id: 'wood_club',
+    name: 'Wood Club',
+    category: 'weapons',
+    description: 'A solid piece of wood, crudely chiseled into a club shape.',
+    sellPrice: 100,
+    edibility: -300,
+    weaponStats: {
+      type: 'club',
+      damage: '9-16',
+      critChance: 0.02,
+    },
+    miningLocations: ['The Mines (1-39)', 'Breaking boxes/barrels (1-39)', 'Floor 20 chest (remixed)'],
+    monsterDrops: [
+      { monsterName: 'Special monster drops', dropRate: 'Common', floors: '1-39' }
+    ]
+  },
+
+  {
+    id: 'wood_mallet',
+    name: 'Wood Mallet',
+    category: 'weapons',
+    description: 'The solid head packs a punch. Relatively light for a club.',
+    sellPrice: 150,
+    edibility: -300,
+    weaponStats: {
+      type: 'club',
+      damage: '15-24',
+      critChance: 0.02,
+      speed: 2,
+      weight: 3,
+    },
+    shops: [
+      { shopName: 'Adventurer\'s Guild', price: 2000, availability: { condition: 'After Floor 40' } }
+    ],
+    miningLocations: ['The Mines (40-59)', 'Breaking boxes/barrels (40-59)', 'Floor 60 chest (remixed)'],
+    monsterDrops: [
+      { monsterName: 'Special monster drops', dropRate: 'Uncommon', floors: '40-59' }
+    ]
+  },
+
+  {
+    id: 'lead_rod',
+    name: 'Lead Rod',
+    category: 'weapons',
+    description: 'It\'s incredibly heavy.',
+    sellPrice: 200,
+    edibility: -300,
+    weaponStats: {
+      type: 'club',
+      damage: '18-27',
+      critChance: 0.02,
+      speed: -4,
+    },
+    miningLocations: ['The Mines (40-120)', 'Skull Cavern (1-39)', 'Breaking boxes/barrels'],
+    monsterDrops: [
+      { monsterName: 'Special monster drops', dropRate: 'Uncommon', floors: '40-120' }
+    ]
+  },
+
+  {
+    id: 'kudgel',
+    name: 'Kudgel',
+    category: 'weapons',
+    description: 'A crude but effective weapon.',
+    sellPrice: 250,
+    edibility: -300,
+    weaponStats: {
+      type: 'club',
+      damage: '27-40',
+      critChance: 0.02,
+      speed: -1,
+      critMultiplier: 50,
+      weight: 2,
+    },
+    miningLocations: ['The Mines (100+)', 'Breaking boxes/barrels (100+)', 'Floor 80 chest (remixed)']
+  },
+
+  {
+    id: 'the_slammer',
+    name: 'The Slammer',
+    category: 'weapons',
+    description: 'An extremely heavy gavel that\'ll send foes flying.',
+    sellPrice: 350,
+    edibility: -300,
+    weaponStats: {
+      type: 'club',
+      damage: '40-55',
+      critChance: 0.02,
+      speed: -2,
+    },
+    miningLocations: ['The Mines (81-99)', 'Skull Cavern', 'Quarry Mine', 'Floor 110 chest (remixed)']
+  },
+
+  {
+    id: 'alexs_bat',
+    name: 'Alex\'s Bat',
+    category: 'weapons',
+    description: 'Just remember to aim for a "Grand Slam".',
+    sellPrice: 350,
+    edibility: -300,
+    weaponStats: {
+      type: 'club',
+      damage: '40-55',
+      critChance: 0.02,
+      speed: -2,
+    },
+    shops: [
+      { shopName: 'Alex (Desert Festival)', price: 70, availability: { condition: '70 Calico Eggs' } }
+    ]
+  },
+
+  {
+    id: 'sebs_lost_mace',
+    name: 'Seb\'s Lost Mace',
+    category: 'weapons',
+    description: 'One of Sebastian\'s medieval replicas.',
+    sellPrice: 350,
+    edibility: -300,
+    weaponStats: {
+      type: 'club',
+      damage: '40-55',
+      critChance: 0.02,
+      speed: -2,
+    },
+    shops: [
+      { shopName: 'Sebastian (Desert Festival)', price: 70, availability: { condition: '70 Calico Eggs' } }
+    ]
+  },
+
+  {
+    id: 'sams_old_guitar',
+    name: 'Sam\'s Old Guitar',
+    category: 'weapons',
+    description: 'Sam used to jam with this.',
+    sellPrice: 350,
+    edibility: -300,
+    weaponStats: {
+      type: 'club',
+      damage: '40-55',
+      critChance: 0.02,
+      speed: -2,
+    },
+    shops: [
+      { shopName: 'Sam (Desert Festival)', price: 70, availability: { condition: '70 Calico Eggs' } }
+    ]
+  },
+
+  {
+    id: 'harveys_mallet',
+    name: 'Harvey\'s Mallet',
+    category: 'weapons',
+    description: 'It brings back memories of Harvey\'s clinic.',
+    sellPrice: 350,
+    edibility: -300,
+    weaponStats: {
+      type: 'club',
+      damage: '40-55',
+      critChance: 0.02,
+      speed: -2,
+    },
+    shops: [
+      { shopName: 'Harvey (Desert Festival)', price: 70, availability: { condition: '70 Calico Eggs' } }
+    ]
+  },
+
+  {
+    id: 'marus_wrench',
+    name: 'Maru\'s Wrench',
+    category: 'weapons',
+    description: 'A big, metal wrench. It smells like Maru.',
+    sellPrice: 350,
+    edibility: -300,
+    weaponStats: {
+      type: 'club',
+      damage: '40-55',
+      critChance: 0.02,
+      speed: -2,
+    },
+    shops: [
+      { shopName: 'Maru (Desert Festival)', price: 70, availability: { condition: '70 Calico Eggs' } }
+    ]
+  },
+
+  {
+    id: 'pennys_fryer',
+    name: 'Penny\'s Fryer',
+    category: 'weapons',
+    description: 'Penny\'s favorite frying pan. There\'s some rubbery gunk stuck to the inside.',
+    sellPrice: 350,
+    edibility: -300,
+    weaponStats: {
+      type: 'club',
+      damage: '40-55',
+      critChance: 0.02,
+      speed: -2,
+    },
+    shops: [
+      { shopName: 'Penny (Desert Festival)', price: 70, availability: { condition: '70 Calico Eggs' } }
+    ]
+  },
+
+  {
+    id: 'galaxy_hammer',
+    name: 'Galaxy Hammer',
+    category: 'weapons',
+    description: 'It\'s made from an ultra-light material you\'ve never seen before.',
+    sellPrice: 600,
+    edibility: -300,
+    rarity: 'legendary',
+    weaponStats: {
+      type: 'club',
+      damage: '70-90',
+      critChance: 0.02,
+      speed: 2,
+      weight: 5,
+    },
+    shops: [
+      { shopName: 'Adventurer\'s Guild', price: 75000, availability: { condition: 'After obtaining Galaxy Sword' } }
+    ]
+  },
+
+  {
+    id: 'dwarf_hammer',
+    name: 'Dwarf Hammer',
+    category: 'weapons',
+    description: 'It emits a very faint whirring sound.',
+    sellPrice: 650,
+    edibility: -300,
+    weaponStats: {
+      type: 'club',
+      damage: '75-85',
+      critChance: 0.02,
+      defense: 2,
+      weight: 5,
+    },
+    miningLocations: ['Volcano Dungeon chests (Ginger Island)']
+  },
+
+  {
+    id: 'dragontooth_club',
+    name: 'Dragontooth Club',
+    category: 'weapons',
+    description: 'Deals the highest damage when it scores a critical hit.',
+    sellPrice: 700,
+    edibility: -300,
+    weaponStats: {
+      type: 'club',
+      damage: '80-100',
+      critChance: 0.02,
+      critMultiplier: 50,
+      weight: 3,
+    },
+    miningLocations: ['Volcano Dungeon chests (Ginger Island)']
+  },
+
+  {
+    id: 'infinity_gavel',
+    name: 'Infinity Gavel',
+    category: 'weapons',
+    description: 'The melee weapon that does the most damage per hit.',
+    sellPrice: 850,
+    edibility: -300,
+    rarity: 'legendary',
+    weaponStats: {
+      type: 'club',
+      damage: '100-120',
+      critChance: 0.02,
+      speed: 2,
+      defense: 1,
+      weight: 5,
+    },
+    craftingRecipe: 'Forge: Galaxy Hammer + 3 Galaxy Souls + 60 Cinder Shards'
+  },
+
+  // ==================== SLINGSHOTS (2) ====================
+
+  {
+    id: 'slingshot',
+    name: 'Slingshot',
+    category: 'weapons',
+    description: 'Can be loaded with stones to fire at enemies.',
+    sellPrice: 0,
+    edibility: -300,
+    weaponStats: {
+      type: 'slingshot',
+      damage: 'varies',
+      critChance: 0.02,
+      special: 'Damage based on ammunition (1-3 for fruits/vegetables, 25-101 for Iridium Ore)',
+    },
+    shops: [
+      { shopName: 'Adventurer\'s Guild', price: 500, availability: { condition: 'After unlocking' } }
+    ],
+    miningLocations: ['Floor 40 chest']
+  },
+
+  {
+    id: 'master_slingshot',
+    name: 'Master Slingshot',
+    category: 'weapons',
+    description: 'A powerful slingshot. Stones do double damage.',
+    sellPrice: 0,
+    edibility: -300,
+    weaponStats: {
+      type: 'slingshot',
+      damage: 'varies',
+      critChance: 0.02,
+      special: 'Double damage - 2-6 for fruits/vegetables, 50-202 for Iridium Ore',
+    },
+    shops: [
+      { shopName: 'Adventurer\'s Guild', price: 1000, availability: { condition: 'After unlocking' } }
+    ],
+    miningLocations: ['Floor 70 chest']
+  },
+
+  // ==================== RINGS (28) ====================
+
+  {
+    id: 'small_glow_ring',
+    name: 'Small Glow Ring',
+    category: 'rings',
+    description: 'Emits a small, constant light.',
+    sellPrice: 50,
+    edibility: -300,
+    ringEffects: {
+      effect: 'Emits a 5-tile radius circle of light',
+      stackable: true
+    },
+    miningLocations: ['Slimes (before floor 40)'],
+    fishingLocations: [{ area: 'Any', season: ['Spring', 'Summer', 'Fall', 'Winter'], condition: 'Treasure Chests' }]
+  },
+
+  {
+    id: 'glow_ring',
+    name: 'Glow Ring',
+    category: 'rings',
+    description: 'Emits a constant light.',
+    sellPrice: 100,
+    edibility: -300,
+    ringEffects: {
+      effect: 'Emits a 10-tile radius circle of light',
+      stackable: true
+    },
+    miningLocations: ['Slimes (floor 40+)', 'Skeletons (floor 70-79)'],
+    usedInBundles: ['Night Fishing Bundle']
+  },
+
+  {
+    id: 'small_magnet_ring',
+    name: 'Small Magnet Ring',
+    category: 'rings',
+    description: 'Increases your collection radius.',
+    sellPrice: 50,
+    edibility: -300,
+    ringEffects: {
+      effect: 'Increases magnetism radius by 1 tile',
+      stackable: true
+    },
+    fishingLocations: [{ area: 'Any', season: ['Spring', 'Summer', 'Fall', 'Winter'], condition: 'Treasure Chests' }],
+    usedInBundles: ['Adventurer\'s Bundle']
+  },
+
+  {
+    id: 'magnet_ring',
+    name: 'Magnet Ring',
+    category: 'rings',
+    description: 'Increases your collection radius.',
+    sellPrice: 100,
+    edibility: -300,
+    ringEffects: {
+      effect: 'Increases magnetism radius by 2 tiles',
+      stackable: true
+    },
+    miningLocations: ['Enemy drops (floors 40-79)']
+  },
+
+  {
+    id: 'slime_charmer_ring',
+    name: 'Slime Charmer Ring',
+    category: 'rings',
+    description: 'Prevents damage from slimes.',
+    sellPrice: 350,
+    edibility: -300,
+    ringEffects: {
+      effect: 'Prevents damage from Slimes and prevents the Slimed debuff',
+      stackable: false
+    },
+    monsterDrops: [{
+      monsterName: 'Adventurer\'s Guild Reward',
+      dropRate: 'Guaranteed',
+      floors: 'Kill 1000 Slimes'
+    }]
+  },
+
+  {
+    id: 'warrior_ring',
+    name: 'Warrior Ring',
+    category: 'rings',
+    description: 'Occasionally infuses the wearer with \"warrior energy\" after slaying a monster.',
+    sellPrice: 750,
+    edibility: -300,
+    ringEffects: {
+      effect: 'Chance to gain "Warrior Energy" buff (+10 Attack) after killing monsters',
+      stackable: false
+    },
+    craftingRecipe: 'combat_level_4',
+    shops: [{
+      shopName: 'Crafting Recipe',
+      price: 0,
+      availability: { condition: 'Combat Level 4 (10 Iron Bars, 25 Coal, 10 Frozen Tears)' }
+    }]
+  },
+
+  {
+    id: 'vampire_ring',
+    name: 'Vampire Ring',
+    category: 'rings',
+    description: 'Gain a little bit of health after slaying a monster.',
+    sellPrice: 750,
+    edibility: -300,
+    ringEffects: {
+      effect: 'Restores 2 health after killing a monster',
+      stackable: false
+    },
+    monsterDrops: [{
+      monsterName: 'Adventurer\'s Guild Reward',
+      dropRate: 'Guaranteed',
+      floors: 'Kill 200 Bats'
+    }]
+  },
+
+  {
+    id: 'savage_ring',
+    name: 'Savage Ring',
+    category: 'rings',
+    description: 'Gain a short speed boost whenever you slay a monster.',
+    sellPrice: 750,
+    edibility: -300,
+    ringEffects: {
+      effect: 'Gain 3-second Speed +2 buff after killing a monster',
+      stackable: false
+    },
+    monsterDrops: [{
+      monsterName: 'Adventurer\'s Guild Reward',
+      dropRate: 'Guaranteed',
+      floors: 'Kill 150 Void Spirits'
+    }]
+  },
+
+  {
+    id: 'ring_of_yoba',
+    name: 'Ring of Yoba',
+    category: 'rings',
+    description: 'Occasionally shields the wearer from damage.',
+    sellPrice: 750,
+    edibility: -300,
+    ringEffects: {
+      effect: 'Chance to gain "Yoba\'s Blessing" buff (temporary invincibility) after taking damage',
+      stackable: false
+    },
+    craftingRecipe: 'combat_level_7',
+    shops: [{
+      shopName: 'Crafting Recipe',
+      price: 0,
+      availability: { condition: 'Combat Level 7 (5 Iron Bars, 5 Gold Bars, 1 Diamond)' }
+    }]
+  },
+
+  {
+    id: 'sturdy_ring',
+    name: 'Sturdy Ring',
+    category: 'rings',
+    description: 'Cuts the duration of negative status effects in half.',
+    sellPrice: 750,
+    edibility: -300,
+    ringEffects: {
+      effect: 'Reduces duration of negative buffs by 50%',
+      stackable: false
+    },
+    craftingRecipe: 'combat_level_1',
+    shops: [{
+      shopName: 'Crafting Recipe',
+      price: 0,
+      availability: { condition: 'Combat Level 1 (2 Copper Bars, 25 Bug Meat, 25 Slime)' }
+    }]
+  },
+
+  {
+    id: 'burglars_ring',
+    name: 'Burglar\'s Ring',
+    category: 'rings',
+    description: 'Monsters have a greater chance of dropping loot.',
+    sellPrice: 750,
+    edibility: -300,
+    ringEffects: {
+      effect: 'Monsters roll twice on the item drop table (doubles drop chance)',
+      stackable: false
+    },
+    monsterDrops: [{
+      monsterName: 'Adventurer\'s Guild Reward',
+      dropRate: 'Guaranteed',
+      floors: 'Kill 500 Dust Sprites'
+    }]
+  },
+
+  {
+    id: 'iridium_band',
+    name: 'Iridium Band',
+    category: 'rings',
+    description: 'Glows, attracts items, and increases attack damage by 10%.',
+    sellPrice: 1000,
+    edibility: -300,
+    ringEffects: {
+      effect: 'Combines Glow Ring (10-tile light), Magnet Ring (+2 tile magnetism), and Ruby Ring (+10% Attack)',
+      stackable: false
+    },
+    craftingRecipe: 'combat_level_9',
+    shops: [{
+      shopName: 'Crafting Recipe',
+      price: 0,
+      availability: { condition: 'Combat Level 9 (5 Iridium Bars, 50 Solar Essence, 50 Void Essence)' }
+    }],
+    fishingLocations: [{ area: 'Any', season: ['Spring', 'Summer', 'Fall', 'Winter'], condition: 'Treasure Chests (Rare)' }]
+  },
+
+  {
+    id: 'jukebox_ring',
+    name: 'Jukebox Ring',
+    category: 'rings',
+    description: 'Plays a random assortment of music you\'ve heard.',
+    sellPrice: 100,
+    edibility: -300,
+    ringEffects: {
+      effect: 'Plays random music (currently unobtainable)',
+      stackable: false
+    },
+    rarity: 'legendary',
+    shops: [{
+      shopName: 'Unobtainable',
+      price: 0,
+      availability: { condition: 'Not available in normal gameplay' }
+    }]
+  },
+
+  {
+    id: 'crabshell_ring',
+    name: 'Crabshell Ring',
+    category: 'rings',
+    description: 'The top of the ring is made from enchanted crab shell.',
+    sellPrice: 1000,
+    edibility: -300,
+    ringEffects: {
+      effect: 'Increases Defense by +5',
+      stackable: false
+    },
+    monsterDrops: [{
+      monsterName: 'Adventurer\'s Guild Reward',
+      dropRate: 'Guaranteed',
+      floors: 'Kill 60 Rock Crabs'
+    }]
+  },
+
+  {
+    id: 'napalm_ring',
+    name: 'Napalm Ring',
+    category: 'rings',
+    description: 'Slain monsters will explode.',
+    sellPrice: 1000,
+    edibility: -300,
+    ringEffects: {
+      effect: 'Slain monsters explode, destroying nearby objects and damaging enemies (does not damage player)',
+      stackable: false
+    },
+    monsterDrops: [{
+      monsterName: 'Adventurer\'s Guild Reward',
+      dropRate: 'Guaranteed',
+      floors: 'Kill 250 Serpents'
+    }]
+  },
+
+  {
+    id: 'immunity_band',
+    name: 'Immunity Band',
+    category: 'rings',
+    description: 'Become immune to negative status effects.',
+    sellPrice: 250,
+    edibility: -300,
+    ringEffects: {
+      effect: 'Increases Immunity by +4 (grants immunity to debuffs)',
+      stackable: false
+    },
+    miningLocations: ['Skull Cavern (rare)', 'The Mines (floor 100+)']
+  },
+
+  {
+    id: 'glowstone_ring',
+    name: 'Glowstone Ring',
+    category: 'rings',
+    description: 'Emits a constant light and also attracts items.',
+    sellPrice: 100,
+    edibility: -300,
+    ringEffects: {
+      effect: 'Combines Glow Ring (10-tile light) and Magnet Ring (+2 tile magnetism)',
+      stackable: false
+    },
+    craftingRecipe: 'mining_level_4',
+    shops: [{
+      shopName: 'Crafting Recipe',
+      price: 0,
+      availability: { condition: 'Mining Level 4 (5 Solar Essence, 5 Iron Bars)' }
+    }]
+  },
+
+  {
+    id: 'phoenix_ring',
+    name: 'Phoenix Ring',
+    category: 'rings',
+    description: 'Once a day, be restored to 50% health after being knocked out.',
+    sellPrice: 100,
+    edibility: -300,
+    ringEffects: {
+      effect: 'Once per day, revive at 50% health after being knocked out',
+      stackable: false
+    },
+    miningLocations: ['Volcano Dungeon chests (Ginger Island)']
+  },
+
+  {
+    id: 'lucky_ring',
+    name: 'Lucky Ring',
+    category: 'rings',
+    description: 'Your attacks have a chance to deal extra damage.',
+    sellPrice: 100,
+    edibility: -300,
+    ringEffects: {
+      effect: 'Increases Luck by +1',
+      stackable: false
+    },
+    miningLocations: ['Skull Cavern (rare special item)', 'Panning (rare)']
+  },
+
+  {
+    id: 'wedding_ring',
+    name: 'Wedding Ring',
+    category: 'rings',
+    description: 'Allows you to propose marriage to another player in a Multiplayer game.',
+    sellPrice: 1000,
+    edibility: -300,
+    ringEffects: {
+      effect: 'Used to propose marriage in multiplayer (no effect when worn)',
+      stackable: false
+    },
+    craftingRecipe: 'multiplayer_wedding',
+    shops: [{
+      shopName: 'Traveling Cart',
+      price: 500,
+      availability: { condition: 'Recipe only (5 Iridium Bars, 1 Prismatic Shard to craft)' }
+    }]
+  },
+
+  {
+    id: 'hot_java_ring',
+    name: 'Hot Java Ring',
+    category: 'rings',
+    description: 'Increases the chance to find coffee drinks when slaying monsters.',
+    sellPrice: 100,
+    edibility: -300,
+    ringEffects: {
+      effect: 'Increases chance to find Coffee and Triple Shot Espresso from monster drops',
+      stackable: false
+    },
+    miningLocations: ['Volcano Dungeon chests (Ginger Island)']
+  },
+
+  {
+    id: 'ruby_ring',
+    name: 'Ruby Ring',
+    category: 'rings',
+    description: 'Increases attack power by 10%.',
+    sellPrice: 300,
+    edibility: -300,
+    ringEffects: {
+      effect: 'Increases Attack damage by 10%',
+      stackable: false
+    },
+    shops: [{
+      shopName: 'Adventurer\'s Guild',
+      price: 5000,
+      availability: { condition: 'After reaching floor 80 in The Mines' }
+    }],
+    fishingLocations: [{ area: 'Any', season: ['Spring', 'Summer', 'Fall', 'Winter'], condition: 'Treasure Chests' }],
+    monsterDrops: [{
+      monsterName: 'Haunted Skull',
+      dropRate: 'Rare',
+      floors: 'Quarry Mine'
+    }]
+  },
+
+  {
+    id: 'aquamarine_ring',
+    name: 'Aquamarine Ring',
+    category: 'rings',
+    description: 'Increases critical strike chance by 10%.',
+    sellPrice: 200,
+    edibility: -300,
+    ringEffects: {
+      effect: 'Increases critical strike chance by 10% (multiplicative)',
+      stackable: false
+    },
+    shops: [{
+      shopName: 'Adventurer\'s Guild',
+      price: 2500,
+      availability: { condition: 'After reaching floor 40 in The Mines' }
+    }],
+    fishingLocations: [{ area: 'Any', season: ['Spring', 'Summer', 'Fall', 'Winter'], condition: 'Treasure Chests' }]
+  },
+
+  {
+    id: 'jade_ring',
+    name: 'Jade Ring',
+    category: 'rings',
+    description: 'Increases critical strike power by 10%.',
+    sellPrice: 200,
+    edibility: -300,
+    ringEffects: {
+      effect: 'Increases critical strike damage by 10%',
+      stackable: false
+    },
+    shops: [{
+      shopName: 'Adventurer\'s Guild',
+      price: 2500,
+      availability: { condition: 'After reaching floor 40 in The Mines' }
+    }],
+    fishingLocations: [{ area: 'Any', season: ['Spring', 'Summer', 'Fall', 'Winter'], condition: 'Treasure Chests' }]
+  },
+
+  {
+    id: 'emerald_ring',
+    name: 'Emerald Ring',
+    category: 'rings',
+    description: 'Increases weapon speed by 10%.',
+    sellPrice: 300,
+    edibility: -300,
+    ringEffects: {
+      effect: 'Increases weapon swing speed by 10%',
+      stackable: false
+    },
+    shops: [{
+      shopName: 'Adventurer\'s Guild',
+      price: 5000,
+      availability: { condition: 'After reaching floor 80 in The Mines' }
+    }],
+    fishingLocations: [{ area: 'Any', season: ['Spring', 'Summer', 'Fall', 'Winter'], condition: 'Treasure Chests' }]
+  },
+
+  {
+    id: 'topaz_ring',
+    name: 'Topaz Ring',
+    category: 'rings',
+    description: 'Increases defense by 1.',
+    sellPrice: 100,
+    edibility: -300,
+    ringEffects: {
+      effect: 'Increases Defense by +1',
+      stackable: false
+    },
+    shops: [{
+      shopName: 'Adventurer\'s Guild',
+      price: 1000,
+      availability: { condition: 'After completing "Initiation" Quest' }
+    }],
+    fishingLocations: [{ area: 'Any', season: ['Spring', 'Summer', 'Fall', 'Winter'], condition: 'Treasure Chests' }]
+  },
+
+  {
+    id: 'amethyst_ring',
+    name: 'Amethyst Ring',
+    category: 'rings',
+    description: 'Increases knockback by 10%.',
+    sellPrice: 100,
+    edibility: -300,
+    ringEffects: {
+      effect: 'Increases weapon knockback by 10%',
+      stackable: false
+    },
+    shops: [{
+      shopName: 'Adventurer\'s Guild',
+      price: 1000,
+      availability: { condition: 'After completing "Initiation" Quest' }
+    }],
+    fishingLocations: [{ area: 'Any', season: ['Spring', 'Summer', 'Fall', 'Winter'], condition: 'Treasure Chests' }]
+  },
+
+  {
+    id: 'ring_of_precision',
+    name: 'Ring of Precision',
+    category: 'rings',
+    description: 'Provides a chance for critical hits on every attack.',
+    sellPrice: 500,
+    edibility: -300,
+    ringEffects: {
+      effect: 'Grants additional chance for critical hits',
+      stackable: false
+    },
+    craftingRecipe: 'forging',
+    shops: [{
+      shopName: 'Island Forge',
+      price: 0,
+      availability: { condition: 'Forging recipe (Ginger Island)' }
+    }]
+  },
+
+  // ==================== GEODES (4) ====================
+
+  {
+    id: 'geode',
+    name: 'Geode',
+    category: 'geodes',
+    description: 'A blacksmith can break this open for you.',
+    sellPrice: 50,
+    edibility: -300,
+    miningLocations: ['The Mines (1-39)', 'Quarry', 'Skull Cavern'],
+    monsterDrops: [
+      { monsterName: 'Haunted Skull', dropRate: '10.2%', floors: 'Quarry Mine' },
+      { monsterName: 'Duggies', dropRate: '10%', floors: '1-29' }
+    ],
+    geodeContents: ['Various minerals and gems'],
+    usedInBundles: ['Geologist\'s Bundle']
+  },
+
+  {
+    id: 'frozen_geode',
+    name: 'Frozen Geode',
+    category: 'geodes',
+    description: 'A blacksmith can break this open for you.',
+    sellPrice: 100,
+    edibility: -300,
+    miningLocations: ['The Mines (40-79)', 'Quarry'],
+    monsterDrops: [
+      { monsterName: 'Dust Sprite', dropRate: '2%', floors: '40-79' }
+    ],
+    geodeContents: ['Frozen Tear', 'Earth Crystal', 'Aquamarine', 'etc.'],
+    usedInBundles: ['Geologist\'s Bundle']
+  },
+
+  {
+    id: 'magma_geode',
+    name: 'Magma Geode',
+    category: 'geodes',
+    description: 'A blacksmith can break this open for you.',
+    sellPrice: 150,
+    edibility: -300,
+    miningLocations: ['The Mines (80-120)', 'Skull Cavern', 'Quarry', 'Volcano Dungeon'],
+    monsterDrops: [
+      { monsterName: 'Lava Bat', dropRate: '5%', floors: '80-120' },
+      { monsterName: 'Lava Crab', dropRate: '10%', floors: '80-120' }
+    ],
+    geodeContents: ['Fire Quartz', 'Ruby', 'Diamond', 'etc.']
+  },
+
+  {
+    id: 'omni_geode',
+    name: 'Omni Geode',
+    category: 'geodes',
+    description: 'A blacksmith can break this open for you. These geodes contain a wide variety of Minerals.',
+    sellPrice: 0,
+    edibility: -300,
+    miningLocations: ['The Mines (Floor 21+)', 'Skull Cavern', 'Quarry', 'Artifact Spots'],
+    shops: [
+      { shopName: 'Oasis (Desert)', price: 1000, availability: { condition: 'Wednesdays only' } },
+      { shopName: 'Krobus', price: 300, availability: { condition: 'Tuesdays only' } }
+    ],
+    fishingLocations: [{ area: 'Any', season: ['Spring', 'Summer', 'Fall', 'Winter'], condition: 'Treasure Chests' }],
+    geodeContents: ['Can contain any mineral from any geode type'],
+    rarity: 'uncommon'
+  },
+
 ];
 
 /**
@@ -2706,4 +5400,9 @@ export function getCookingRecipes(): Item[] {
 // Get artisan goods
 export function getArtisanGoods(): Item[] {
   return getItemsByCategory('artisan');
+}
+
+// Get boots
+export function getBoots(): Item[] {
+  return getItemsByCategory('boots');
 }

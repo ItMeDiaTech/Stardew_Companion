@@ -404,7 +404,43 @@ export interface DailyTask {
  */
 export type ItemCategory = 'forage' | 'fish' | 'minerals' | 'artifacts' | 'cooking' |
   'artisan' | 'resources' | 'crops' | 'seeds' | 'animal-products' |
-  'equipment' | 'weapons' | 'bait' | 'fertilizer' | 'other';
+  'equipment' | 'weapons' | 'boots' | 'rings' | 'bait' | 'fertilizer' | 'geodes' | 'other';
+
+/**
+ * Weapon type
+ */
+export type WeaponType = 'sword' | 'dagger' | 'club' | 'slingshot';
+
+/**
+ * Weapon stats
+ */
+export interface WeaponStats {
+  type: WeaponType;
+  damage: string | number;  // Min-max damage (e.g., "15-25") or number for fixed damage
+  critChance?: number;      // Critical hit chance (0-1)
+  critMultiplier?: number;  // Critical damage multiplier
+  speed?: number;           // Attack speed
+  defense?: number;         // Defense bonus
+  weight?: number;          // Weight (affects knockback)
+  precision?: number;       // Precision bonus
+  special?: string;         // Special ability description
+}
+
+/**
+ * Boot stats
+ */
+export interface BootStats {
+  defense: number;          // Defense bonus
+  immunity: number;         // Immunity bonus
+}
+
+/**
+ * Ring effects
+ */
+export interface RingEffects {
+  effect: string;           // Description of ring effect
+  stackable?: boolean;      // Whether effect stacks with duplicate ring
+}
 
 /**
  * Item rarity level
@@ -482,6 +518,14 @@ export interface Item {
   rarity?: ItemRarity;
   stackSize?: number;             // Max stack (default 999)
   quality?: boolean;              // Can have quality stars?
+
+  // Equipment-specific stats
+  weaponStats?: WeaponStats;      // For weapons
+  bootStats?: BootStats;          // For boots
+  ringEffects?: RingEffects;      // For rings
+
+  // Geode contents
+  geodeContents?: string[];       // What minerals can be found inside (for geodes)
 }
 
 /**
