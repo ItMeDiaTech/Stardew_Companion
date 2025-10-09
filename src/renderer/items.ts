@@ -172,11 +172,11 @@ function createItemCard(item: Item): string {
 
 function getItemSources(item: Item): string[] {
   const sources: string[] = [];
-  if (item.forageLocations && item.forageLocations.length > 0) sources.push('Foraging');
+  if (item.forageLocations && item.forageLocations.length > 0) sources.push('Forage');
   if (item.fishingLocations && item.fishingLocations.length > 0) sources.push('Fishing');
   if (item.miningLocations && item.miningLocations.length > 0) sources.push('Mining');
-  if (item.monsterDrops && item.monsterDrops.length > 0) sources.push('Monsters');
-  if (item.shops && item.shops.length > 0) sources.push('Shops');
+  if (item.monsterDrops && item.monsterDrops.length > 0) sources.push('Monster');
+  if (item.shops && item.shops.length > 0) sources.push('Shop');
   if (item.farmingInfo) sources.push('Farming');
   if (item.craftingRecipe) sources.push('Crafting');
   if (item.artisanSource) sources.push('Artisan');
