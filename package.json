@@ -1,6 +1,6 @@
 {
   "name": "stardew-companion",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "description": "Stardew Valley Companion Application",
   "main": "dist/main/index.js",
   "author": "DiaTech",
