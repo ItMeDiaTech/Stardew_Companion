@@ -629,3 +629,96 @@ export interface CalculatorParams {
   artisanProfession: ArtisanProfession;
   budget?: number;          // Optional budget constraint
 }
+
+// Stats Guide Types
+
+/**
+ * Stat category
+ */
+export type StatCategory = 'skill' | 'combat' | 'attribute' | 'special';
+
+/**
+ * Profession choice at level 5 or 10
+ */
+export interface Profession {
+  level: 5 | 10;
+  name: string;
+  description: string;
+  prerequisite?: string;  // For level 10 professions
+}
+
+/**
+ * Leveling information for levelable stats
+ */
+export interface LevelingInfo {
+  method: string;           // How to level this stat
+  experiencePerLevel?: number[];  // XP needed per level
+  benefits: string[];       // Benefits of leveling up
+  professions?: Profession[];  // Available professions
+}
+
+/**
+ * Gameplay effect of a stat
+ */
+export interface GameplayEffect {
+  description: string;
+  formula?: string;         // Mathematical formula if applicable
+  examples?: string[];      // Example scenarios
+}
+
+/**
+ * Common misconception about a stat
+ */
+export interface Misconception {
+  myth: string;             // The incorrect belief
+  reality: string;          // The actual truth
+  explanation?: string;     // Additional clarification
+}
+
+/**
+ * Stat buff information
+ */
+export interface StatBuff {
+  source: string;           // Food, equipment, etc.
+  effect: string;           // What the buff does
+  duration?: string;        // How long it lasts
+  stackable?: boolean;      // Whether it stacks
+}
+
+/**
+ * Complete stat information
+ */
+export interface Stat {
+  id: string;
+  name: string;
+  category: StatCategory;
+  description: string;
+  icon?: string;            // Icon identifier
+
+  // Leveling information
+  isLevelable: boolean;
+  maxLevel?: number;
+  levelingInfo?: LevelingInfo;
+
+  // Gameplay impact
+  baseValue?: string;       // Default/starting value
+  gameplayEffects: GameplayEffect[];
+
+  // Buffs and modifiers
+  buffs?: StatBuff[];
+
+  // Common misconceptions
+  misconceptions?: Misconception[];
+
+  // Related stats
+  relatedStats?: string[];  // IDs of related stats
+}
+
+/**
+ * Stat filter options
+ */
+export interface StatFilter {
+  category?: StatCategory;
+  searchTerm?: string;
+  levelableOnly?: boolean;
+}

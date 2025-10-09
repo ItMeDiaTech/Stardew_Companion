@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline';">
+    <title>Stats Guide - Stardew Companion</title>
+</head>
+<body>
+    <div id="app">
+        <header class="titlebar">
+            <div class="titlebar-drag-region">
+                <div class="app-title">Stardew Companion - Stats Guide</div>
+            </div>
+            <div class="window-controls">
+                <button class="window-button" id="minimize-btn" aria-label="Minimize">
+                    <svg width="12" height="12" viewBox="0 0 12 12">
+                        <rect x="0" y="5" width="12" height="2"/>
+                    </svg>
+                </button>
+                <button class="window-button" id="maximize-btn" aria-label="Maximize">
+                    <svg width="12" height="12" viewBox="0 0 12 12">
+                        <rect x="0" y="0" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1"/>
+                    </svg>
+                </button>
+                <button class="window-button close-btn" id="close-btn" aria-label="Close">
+                    <svg width="12" height="12" viewBox="0 0 12 12">
+                        <path d="M 0 0 L 12 12 M 12 0 L 0 12" stroke="currentColor" stroke-width="1.5"/>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <nav class="navbar">
+            <a href="index.html" class="nav-link">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M8 2L2 7h2v6h3V9h2v4h3V7h2L8 2z"/>
+                </svg>
+                Home
+            </a>
+            <a href="villagers.html" class="nav-link">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M8 8c1.7 0 3-1.3 3-3S9.7 2 8 2 5 3.3 5 5s1.3 3 3 3zm0 2c-2.3 0-7 1.2-7 3.5V15h14v-1.5C15 11.2 10.3 10 8 10z"/>
+                </svg>
+                Villagers
+            </a>
+            <a href="shops.html" class="nav-link">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M14 2H2L1 6v1c0 1.1.9 2 2 2 .4 0 .7-.1 1-.3.3.2.6.3 1 .3s.7-.1 1-.3c.3.2.6.3 1 .3s.7-.1 1-.3c.3.2.6.3 1 .3s.7-.1 1-.3c.3.2.6.3 1 .3 1.1 0 2-.9 2-2V6l-1-4zm-1 5c0 .6-.4 1-1 1s-1-.4-1-1V5h2v2zm-3-2v2c0 .6-.4 1-1 1s-1-.4-1-1V5h2zm-3 0v2c0 .6-.4 1-1 1s-1-.4-1-1V5h2zm-3 0v2c0 .6-.4 1-1 1s-1-.4-1-1V5h2zm11 4H2v6h12V9z"/>
+                </svg>
+                Shops
+            </a>
+            <a href="calendar.html" class="nav-link">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M4 1v1H2v12h12V2h-2V1h-2v1H6V1H4zm8 3v1h2v1H2V5h2V4h8v0zM2 8h12v5H2V8z"/>
+                </svg>
+                Calendar
+            </a>
+            <a href="crafting.html" class="nav-link">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M14 0H2L0 4v1h2l1 9h10l1-9h2V4L14 0zM2 3l1-2h10l1 2H2z"/>
+                </svg>
+                Crafting
+            </a>
+            <a href="items.html" class="nav-link">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M1 1v6h6V1H1zm8 0v6h6V1H9zM1 9v6h6V9H1zm8 0v6h6V9H9z"/>
+                </svg>
+                Items
+            </a>
+            <a href="notes.html" class="nav-link">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M2 2v12h12V2H2zm11 11H3V3h10v10zM4 5h8v1H4V5zm0 2h8v1H4V7zm0 2h5v1H4V9z"/>
+                </svg>
+                Notes
+            </a>
+            <a href="tasks.html" class="nav-link">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M14 2H2v12h12V2zM6 12L3 9l1-1 2 2 4-4 1 1-5 5z"/>
+                </svg>
+                Daily Tasks
+            </a>
+            <a href="profit-calculator.html" class="nav-link">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M2 2v12h12V2H2zm10 10H4V4h8v8zm-6-6h4v1H6V6zm0 2h4v1H6V8zm0 2h2v1H6v-1z"/>
+                </svg>
+                Calculator
+            </a>
+            <a href="stats.html" class="nav-link active">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M2 14V2h2v12H2zm4 0V6h2v8H6zm4 0V4h2v10h-2zm4 0V8h2v6h-2z"/>
+                </svg>
+                Stats
+            </a>
+        </nav>
+
+        <main class="content">
+            <div class="stats-container">
+                <div class="stats-header">
+                    <h1>Stardew Valley Stats Guide</h1>
+                    <p>Complete guide to all stats, skills, and their effects on gameplay</p>
+                </div>
+
+                <div class="stats-controls">
+                    <div class="search-box">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                            <path d="M11.7 10.3c.9-1.2 1.4-2.7 1.4-4.3 0-3.9-3.1-7-7-7s-7 3.1-7 7 3.1 7 7 7c1.6 0 3.1-.5 4.3-1.4l4.3 4.3 1.4-1.4-4.4-4.2zM6 11c-2.8 0-5-2.2-5-5s2.2-5 5-5 5 2.2 5 5-2.2 5-5 5z"/>
+                        </svg>
+                        <input type="text" id="search-input" placeholder="Search stats..." />
+                    </div>
+
+                    <div class="filters-row">
+                        <select id="category-filter" class="filter-select">
+                            <option value="all">All Categories</option>
+                            <option value="skill">Skills (Levelable)</option>
+                            <option value="combat">Combat Stats</option>
+                            <option value="attribute">Attributes</option>
+                            <option value="special">Special Stats</option>
+                        </select>
+
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="levelable-only" />
+                            Levelable Only
+                        </label>
+
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="misconceptions-only" />
+                            Has Misconceptions
+                        </label>
+                    </div>
+                </div>
+
+                <div id="stats-grid" class="stats-grid">
+                    <!-- Stat cards will be inserted here by JavaScript -->
+                </div>
+
+                <!-- Stat Detail Modal -->
+                <div id="stat-modal" class="modal" style="display: none;">
+                    <div class="modal-content stat-modal-content">
+                        <div class="modal-header">
+                            <div>
+                                <h2 id="modal-stat-name"></h2>
+                                <div class="modal-badges">
+                                    <span id="modal-stat-category" class="stat-category-badge"></span>
+                                    <span id="modal-stat-levelable" class="stat-levelable-badge" style="display: none;"></span>
+                                </div>
+                            </div>
+                            <button class="modal-close" id="modal-close-btn">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="stat-detail-section">
+                                <p id="modal-stat-description" class="stat-description"></p>
+
+                                <div class="stat-info-grid">
+                                    <div id="modal-base-value" class="info-item" style="display: none;">
+                                        <span class="info-label">Base Value:</span>
+                                        <span id="modal-base-value-text" class="info-value"></span>
+                                    </div>
+                                    <div id="modal-max-level" class="info-item" style="display: none;">
+                                        <span class="info-label">Max Level:</span>
+                                        <span id="modal-max-level-text" class="info-value"></span>
+                                    </div>
+                                </div>
+
+                                <!-- Leveling Information -->
+                                <div id="modal-leveling" class="stat-section" style="display: none;">
+                                    <h3>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                            <path d="M8 2l-2 4H2l3 3-1 4 4-2 4 2-1-4 3-3h-4l-2-4z"/>
+                                        </svg>
+                                        How to Level Up
+                                    </h3>
+                                    <p id="modal-leveling-method" class="method-text"></p>
+                                    <div id="modal-leveling-benefits" class="benefits-list"></div>
+                                </div>
+
+                                <!-- Professions -->
+                                <div id="modal-professions" class="stat-section" style="display: none;">
+                                    <h3>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                            <path d="M8 1L6 5l-4 1 3 3-1 4 4-2 4 2-1-4 3-3-4-1-2-4z"/>
+                                        </svg>
+                                        Professions
+                                    </h3>
+                                    <div id="modal-professions-content" class="professions-grid"></div>
+                                </div>
+
+                                <!-- Gameplay Effects -->
+                                <div id="modal-effects" class="stat-section">
+                                    <h3>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                            <path d="M8 1l1 3h3l-2 2 1 3-3-2-3 2 1-3-2-2h3l1-3z"/>
+                                        </svg>
+                                        Gameplay Effects
+                                    </h3>
+                                    <div id="modal-effects-content" class="effects-list"></div>
+                                </div>
+
+                                <!-- Buffs and Bonuses -->
+                                <div id="modal-buffs" class="stat-section" style="display: none;">
+                                    <h3>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                            <path d="M8 2l-1 1v3h2V3l-1-1zM5 6l-1 1 1 1h6l1-1-1-1H5z"/>
+                                        </svg>
+                                        Buffs & Bonuses
+                                    </h3>
+                                    <div id="modal-buffs-content" class="buffs-list"></div>
+                                </div>
+
+                                <!-- Common Misconceptions -->
+                                <div id="modal-misconceptions" class="stat-section misconceptions-section" style="display: none;">
+                                    <h3>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                            <path d="M8 1C4.1 1 1 4.1 1 8s3.1 7 7 7 7-3.1 7-7-3.1-7-7-7zm1 11H7v-2h2v2zm0-3H7V4h2v5z"/>
+                                        </svg>
+                                        Common Misconceptions
+                                    </h3>
+                                    <div id="modal-misconceptions-content" class="misconceptions-list"></div>
+                                </div>
+
+                                <!-- Related Stats -->
+                                <div id="modal-related" class="stat-section" style="display: none;">
+                                    <h3>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                            <path d="M8 3c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8c-1.7 0-3-1.3-3-3s1.3-3 3-3 3 1.3 3 3-1.3 3-3 3z"/>
+                                            <circle cx="3" cy="3" r="2"/>
+                                            <circle cx="13" cy="3" r="2"/>
+                                            <circle cx="3" cy="13" r="2"/>
+                                            <circle cx="13" cy="13" r="2"/>
+                                        </svg>
+                                        Related Stats
+                                    </h3>
+                                    <div id="modal-related-content" class="related-stats-list"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="statusbar">
+            <div class="status-left" id="stat-count">Loading stats...</div>
+            <div class="status-right" id="filter-status">Showing: All</div>
+        </footer>
+    </div>
+</body>
+</html>

@@ -16,6 +16,7 @@ A comprehensive desktop companion application for Stardew Valley built with Elec
 - **Equipment Database** - 62 Weapons, 18 Boots, 28 Rings with complete stats
 - **Multiple Categories** - Minerals (53), Artifacts (42), Fish (41), Forage (33), Equipment, Geodes
 - **Equipment Stats** - Damage, defense, immunity, special abilities for all gear
+- **Accurate Data** - Verified edibility values and item properties match official game data
 - **Source Information** - Know exactly where to find each item
 - **Monster Drops** - Complete list with drop rates and floor locations
 - **Filter by Source** - Browse by forage locations, fishing spots, mining areas, shops, monster drops
@@ -29,9 +30,10 @@ A comprehensive desktop companion application for Stardew Valley built with Elec
 
 ### 📅 Calendar & Events
 - **Festivals** - All seasonal festivals with dates and locations
-- **Birthdays** - Never miss a villager's birthday
+- **Birthdays** - Never miss a villager's birthday (click to view villager details)
 - **Event Details** - Times, requirements, and what to bring
 - **Filter by Season** - View events for specific seasons
+- **Smart State Memory** - Remembers your position (season, filters, search) across sessions
 
 ### 🔨 Crafting Guide
 - **Complete Recipe List** - All crafting and cooking recipes
@@ -201,13 +203,14 @@ All game data is sourced from the official [Stardew Valley Wiki](https://stardew
 
 ## Roadmap
 
-**Current Version (v0.7.0):**
+**Current Version (v0.9.0):**
 - [x] Villager gift tracker (34 villagers)
-- [x] Items browser (444 items)
+- [x] Items browser (444 items with verified data)
 - [x] Complete equipment database (62 weapons, 18 boots, 28 rings)
 - [x] Equipment stats and monster drops
 - [x] Shops browser
-- [x] Calendar & events
+- [x] Calendar & events with villager integration
+- [x] Calendar state persistence
 - [x] Crafting guide
 - [x] Notes system
 - [x] Daily tasks
@@ -243,4 +246,4 @@ MIT License - See LICENSE file for details
 
 ---
 
-**Status**: v0.7.0 - Complete equipment database with 444 items! ⚔️🎉
+**Status**: v0.9.0 - Enhanced UX with calendar integration & data accuracy improvements! 🎉

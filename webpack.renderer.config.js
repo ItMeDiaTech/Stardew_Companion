@@ -13,7 +13,8 @@ module.exports = {
     items: './src/renderer/items.ts',
     notes: './src/renderer/notes.ts',
     tasks: './src/renderer/tasks.ts',
-    'profit-calculator': './src/renderer/profit-calculator.ts'
+    'profit-calculator': './src/renderer/profit-calculator.ts',
+    stats: './src/renderer/stats.ts'
   },
   output: {
     path: path.resolve(__dirname, 'dist/renderer'),
@@ -96,6 +97,11 @@ module.exports = {
       template: './src/renderer/profit-calculator.html',
       filename: 'profit-calculator.html',
       chunks: ['profit-calculator']
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/renderer/stats.html',
+      filename: 'stats.html',
+      chunks: ['stats']
     }),
     new CopyWebpackPlugin({
       patterns: [
