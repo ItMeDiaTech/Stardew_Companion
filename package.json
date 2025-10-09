@@ -1,6 +1,6 @@
 {
   "name": "stardew-companion",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "description": "Stardew Valley Companion Application",
   "main": "dist/main/index.js",
   "author": "DiaTech",
@@ -60,7 +60,8 @@
     "win": {
       "target": [
         "nsis"
-      ]
+      ],
+      "artifactName": "Stardew-Companion-Setup-${version}.${ext}"
     },
     "mac": {
       "target": [
