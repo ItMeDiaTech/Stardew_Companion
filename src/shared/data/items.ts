@@ -1090,7 +1090,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'A clear crystal commonly found in caves and mines.',
     sellPrice: 25,
-    edibility: -50,
+    edibility: -300,
     miningLocations: ['The Mines (Any floor)', 'Skull Cavern', 'Quarry'],
     monsterDrops: [
       { monsterName: 'Dust Sprite', dropRate: 'Common' },
@@ -1105,7 +1105,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'A resinous substance found near the surface.',
     sellPrice: 50,
-    edibility: -50,
+    edibility: -300,
     miningLocations: ['The Mines (1-39)', 'Geodes'],
     monsterDrops: [
       { monsterName: 'Duggies', dropRate: 'Common', floors: '1-29' }
@@ -1119,7 +1119,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'A crystal fabled to be the frozen tears of a yeti.',
     sellPrice: 75,
-    edibility: -50,
+    edibility: -300,
     miningLocations: ['The Mines (40-79)', 'Geodes'],
     monsterDrops: [
       { monsterName: 'Dust Sprite', dropRate: 'Uncommon', floors: '40-79' }
@@ -1133,7 +1133,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'A glowing red crystal commonly found near hot lava.',
     sellPrice: 100,
-    edibility: -50,
+    edibility: -300,
     miningLocations: ['The Mines (80-120)', 'Magma Geodes'],
     monsterDrops: [
       { monsterName: 'Lava Lurk', dropRate: 'Common', floors: '80-120' }
@@ -1149,7 +1149,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'A precious stone with a brilliant green color.',
     sellPrice: 250,
-    edibility: -50,
+    edibility: -300,
     rarity: 'uncommon',
     miningLocations: ['The Mines', 'Skull Cavern', 'Gem Nodes'],
     shops: [
@@ -1164,7 +1164,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'A shimmery blue-green gem.',
     sellPrice: 180,
-    edibility: -50,
+    edibility: -300,
     rarity: 'uncommon',
     miningLocations: ['The Mines', 'Skull Cavern', 'Aquamarine Nodes'],
     giftInfo: { lovedBy: ['Clint'], likedBy: [] }
@@ -1175,7 +1175,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'A precious stone that is sought after for its rich color and beautiful luster.',
     sellPrice: 250,
-    edibility: -50,
+    edibility: -300,
     rarity: 'uncommon',
     miningLocations: ['The Mines', 'Skull Cavern', 'Ruby Nodes'],
     shops: [
@@ -1189,7 +1189,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'A purple variant of quartz.',
     sellPrice: 100,
-    edibility: -50,
+    edibility: -300,
     miningLocations: ['The Mines', 'Skull Cavern', 'Amethyst Nodes'],
     giftInfo: { lovedBy: ['Abigail', 'Emily'], likedBy: [] }
   },
@@ -1199,7 +1199,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'Fairly common but still prized for its beauty.',
     sellPrice: 80,
-    edibility: -50,
+    edibility: -300,
     miningLocations: ['The Mines', 'Skull Cavern', 'Topaz Nodes'],
     giftInfo: { lovedBy: [], likedBy: ['Jodi'] }
   },
@@ -1209,7 +1209,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'A pale green ornamental stone.',
     sellPrice: 200,
-    edibility: -50,
+    edibility: -300,
     rarity: 'uncommon',
     miningLocations: ['The Mines', 'Skull Cavern', 'Jade Nodes'],
     shops: [
@@ -1223,7 +1223,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'A rare and valuable gem.',
     sellPrice: 750,
-    edibility: -50,
+    edibility: -300,
     rarity: 'rare',
     miningLocations: ['The Mines (50-120)', 'Skull Cavern', 'Diamond Nodes'],
     monsterDrops: [
@@ -1237,7 +1237,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'A very rare and powerful substance with unknown origins.',
     sellPrice: 2000,
-    edibility: -50,
+    edibility: -300,
     rarity: 'legendary',
     miningLocations: ['Skull Cavern', 'The Mines (Mystic Stones)'],
     monsterDrops: [
@@ -1256,7 +1256,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'Its distinctive fluorescence makes it a favorite among rock collectors.',
     sellPrice: 150,
-    edibility: -50,
+    edibility: -300,
     miningLocations: ['Geodes'],
     giftInfo: { lovedBy: [], likedBy: [] }
   },
@@ -1266,7 +1266,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'A dark metallic mineral sought after for its cubic structure.',
     sellPrice: 300,
-    edibility: -50,
+    edibility: -300,
     miningLocations: ['Magma Geodes', 'Omni Geodes'],
     giftInfo: { lovedBy: [], likedBy: [] }
   },
@@ -1276,7 +1276,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'A popular ornamental stone, used in sculptures and to make green paint.',
     sellPrice: 100,
-    edibility: -50,
+    edibility: -300,
     miningLocations: ['Geodes', 'Omni Geodes'],
     giftInfo: { lovedBy: [], likedBy: [] }
   },
@@ -1286,7 +1286,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'A stripe of shimmering gold gives this gem a warm luster.',
     sellPrice: 275,
-    edibility: -50,
+    edibility: -300,
     miningLocations: ['Magma Geodes', 'Omni Geodes'],
     giftInfo: { lovedBy: [], likedBy: [] }
   },
@@ -1296,7 +1296,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'When polished, this stone becomes attractively luminous. Prized by ancient peoples for thousands of years.',
     sellPrice: 150,
-    edibility: -50,
+    edibility: -300,
     miningLocations: ['Magma Geodes', 'Omni Geodes'],
     giftInfo: { lovedBy: [], likedBy: [] }
   },
@@ -1306,7 +1306,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'Its internal structure causes it to reflect a rainbow of colors.',
     sellPrice: 150,
-    edibility: -50,
+    edibility: -300,
     miningLocations: ['Frozen Geodes', 'Omni Geodes'],
     giftInfo: { lovedBy: [], likedBy: [] }
   },
@@ -1316,7 +1316,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'A rare variety of opal, named for its red spots.',
     sellPrice: 350,
-    edibility: -50,
+    edibility: -300,
     miningLocations: ['Magma Geodes', 'Omni Geodes'],
     giftInfo: { lovedBy: [], likedBy: [] }
   },
@@ -1326,7 +1326,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'The best specimens resemble a desert rose.',
     sellPrice: 50,
-    edibility: -50,
+    edibility: -300,
     miningLocations: ['Magma Geodes', 'Omni Geodes'],
     giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
   },
@@ -1336,7 +1336,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'These crystals are curiously light.',
     sellPrice: 125,
-    edibility: -50,
+    edibility: -300,
     miningLocations: ['Frozen Geodes', 'Omni Geodes'],
     giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
   },
@@ -1346,7 +1346,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'This yellow crystal is speckled with shimmering nodules.',
     sellPrice: 75,
-    edibility: -50,
+    edibility: -300,
     miningLocations: ['Geodes', 'Omni Geodes'],
     giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
   },
@@ -1356,7 +1356,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'It can occur in coral reefs, often near an underwater volcano.',
     sellPrice: 300,
-    edibility: -50,
+    edibility: -300,
     miningLocations: ['Magma Geodes', 'Omni Geodes'],
     giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
   },
@@ -1366,7 +1366,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'The crystals glow bright green when stimulated.',
     sellPrice: 100,
-    edibility: -50,
+    edibility: -300,
     miningLocations: ['Frozen Geodes', 'Omni Geodes'],
     giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
   },
@@ -1376,7 +1376,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'Small amounts are found in human teeth.',
     sellPrice: 200,
-    edibility: -50,
+    edibility: -300,
     miningLocations: ['Frozen Geodes', 'Omni Geodes'],
     giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
   },
@@ -1386,7 +1386,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'Occurs in brilliant clusters.',
     sellPrice: 150,
-    edibility: -50,
+    edibility: -300,
     miningLocations: ['Frozen Geodes', 'Omni Geodes'],
     giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
   },
@@ -1396,7 +1396,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'It grows in a triangular column.',
     sellPrice: 450,
-    edibility: -50,
+    edibility: -300,
     miningLocations: ['Magma Geodes', 'Omni Geodes'],
     giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
   },
@@ -1406,7 +1406,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'The crystals are so tightly packed it almost looks fuzzy.',
     sellPrice: 150,
-    edibility: -50,
+    edibility: -300,
     miningLocations: ['Geodes', 'Omni Geodes'],
     giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
   },
@@ -1416,7 +1416,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'A high volume of tiny crystals makes it very glittery.',
     sellPrice: 115,
-    edibility: -50,
+    edibility: -300,
     miningLocations: ['Geodes', 'Omni Geodes'],
     giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
   },
@@ -1426,7 +1426,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'The geometric faces are as smooth as glass.',
     sellPrice: 250,
-    edibility: -50,
+    edibility: -300,
     miningLocations: ['Frozen Geodes', 'Omni Geodes'],
     giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
   },
@@ -1436,7 +1436,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'The cratered white orbs form a tight cluster.',
     sellPrice: 200,
-    edibility: -50,
+    edibility: -300,
     miningLocations: ['Frozen Geodes', 'Omni Geodes'],
     giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
   },
@@ -1446,7 +1446,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'A jet-black crystal that is unusually reflective.',
     sellPrice: 400,
-    edibility: -50,
+    edibility: -300,
     miningLocations: ['Magma Geodes', 'Omni Geodes'],
     monsterDrops: [
       { monsterName: 'Black Slime', dropRate: 'Uncommon' }
@@ -1459,7 +1459,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'Some claim the powdered crystal is a dwarvish delicacy.',
     sellPrice: 200,
-    edibility: -50,
+    edibility: -300,
     miningLocations: ['Magma Geodes', 'Omni Geodes'],
     giftInfo: { lovedBy: ['Dwarf'], likedBy: ['Wizard'] }
   },
@@ -1469,7 +1469,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'The delicate shards form a tiny pink meadow.',
     sellPrice: 80,
-    edibility: -50,
+    edibility: -300,
     miningLocations: ['Geodes', 'Omni Geodes'],
     giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
   },
@@ -1479,7 +1479,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'Despite its high toxicity, this mineral is widely used in manufacturing and folk medicine.',
     sellPrice: 80,
-    edibility: -50,
+    edibility: -300,
     miningLocations: ['Geodes', 'Omni Geodes'],
     giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
   },
@@ -1489,7 +1489,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'This little guy may be 100,000 years old.',
     sellPrice: 120,
-    edibility: -50,
+    edibility: -300,
     miningLocations: ['Geodes', 'Omni Geodes'],
     giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
   },
@@ -1499,7 +1499,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'According to legend, angry thunder spirits would throw these stones at one another.',
     sellPrice: 100,
-    edibility: -50,
+    edibility: -300,
     miningLocations: ['Geodes', 'Omni Geodes'],
     giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
   },
@@ -1509,7 +1509,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'Commonly known as "Fool\'s Gold".',
     sellPrice: 120,
-    edibility: -50,
+    edibility: -300,
     miningLocations: ['Frozen Geodes', 'Omni Geodes'],
     giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
   },
@@ -1519,7 +1519,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'An old legend claims these stones are the mosaics of ancient mermaids.',
     sellPrice: 220,
-    edibility: -50,
+    edibility: -300,
     miningLocations: ['Frozen Geodes', 'Omni Geodes'],
     giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
   },
@@ -1529,7 +1529,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'There is an aura of coldness around this crystal.',
     sellPrice: 200,
-    edibility: -50,
+    edibility: -300,
     miningLocations: ['Frozen Geodes', 'Omni Geodes'],
     giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
   },
@@ -1539,7 +1539,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'Some early life forms had bones made from this.',
     sellPrice: 125,
-    edibility: -50,
+    edibility: -300,
     miningLocations: ['Geodes', 'Omni Geodes'],
     giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
   },
@@ -1549,7 +1549,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'A very popular material for sculptures and construction.',
     sellPrice: 110,
-    edibility: -50,
+    edibility: -300,
     miningLocations: ['Frozen Geodes', 'Omni Geodes'],
     craftingRecipe: 'marble_brazier',
     giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
@@ -1560,7 +1560,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'A common type of stone with red and brown striations.',
     sellPrice: 60,
-    edibility: -50,
+    edibility: -300,
     miningLocations: ['Geodes', 'Omni Geodes'],
     giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
   },
@@ -1570,7 +1570,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'A speckled mineral that is commonly used in construction.',
     sellPrice: 75,
-    edibility: -50,
+    edibility: -300,
     miningLocations: ['Geodes', 'Omni Geodes'],
     giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
   },
@@ -1580,7 +1580,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'Forms near searing hot magma.',
     sellPrice: 175,
-    edibility: -50,
+    edibility: -300,
     miningLocations: ['Magma Geodes', 'Omni Geodes'],
     giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
   },
@@ -1590,7 +1590,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'A very common type of stone. It\'s not worth very much.',
     sellPrice: 15,
-    edibility: -50,
+    edibility: -300,
     miningLocations: ['Geodes', 'Omni Geodes'],
     giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
   },
@@ -1600,7 +1600,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'Because of its relatively soft consistency, this stone is very popular for carving.',
     sellPrice: 120,
-    edibility: -50,
+    edibility: -300,
     miningLocations: ['Frozen Geodes', 'Omni Geodes'],
     giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
   },
@@ -1610,7 +1610,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'An iron-based mineral with interesting magnetic properties.',
     sellPrice: 150,
-    edibility: -50,
+    edibility: -300,
     miningLocations: ['Frozen Geodes', 'Omni Geodes'],
     giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
   },
@@ -1620,7 +1620,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'A fine-grained rock made from ancient clay or mud.',
     sellPrice: 25,
-    edibility: -50,
+    edibility: -300,
     miningLocations: ['Geodes', 'Omni Geodes'],
     giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
   },
@@ -1630,7 +1630,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'A volcanic glass that forms when lava cools rapidly.',
     sellPrice: 200,
-    edibility: -50,
+    edibility: -300,
     miningLocations: ['Magma Geodes', 'Omni Geodes'],
     giftInfo: { lovedBy: ['Sebastian'], likedBy: ['Wizard'] }
   },
@@ -1640,7 +1640,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'It\'s extremely resistant to water, making it a good roofing material.',
     sellPrice: 85,
-    edibility: -50,
+    edibility: -300,
     miningLocations: ['Geodes', 'Omni Geodes'],
     giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
   },
@@ -1650,7 +1650,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'An old miner\'s song suggests these are made from the bones of ancient fairies.',
     sellPrice: 250,
-    edibility: -50,
+    edibility: -300,
     miningLocations: ['Frozen Geodes', 'Omni Geodes'],
     giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
   },
@@ -1660,7 +1660,7 @@ export const ITEMS: Item[] = [
     category: 'minerals',
     description: 'No one knows how these form. Some scientists claim that the microscopic structure displays unnatural regularity.',
     sellPrice: 500,
-    edibility: -50,
+    edibility: -300,
     miningLocations: ['Magma Geodes', 'Omni Geodes'],
     giftInfo: { lovedBy: [], likedBy: ['Wizard'] }
   },

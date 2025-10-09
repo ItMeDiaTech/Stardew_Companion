@@ -11,6 +11,15 @@ declare global {
 
 const { electronAPI } = window;
 
+// Calendar state persistence
+interface CalendarState {
+  season: Season;
+  eventType: EventType | 'all';
+  searchFilter: string;
+}
+
+const CALENDAR_STATE_KEY = 'stardew-companion-calendar-state';
+
 // DOM Elements
 const searchInput = document.getElementById('search-input') as HTMLInputElement;
 const calendarGrid = document.getElementById('calendar-grid') as HTMLElement;
@@ -40,6 +49,8 @@ const modalEventType = document.getElementById('modal-event-type') as HTMLElemen
 const modalEventDescription = document.getElementById('modal-event-description') as HTMLElement;
 const modalEventTimeContainer = document.getElementById('modal-event-time-container') as HTMLElement;
 const modalEventLocationContainer = document.getElementById('modal-event-location-container') as HTMLElement;
+const villagerActionContainer = document.getElementById('villager-action-container') as HTMLElement;
+const viewVillagerBtn = document.getElementById('view-villager-btn') as HTMLButtonElement;
 
 // State
 let currentSeason: Season = 'Spring';
@@ -49,6 +60,7 @@ let currentFilter = '';
 // Initialize
 function init() {
   setupWindowControls();
+  loadCalendarState();
   setupEventListeners();
   renderCalendar();
   updateEventCount();
@@ -60,6 +72,59 @@ function setupWindowControls() {
   closeBtn.addEventListener('click', () => electronAPI.closeWindow());
 }
 
+function saveCalendarState() {
+  const state: CalendarState = {
+    season: currentSeason,
+    eventType: currentEventType,
+    searchFilter: currentFilter
+  };
+  localStorage.setItem(CALENDAR_STATE_KEY, JSON.stringify(state));
+}
+
+function loadCalendarState() {
+  try {
+    const savedState = localStorage.getItem(CALENDAR_STATE_KEY);
+    if (savedState) {
+      const state: CalendarState = JSON.parse(savedState);
+
+      // Apply saved state
+      currentSeason = state.season;
+      currentEventType = state.eventType;
+      currentFilter = state.searchFilter;
+
+      // Update UI to match loaded state
+      // Set active season tab
+      seasonTabs.forEach(tab => {
+        if (tab.getAttribute('data-season') === currentSeason) {
+          tab.classList.add('active');
+        } else {
+          tab.classList.remove('active');
+        }
+      });
+
+      // Set active event filter
+      eventFilters.forEach(filter => {
+        if (filter.getAttribute('data-type') === currentEventType) {
+          filter.classList.add('active');
+        } else {
+          filter.classList.remove('active');
+        }
+      });
+
+      // Set search input value
+      if (searchInput) {
+        searchInput.value = currentFilter;
+      }
+
+      // Update season info
+      updateSeasonInfo();
+    }
+  } catch (error) {
+    console.error('Failed to load calendar state:', error);
+    // If loading fails, just use defaults
+  }
+}
+
 function setupEventListeners() {
   // Season tabs
   seasonTabs.forEach(tab => {
@@ -69,6 +134,7 @@ function setupEventListeners() {
       currentSeason = tab.getAttribute('data-season') as Season;
       renderCalendar();
       updateSeasonInfo();
+      saveCalendarState();
     });
   });
 
@@ -79,6 +145,7 @@ function setupEventListeners() {
       filter.classList.add('active');
       currentEventType = filter.getAttribute('data-type') as EventType | 'all';
       renderCalendar();
+      saveCalendarState();
     });
   });
 
@@ -86,6 +153,7 @@ function setupEventListeners() {
   searchInput.addEventListener('input', (e) => {
     currentFilter = (e.target as HTMLInputElement).value;
     renderCalendar();
+    saveCalendarState();
   });
 
   // Modal close
@@ -216,6 +284,22 @@ function openEventModal(event: CalendarEvent) {
 
   modalEventType.textContent = formatEventType(event.type);
   modalEventDescription.textContent = event.description || 'No description available.';
+
+  // Show "View Villager Details" button for birthday events
+  if (event.type === 'birthday' && event.villagerRef) {
+    villagerActionContainer.style.display = 'block';
+
+    // Remove any existing click listeners
+    const newBtn = viewVillagerBtn.cloneNode(true) as HTMLButtonElement;
+    viewVillagerBtn.parentNode?.replaceChild(newBtn, viewVillagerBtn);
+
+    // Add click handler to navigate to villagers page
+    newBtn.addEventListener('click', () => {
+      window.location.href = `villagers.html?villager=${event.villagerRef}`;
+    });
+  } else {
+    villagerActionContainer.style.display = 'none';
+  }
 
   eventModal.style.display = 'flex';
 }

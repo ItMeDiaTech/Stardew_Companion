@@ -179,7 +179,8 @@ export function getBirthdayEvents(): CalendarEvent[] {
     type: 'birthday' as const,
     season: villager.birthday.season,
     day: villager.birthday.day,
-    description: `Give ${villager.name} a gift for extra friendship points! (Birthday gifts are worth 8x normal friendship.)`
+    description: `Give ${villager.name} a gift for extra friendship points! (Birthday gifts are worth 8x normal friendship.)`,
+    villagerRef: villager.id
   }));
 }
 

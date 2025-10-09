@@ -473,3 +473,36 @@
         flex-direction: column;
     }
 }
+
+/* Villager Action Container */
+.villager-action-container {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid #3e3e42;
+}
+
+.view-villager-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background-color: #007acc;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    width: 100%;
+    justify-content: center;
+}
+
+.view-villager-btn:hover {
+    background-color: #005a9e;
+}
+
+.view-villager-btn svg {
+    width: 16px;
+    height: 16px;
+}

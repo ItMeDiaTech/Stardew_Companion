@@ -217,7 +217,7 @@ function openItemModal(item: Item) {
   modalSellPriceValue.textContent = `${item.sellPrice}g`;
 
   // Edibility
-  if (item.edibility !== undefined && item.edibility !== -300) {
+  if (item.edibility !== undefined && item.edibility > 0) {
     modalEdibility.style.display = 'flex';
     const energy = item.edibility;
     const health = Math.floor(energy * 0.45);

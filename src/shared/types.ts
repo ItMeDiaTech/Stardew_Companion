@@ -246,6 +246,7 @@ export interface CalendarEvent {
   location?: string;
   description?: string;
   year?: number;           // For events that only happen in certain years
+  villagerRef?: string;    // Reference to villager ID (for birthday events)
 }
 
 /**

@@ -38,6 +38,7 @@ function init() {
   setupFilterButtons();
   setupSearch();
   setupModal();
+  checkUrlParams();
 }
 
 function setupWindowControls() {
@@ -493,6 +494,24 @@ function setupUniversalGiftsTooltip() {
       hideUniversalGiftsTooltip();
     }
   });
+}
+
+/**
+ * Check URL parameters and auto-open villager modal if villager param is present
+ */
+function checkUrlParams() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const villagerId = urlParams.get('villager');
+
+  if (villagerId) {
+    // Find the villager by ID
+    const villager = VILLAGERS.find(v => v.id === villagerId);
+
+    if (villager) {
+      // Auto-open the villager modal
+      showVillagerDetail(villager);
+    }
+  }
 }
 
 // Initialize the app
