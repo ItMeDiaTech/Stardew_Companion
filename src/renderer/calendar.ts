@@ -2,6 +2,7 @@ import './calendar.css';
 import { ElectronAPI } from '@preload/index';
 import { CalendarEvent, Season, EventType } from '@shared/types';
 import { getAllCalendarEvents, getEventsBySeason, getEventsForDay } from '@shared/data/calendar';
+import { setupSidebar, setupWindowControls } from './sidebar';
 
 declare global {
   interface Window {
@@ -25,11 +26,6 @@ const searchInput = document.getElementById('search-input') as HTMLInputElement;
 const calendarGrid = document.getElementById('calendar-grid') as HTMLElement;
 const eventCountEl = document.getElementById('event-count') as HTMLElement;
 const seasonInfoEl = document.getElementById('season-info') as HTMLElement;
-
-// Window controls
-const minimizeBtn = document.getElementById('minimize-btn') as HTMLButtonElement;
-const maximizeBtn = document.getElementById('maximize-btn') as HTMLButtonElement;
-const closeBtn = document.getElementById('close-btn') as HTMLButtonElement;
 
 // Season tabs
 const seasonTabs = document.querySelectorAll('.season-tab');
@@ -59,17 +55,12 @@ let currentFilter = '';
 
 // Initialize
 function init() {
+  setupSidebar();
   setupWindowControls();
   loadCalendarState();
   setupEventListeners();
   renderCalendar();
   updateEventCount();
-}
-
-function setupWindowControls() {
-  minimizeBtn.addEventListener('click', () => electronAPI.minimizeWindow());
-  maximizeBtn.addEventListener('click', () => electronAPI.maximizeWindow());
-  closeBtn.addEventListener('click', () => electronAPI.closeWindow());
 }
 
 function saveCalendarState() {

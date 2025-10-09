@@ -2,6 +2,7 @@ import './stats.css';
 import { ElectronAPI } from '@preload/index';
 import { Stat, StatCategory } from '@shared/types';
 import { STATS, getAllStats, getStatsByCategory, searchStats, getLevelableStats, getStatsWithMisconceptions, getStatById } from '@shared/data/stats';
+import { setupSidebar, setupWindowControls } from './sidebar';
 
 declare global {
   interface Window {
@@ -19,11 +20,6 @@ const misconceptionsOnlyCheckbox = document.getElementById('misconceptions-only'
 const statsGrid = document.getElementById('stats-grid') as HTMLElement;
 const statCountEl = document.getElementById('stat-count') as HTMLElement;
 const filterStatusEl = document.getElementById('filter-status') as HTMLElement;
-
-// Window controls
-const minimizeBtn = document.getElementById('minimize-btn') as HTMLButtonElement;
-const maximizeBtn = document.getElementById('maximize-btn') as HTMLButtonElement;
-const closeBtn = document.getElementById('close-btn') as HTMLButtonElement;
 
 // Stat Modal elements
 const statModal = document.getElementById('stat-modal') as HTMLElement;
@@ -58,16 +54,11 @@ let misconceptionsOnly = false;
 
 // Initialize
 function init() {
+  setupSidebar();
   setupWindowControls();
   setupEventListeners();
   displayStats(STATS);
   updateStatCount();
-}
-
-function setupWindowControls() {
-  minimizeBtn.addEventListener('click', () => electronAPI.minimizeWindow());
-  maximizeBtn.addEventListener('click', () => electronAPI.maximizeWindow());
-  closeBtn.addEventListener('click', () => electronAPI.closeWindow());
 }
 
 function setupEventListeners() {

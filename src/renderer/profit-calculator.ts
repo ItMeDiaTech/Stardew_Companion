@@ -2,6 +2,7 @@ import './profit-calculator.css';
 import { ElectronAPI } from '@preload/index';
 import { Season, CropQuality, FarmingProfession, ArtisanProfession, ProcessingType, Crop, CropCalculation, CalculatorParams } from '@shared/types';
 import { CROPS, getCropsBySeason } from '@shared/data/crops';
+import { setupSidebar, setupWindowControls } from './sidebar';
 
 declare global {
   interface Window {
@@ -35,11 +36,6 @@ const bestRoi = document.getElementById('best-roi') as HTMLElement;
 const bestCropRoi = document.getElementById('best-crop-roi') as HTMLElement;
 const plantableCount = document.getElementById('plantable-count') as HTMLElement;
 
-// Window controls
-const minimizeBtn = document.getElementById('minimize-btn') as HTMLButtonElement;
-const maximizeBtn = document.getElementById('maximize-btn') as HTMLButtonElement;
-const closeBtn = document.getElementById('close-btn') as HTMLButtonElement;
-
 // State
 let calculations: CropCalculation[] = [];
 let filteredCalculations: CropCalculation[] = [];
@@ -47,14 +43,9 @@ let currentParams: CalculatorParams;
 
 // Initialize
 function init() {
+  setupSidebar();
   setupWindowControls();
   setupEventListeners();
-}
-
-function setupWindowControls() {
-  minimizeBtn?.addEventListener('click', () => electronAPI.minimizeWindow());
-  maximizeBtn?.addEventListener('click', () => electronAPI.maximizeWindow());
-  closeBtn?.addEventListener('click', () => electronAPI.closeWindow());
 }
 
 function setupEventListeners() {

@@ -18,7 +18,11 @@
       "Bash(git push:*)",
       "Bash(git tag:*)",
       "Bash(npm install)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(timeout:*)",
+      "WebFetch(domain:mobbin.com)",
+      "WebFetch(domain:www.justinmind.com)",
+      "Bash(git log:*)"
     ],
     "deny": [],
     "ask": []

@@ -2,6 +2,7 @@ import './shops.css';
 import { ElectronAPI } from '@preload/index';
 import { Shop, ShopItem, ShopItemCategory } from '@shared/types';
 import { SHOPS } from '@shared/data/shops';
+import { setupSidebar, setupWindowControls } from './sidebar';
 
 declare global {
   interface Window {
@@ -16,11 +17,6 @@ const searchInput = document.getElementById('search-input') as HTMLInputElement;
 const shopsGrid = document.getElementById('shops-grid') as HTMLElement;
 const shopCountEl = document.getElementById('shop-count') as HTMLElement;
 const filterStatusEl = document.getElementById('filter-status') as HTMLElement;
-
-// Window controls
-const minimizeBtn = document.getElementById('minimize-btn') as HTMLButtonElement;
-const maximizeBtn = document.getElementById('maximize-btn') as HTMLButtonElement;
-const closeBtn = document.getElementById('close-btn') as HTMLButtonElement;
 
 // Modal elements
 const shopModal = document.getElementById('shop-modal') as HTMLElement;
@@ -46,16 +42,11 @@ let currentCategory: ShopItemCategory | 'all' = 'all';
 
 // Initialize
 function init() {
+  setupSidebar();
   setupWindowControls();
   displayShops(SHOPS);
   setupEventListeners();
   updateShopCount();
-}
-
-function setupWindowControls() {
-  minimizeBtn.addEventListener('click', () => electronAPI.minimizeWindow());
-  maximizeBtn.addEventListener('click', () => electronAPI.maximizeWindow());
-  closeBtn.addEventListener('click', () => electronAPI.closeWindow());
 }
 
 function setupEventListeners() {

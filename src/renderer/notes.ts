@@ -1,6 +1,7 @@
 import './notes.css';
 import { ElectronAPI } from '@preload/index';
 import { Note } from '@shared/types';
+import { setupSidebar, setupWindowControls } from './sidebar';
 
 declare global {
   interface Window {
@@ -23,11 +24,6 @@ const noteMetaEl = document.getElementById('note-meta') as HTMLElement;
 const saveStatusEl = document.getElementById('save-status') as HTMLElement;
 const noteCountEl = document.getElementById('note-count') as HTMLElement;
 
-// Window controls
-const minimizeBtn = document.getElementById('minimize-btn') as HTMLButtonElement;
-const maximizeBtn = document.getElementById('maximize-btn') as HTMLButtonElement;
-const closeBtn = document.getElementById('close-btn') as HTMLButtonElement;
-
 // State
 let notes: Note[] = [];
 let currentNote: Note | null = null;
@@ -36,15 +32,10 @@ let saveTimeout: NodeJS.Timeout | null = null;
 
 // Initialize
 async function init() {
+  setupSidebar();
   setupWindowControls();
   await loadNotes();
   setupEventListeners();
-}
-
-function setupWindowControls() {
-  minimizeBtn?.addEventListener('click', () => electronAPI.minimizeWindow());
-  maximizeBtn?.addEventListener('click', () => electronAPI.maximizeWindow());
-  closeBtn?.addEventListener('click', () => electronAPI.closeWindow());
 }
 
 async function loadNotes() {

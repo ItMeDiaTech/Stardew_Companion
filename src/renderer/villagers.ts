@@ -3,6 +3,7 @@ import { ElectronAPI } from '@preload/index';
 import { Villager, VillagerGender } from '@shared/types';
 import { VILLAGERS, getBachelors, getBachelorettes, getOtherVillagers } from '@shared/data/villagers';
 import { getUniversalGiftCategory, isUniversalGift } from '@shared/data/universalGifts';
+import { setupSidebar, setupWindowControls } from './sidebar';
 
 // Extend the Window interface
 declare global {
@@ -21,11 +22,6 @@ const filterStatus = document.getElementById('filter-status') as HTMLElement;
 const modal = document.getElementById('villager-modal') as HTMLElement;
 const modalClose = document.getElementById('modal-close-btn') as HTMLElement;
 
-// Window controls
-const minimizeBtn = document.getElementById('minimize-btn') as HTMLButtonElement;
-const maximizeBtn = document.getElementById('maximize-btn') as HTMLButtonElement;
-const closeBtn = document.getElementById('close-btn') as HTMLButtonElement;
-
 // State
 let currentFilter: 'all' | 'male' | 'female' | 'marriageable' | 'other' = 'all';
 let currentSearchTerm = '';
@@ -33,26 +29,13 @@ let displayedVillagers: Villager[] = VILLAGERS;
 
 // Initialize
 function init() {
+  setupSidebar();
   setupWindowControls();
   renderVillagers();
   setupFilterButtons();
   setupSearch();
   setupModal();
   checkUrlParams();
-}
-
-function setupWindowControls() {
-  minimizeBtn?.addEventListener('click', () => {
-    electronAPI.minimizeWindow();
-  });
-
-  maximizeBtn?.addEventListener('click', () => {
-    electronAPI.maximizeWindow();
-  });
-
-  closeBtn?.addEventListener('click', () => {
-    electronAPI.closeWindow();
-  });
 }
 
 function renderVillagers() {

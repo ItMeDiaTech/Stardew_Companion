@@ -3,6 +3,7 @@ import { ElectronAPI } from '@preload/index';
 import { CraftingRecipe, MaterialSource, CraftingCategory, UnlockMethod } from '@shared/types';
 import { CRAFTING_RECIPES, getRecipesByCategory, getRecipesByMaterial } from '@shared/data/crafting';
 import { MATERIALS, getMaterialById } from '@shared/data/materials';
+import { setupSidebar, setupWindowControls } from './sidebar';
 
 declare global {
   interface Window {
@@ -19,11 +20,6 @@ const unlockFilter = document.getElementById('unlock-filter') as HTMLSelectEleme
 const recipesGrid = document.getElementById('recipes-grid') as HTMLElement;
 const recipeCountEl = document.getElementById('recipe-count') as HTMLElement;
 const filterStatusEl = document.getElementById('filter-status') as HTMLElement;
-
-// Window controls
-const minimizeBtn = document.getElementById('minimize-btn') as HTMLButtonElement;
-const maximizeBtn = document.getElementById('maximize-btn') as HTMLButtonElement;
-const closeBtn = document.getElementById('close-btn') as HTMLButtonElement;
 
 // Recipe Modal elements
 const recipeModal = document.getElementById('recipe-modal') as HTMLElement;
@@ -65,16 +61,11 @@ let currentUnlockMethod: UnlockMethod | 'all' = 'all';
 
 // Initialize
 function init() {
+  setupSidebar();
   setupWindowControls();
   setupEventListeners();
   displayRecipes(CRAFTING_RECIPES);
   updateRecipeCount();
-}
-
-function setupWindowControls() {
-  minimizeBtn.addEventListener('click', () => electronAPI.minimizeWindow());
-  maximizeBtn.addEventListener('click', () => electronAPI.maximizeWindow());
-  closeBtn.addEventListener('click', () => electronAPI.closeWindow());
 }
 
 function setupEventListeners() {

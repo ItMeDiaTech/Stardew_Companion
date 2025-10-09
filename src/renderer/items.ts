@@ -2,6 +2,7 @@ import './items.css';
 import { ElectronAPI } from '@preload/index';
 import { Item, ItemCategory, Season } from '@shared/types';
 import { ITEMS, getItemsByCategory, getItemsBySeason, getItemsBySource, searchItems } from '@shared/data/items';
+import { setupSidebar, setupWindowControls } from './sidebar';
 
 declare global {
   interface Window {
@@ -19,11 +20,6 @@ const seasonFilter = document.getElementById('season-filter') as HTMLSelectEleme
 const itemsGrid = document.getElementById('items-grid') as HTMLElement;
 const itemCountEl = document.getElementById('item-count') as HTMLElement;
 const filterStatusEl = document.getElementById('filter-status') as HTMLElement;
-
-// Window controls
-const minimizeBtn = document.getElementById('minimize-btn') as HTMLButtonElement;
-const maximizeBtn = document.getElementById('maximize-btn') as HTMLButtonElement;
-const closeBtn = document.getElementById('close-btn') as HTMLButtonElement;
 
 // Item Modal elements
 const itemModal = document.getElementById('item-modal') as HTMLElement;
@@ -71,16 +67,11 @@ let currentSeason: Season | 'all' = 'all';
 
 // Initialize
 function init() {
+  setupSidebar();
   setupWindowControls();
   setupEventListeners();
   displayItems(ITEMS);
   updateItemCount();
-}
-
-function setupWindowControls() {
-  minimizeBtn.addEventListener('click', () => electronAPI.minimizeWindow());
-  maximizeBtn.addEventListener('click', () => electronAPI.maximizeWindow());
-  closeBtn.addEventListener('click', () => electronAPI.closeWindow());
 }
 
 function setupEventListeners() {

@@ -1,6 +1,7 @@
 import './tasks.css';
 import { ElectronAPI } from '@preload/index';
 import { DailyTask } from '@shared/types';
+import { setupSidebar, setupWindowControls } from './sidebar';
 
 declare global {
   interface Window {
@@ -20,25 +21,15 @@ const progressPercentage = document.getElementById('progress-percentage') as HTM
 const progressBar = document.getElementById('progress-bar') as HTMLElement;
 const taskCountEl = document.getElementById('task-count') as HTMLElement;
 
-// Window controls
-const minimizeBtn = document.getElementById('minimize-btn') as HTMLButtonElement;
-const maximizeBtn = document.getElementById('maximize-btn') as HTMLButtonElement;
-const closeBtn = document.getElementById('close-btn') as HTMLButtonElement;
-
 // State
 let tasks: DailyTask[] = [];
 
 // Initialize
 async function init() {
+  setupSidebar();
   setupWindowControls();
   await loadTasks();
   setupEventListeners();
-}
-
-function setupWindowControls() {
-  minimizeBtn?.addEventListener('click', () => electronAPI.minimizeWindow());
-  maximizeBtn?.addEventListener('click', () => electronAPI.maximizeWindow());
-  closeBtn?.addEventListener('click', () => electronAPI.closeWindow());
 }
 
 async function loadTasks() {

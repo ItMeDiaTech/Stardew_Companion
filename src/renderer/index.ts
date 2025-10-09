@@ -18,6 +18,11 @@ const platformInfoEl = document.getElementById('platform-info') as HTMLElement;
 const checkUpdatesBtn = document.getElementById('check-updates-btn') as HTMLButtonElement;
 const updateStatusEl = document.getElementById('update-status') as HTMLElement;
 
+// Sidebar elements
+const sidebar = document.querySelector('.sidebar') as HTMLElement;
+const sidebarToggle = document.getElementById('sidebar-toggle') as HTMLButtonElement;
+const sidebarVersion = document.getElementById('sidebar-version') as HTMLElement;
+
 // Window control buttons
 const minimizeBtn = document.getElementById('minimize-btn') as HTMLButtonElement;
 const maximizeBtn = document.getElementById('maximize-btn') as HTMLButtonElement;
@@ -28,6 +33,7 @@ async function init() {
   const appInfo = await electronAPI.getAppInfo();
   displayAppInfo(appInfo);
   setupWindowControls();
+  setupSidebar();
   setupUpdateListeners();
 }
 
@@ -44,6 +50,11 @@ function displayAppInfo(info: AppInfo) {
 
   // Update platform info in statusbar
   platformInfoEl.textContent = `${info.platform} | v${info.version}`;
+
+  // Update sidebar version
+  if (sidebarVersion) {
+    sidebarVersion.textContent = `v${info.version}`;
+  }
 }
 
 function setupWindowControls() {
@@ -57,6 +68,23 @@ function setupWindowControls() {
 
   closeBtn.addEventListener('click', () => {
     electronAPI.closeWindow();
+  });
+}
+
+function setupSidebar() {
+  if (!sidebar || !sidebarToggle) return;
+
+  // Load saved sidebar state
+  const sidebarCollapsed = localStorage.getItem('sidebarCollapsed') === 'true';
+  if (sidebarCollapsed) {
+    sidebar.classList.add('collapsed');
+  }
+
+  // Toggle sidebar on button click
+  sidebarToggle.addEventListener('click', () => {
+    sidebar.classList.toggle('collapsed');
+    const isCollapsed = sidebar.classList.contains('collapsed');
+    localStorage.setItem('sidebarCollapsed', isCollapsed.toString());
   });
 }
 
