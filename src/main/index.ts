@@ -14,6 +14,7 @@ function createWindow(): void {
     minWidth: 800,
     minHeight: 600,
     frame: false, // Remove default menu bar for sleek look
+    backgroundColor: '#1e1e1e', // Prevent white flash on load/navigation
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true,
