@@ -17,7 +17,8 @@ module.exports = {
     notes: './src/renderer/notes.ts',
     tasks: './src/renderer/tasks.ts',
     'profit-calculator': './src/renderer/profit-calculator.ts',
-    stats: './src/renderer/stats.ts'
+    stats: './src/renderer/stats.ts',
+    'gift-lookup': './src/renderer/gift-lookup.ts'
   },
   output: {
     path: path.resolve(__dirname, 'dist/renderer'),
@@ -118,6 +119,11 @@ module.exports = {
       template: './src/renderer/stats.html',
       filename: 'stats.html',
       chunks: ['stats']
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/renderer/gift-lookup.html',
+      filename: 'gift-lookup.html',
+      chunks: ['gift-lookup']
     }),
     new CopyWebpackPlugin({
       patterns: [

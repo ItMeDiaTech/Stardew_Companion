@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline';">
-    <title>Stats Guide - Stardew Companion</title>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'">
+    <title>Stardew Companion - Gift Lookup</title>
     <style>html, body { background-color: #1e1e1e; }</style>
 </head>
 <body>
     <div id="app">
         <header class="titlebar">
             <div class="titlebar-drag-region">
-                <div class="app-title">Stardew Companion - Stats Guide</div>
+                <div class="app-title">Stardew Companion</div>
+                <div class="app-version" id="app-version"></div>
             </div>
             <div class="window-controls">
                 <button class="window-button" id="minimize-btn" aria-label="Minimize">
@@ -33,6 +34,7 @@
         </header>
 
         <div id="main-container">
+            <!-- Vertical Sidebar Navigation -->
             <aside class="sidebar">
                 <div class="sidebar-header">
                     <span class="sidebar-logo">Stardew Companion</span>
@@ -98,7 +100,7 @@
                             </svg>
                             <span class="nav-link-text">Cooking</span>
                         </a>
-                        <a href="stats.html" class="nav-link active" data-tooltip="Stats Guide">
+                        <a href="stats.html" class="nav-link" data-tooltip="Stats Guide">
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
                                 <path d="M2 14V2h2v12H2zm4 0V6h2v8H6zm4 0V4h2v10h-2zm4 0V8h2v6h-2z"/>
                             </svg>
@@ -114,7 +116,7 @@
                             </svg>
                             <span class="nav-link-text">Profit Calculator</span>
                         </a>
-                        <a href="gift-lookup.html" class="nav-link" data-tooltip="Gift Lookup">
+                        <a href="gift-lookup.html" class="nav-link active" data-tooltip="Gift Lookup">
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
                                 <path d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
                             </svg>
@@ -147,155 +149,68 @@
                 </div>
             </aside>
 
-        <main class="content">
-            <div class="stats-container">
-                <div class="stats-header">
-                    <h1>Stardew Valley Stats Guide</h1>
-                    <p>Complete guide to all stats, skills, and their effects on gameplay</p>
-                </div>
-
-                <div class="stats-controls">
-                    <div class="search-box">
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                            <path d="M11.7 10.3c.9-1.2 1.4-2.7 1.4-4.3 0-3.9-3.1-7-7-7s-7 3.1-7 7 3.1 7 7 7c1.6 0 3.1-.5 4.3-1.4l4.3 4.3 1.4-1.4-4.4-4.2zM6 11c-2.8 0-5-2.2-5-5s2.2-5 5-5 5 2.2 5 5-2.2 5-5 5z"/>
-                        </svg>
-                        <input type="text" id="search-input" placeholder="Search stats..." />
+            <main class="content">
+                <div class="gift-lookup-container">
+                    <div class="gift-lookup-header">
+                        <h1>Gift Lookup</h1>
+                        <p>Search for an item to see how each villager feels about it as a gift</p>
                     </div>
 
-                    <div class="filters-row">
-                        <select id="category-filter" class="filter-select">
-                            <option value="all">All Categories</option>
-                            <option value="skill">Skills (Levelable)</option>
-                            <option value="combat">Combat Stats</option>
-                            <option value="attribute">Attributes</option>
-                            <option value="special">Special Stats</option>
-                        </select>
+                    <!-- Controls Row: Search + Legend -->
+                    <div class="gift-lookup-controls">
+                        <!-- Item Search with Autocomplete + Dropdown -->
+                        <div class="item-search-section">
+                            <label for="item-search">Search for an Item</label>
+                            <div class="item-search-container">
+                                <input type="text" id="item-search" class="item-search-input" placeholder="Type to search or select below..." autocomplete="off">
+                                <div id="item-suggestions" class="item-suggestions"></div>
+                            </div>
+                            <select id="item-select" class="item-select">
+                                <option value="">-- Or browse all items --</option>
+                            </select>
+                            <div id="selected-item" class="selected-item"></div>
+                        </div>
 
-                        <label class="checkbox-label">
-                            <input type="checkbox" id="levelable-only" />
-                            Levelable Only
-                        </label>
-
-                        <label class="checkbox-label">
-                            <input type="checkbox" id="misconceptions-only" />
-                            Has Misconceptions
-                        </label>
+                        <!-- Color Legend -->
+                        <div class="color-legend">
+                            <div class="legend-item love"><span class="legend-dot"></span>Love +80</div>
+                            <div class="legend-item like"><span class="legend-dot"></span>Like +45</div>
+                            <div class="legend-item neutral"><span class="legend-dot"></span>Neutral +20</div>
+                            <div class="legend-item dislike"><span class="legend-dot"></span>Dislike -20</div>
+                            <div class="legend-item hate"><span class="legend-dot"></span>Hate -40</div>
+                        </div>
                     </div>
-                </div>
 
-                <div id="stats-grid" class="stats-grid">
-                    <!-- Stat cards will be inserted here by JavaScript -->
-                </div>
+                    <!-- Villager Grid -->
+                    <div id="villager-grid" class="villager-grid">
+                        <!-- Populated by JS: mini portraits with colored rings -->
+                    </div>
 
-                <!-- Stat Detail Modal -->
-                <div id="stat-modal" class="modal" style="display: none;">
-                    <div class="modal-content stat-modal-content">
-                        <div class="modal-header">
-                            <div>
-                                <h2 id="modal-stat-name"></h2>
-                                <div class="modal-badges">
-                                    <span id="modal-stat-category" class="stat-category-badge"></span>
-                                    <span id="modal-stat-levelable" class="stat-levelable-badge" style="display: none;"></span>
+                    <!-- Result Card (shown on villager click) -->
+                    <div id="result-container" class="result-container" style="display: none;">
+                        <div class="result-card">
+                            <div class="result-header">
+                                <div class="result-villager">
+                                    <img id="result-portrait" src="" alt="" class="result-portrait">
+                                    <span id="result-villager-name" class="result-name"></span>
+                                </div>
+                                <div id="result-preference" class="result-preference"></div>
+                                <div class="result-item">
+                                    <span id="result-item-name" class="result-name"></span>
                                 </div>
                             </div>
-                            <button class="modal-close" id="modal-close-btn">&times;</button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="stat-detail-section">
-                                <p id="modal-stat-description" class="stat-description"></p>
-
-                                <div class="stat-info-grid">
-                                    <div id="modal-base-value" class="info-item" style="display: none;">
-                                        <span class="info-label">Base Value:</span>
-                                        <span id="modal-base-value-text" class="info-value"></span>
-                                    </div>
-                                    <div id="modal-max-level" class="info-item" style="display: none;">
-                                        <span class="info-label">Max Level:</span>
-                                        <span id="modal-max-level-text" class="info-value"></span>
-                                    </div>
-                                </div>
-
-                                <!-- Leveling Information -->
-                                <div id="modal-leveling" class="stat-section" style="display: none;">
-                                    <h3>
-                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                                            <path d="M8 2l-2 4H2l3 3-1 4 4-2 4 2-1-4 3-3h-4l-2-4z"/>
-                                        </svg>
-                                        How to Level Up
-                                    </h3>
-                                    <p id="modal-leveling-method" class="method-text"></p>
-                                    <div id="modal-leveling-benefits" class="benefits-list"></div>
-                                </div>
-
-                                <!-- Professions -->
-                                <div id="modal-professions" class="stat-section" style="display: none;">
-                                    <h3>
-                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                                            <path d="M8 1L6 5l-4 1 3 3-1 4 4-2 4 2-1-4 3-3-4-1-2-4z"/>
-                                        </svg>
-                                        Professions
-                                    </h3>
-                                    <div id="modal-professions-content" class="professions-grid"></div>
-                                </div>
-
-                                <!-- Gameplay Effects -->
-                                <div id="modal-effects" class="stat-section">
-                                    <h3>
-                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                                            <path d="M8 1l1 3h3l-2 2 1 3-3-2-3 2 1-3-2-2h3l1-3z"/>
-                                        </svg>
-                                        Gameplay Effects
-                                    </h3>
-                                    <div id="modal-effects-content" class="effects-list"></div>
-                                </div>
-
-                                <!-- Buffs and Bonuses -->
-                                <div id="modal-buffs" class="stat-section" style="display: none;">
-                                    <h3>
-                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                                            <path d="M8 2l-1 1v3h2V3l-1-1zM5 6l-1 1 1 1h6l1-1-1-1H5z"/>
-                                        </svg>
-                                        Buffs & Bonuses
-                                    </h3>
-                                    <div id="modal-buffs-content" class="buffs-list"></div>
-                                </div>
-
-                                <!-- Common Misconceptions -->
-                                <div id="modal-misconceptions" class="stat-section misconceptions-section" style="display: none;">
-                                    <h3>
-                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                                            <path d="M8 1C4.1 1 1 4.1 1 8s3.1 7 7 7 7-3.1 7-7-3.1-7-7-7zm1 11H7v-2h2v2zm0-3H7V4h2v5z"/>
-                                        </svg>
-                                        Common Misconceptions
-                                    </h3>
-                                    <div id="modal-misconceptions-content" class="misconceptions-list"></div>
-                                </div>
-
-                                <!-- Related Stats -->
-                                <div id="modal-related" class="stat-section" style="display: none;">
-                                    <h3>
-                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                                            <path d="M8 3c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8c-1.7 0-3-1.3-3-3s1.3-3 3-3 3 1.3 3 3-1.3 3-3 3z"/>
-                                            <circle cx="3" cy="3" r="2"/>
-                                            <circle cx="13" cy="3" r="2"/>
-                                            <circle cx="3" cy="13" r="2"/>
-                                            <circle cx="13" cy="13" r="2"/>
-                                        </svg>
-                                        Related Stats
-                                    </h3>
-                                    <div id="modal-related-content" class="related-stats-list"></div>
-                                </div>
+                            <div class="result-body">
+                                <div id="result-points" class="result-points"></div>
+                                <p id="result-reason" class="result-reason"></p>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </main>
+            </main>
         </div>
 
         <footer class="statusbar">
-            <div class="status-left" id="stat-count">Loading stats...</div>
-            <div class="status-right" id="filter-status">Showing: All</div>
+            <span class="statusbar-text" id="status-text">Ready</span>
         </footer>
     </div>
 </body>

@@ -1,0 +1,490 @@
+/* Import base styles */
+@import './styles.css';
+
+/* Gift Lookup Page Styles */
+
+.gift-lookup-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.gift-lookup-header {
+  margin-bottom: 24px;
+}
+
+.gift-lookup-header h1 {
+  font-size: 32px;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  color: #e8e6e3;
+}
+
+.gift-lookup-header p {
+  margin: 0;
+  color: #9d9d9d;
+  font-size: 14px;
+}
+
+/* Controls Row: Search + Legend */
+.gift-lookup-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+/* Color Legend */
+.color-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  padding: 12px 16px;
+  background: #252526;
+  border: 1px solid #3e3e42;
+  border-radius: 8px;
+  align-content: flex-start;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #ccc;
+  white-space: nowrap;
+}
+
+.legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.legend-item.love .legend-dot { background: #dc2626; box-shadow: 0 0 4px #dc2626; }
+.legend-item.like .legend-dot { background: #22c55e; box-shadow: 0 0 4px #22c55e; }
+.legend-item.neutral .legend-dot { background: #64748b; }
+.legend-item.dislike .legend-dot { background: #f97316; box-shadow: 0 0 4px #f97316; }
+.legend-item.hate .legend-dot { background: #7c3aed; box-shadow: 0 0 4px #7c3aed; }
+
+/* Item Search Section */
+.item-search-section {
+  flex: 0 0 auto;
+}
+
+.item-search-section > label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #ccc;
+  margin-bottom: 8px;
+}
+
+.item-search-container {
+  position: relative;
+  width: 300px;
+}
+
+.item-search-input {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 14px;
+  font-family: inherit;
+  background-color: #2d2d30;
+  border: 1px solid #3e3e42;
+  border-radius: 6px;
+  color: #e0e0e0;
+  transition: all 0.2s;
+  box-sizing: border-box;
+}
+
+.item-search-input:hover {
+  background-color: #333337;
+  border-color: #007acc;
+}
+
+.item-search-input:focus {
+  outline: none;
+  border-color: #007acc;
+  box-shadow: 0 0 0 2px rgba(0, 122, 204, 0.2);
+}
+
+.item-search-input::placeholder {
+  color: #888;
+}
+
+/* Item Suggestions Dropdown */
+.item-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-height: 250px;
+  overflow-y: auto;
+  background: #2d2d30;
+  border: 1px solid #007acc;
+  border-top: none;
+  border-radius: 0 0 6px 6px;
+  z-index: 100;
+  display: none;
+}
+
+.item-suggestion {
+  padding: 10px 16px;
+  cursor: pointer;
+  color: #e0e0e0;
+  font-size: 14px;
+  transition: background-color 0.15s;
+}
+
+.item-suggestion:hover {
+  background: #094771;
+}
+
+.item-suggestion.no-results {
+  color: #888;
+  cursor: default;
+  font-style: italic;
+}
+
+.item-suggestion.no-results:hover {
+  background: transparent;
+}
+
+/* Item Select Dropdown */
+.item-select {
+  width: 300px;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-family: inherit;
+  background-color: #2d2d30;
+  border: 1px solid #3e3e42;
+  border-radius: 6px;
+  color: #e0e0e0;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: all 0.2s;
+  box-sizing: border-box;
+}
+
+.item-select:hover {
+  background-color: #333337;
+  border-color: #007acc;
+}
+
+.item-select:focus {
+  outline: none;
+  border-color: #007acc;
+  box-shadow: 0 0 0 2px rgba(0, 122, 204, 0.2);
+}
+
+.item-select option {
+  background-color: #2d2d30;
+  color: #e0e0e0;
+  padding: 8px;
+}
+
+/* Selected Item Display */
+.selected-item {
+  display: none;
+  margin-top: 12px;
+  padding: 10px 16px;
+  background: #1e1e1e;
+  border: 1px solid #3e3e42;
+  border-radius: 6px;
+  max-width: 400px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.selected-item:hover {
+  border-color: #ef4444;
+  background: #2d2d30;
+}
+
+.selected-item:hover::after {
+  content: ' (click to clear)';
+  color: #ef4444;
+  font-size: 12px;
+}
+
+.selected-label {
+  color: #888;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.selected-value {
+  color: #22c55e;
+  font-weight: 600;
+  margin-left: 8px;
+}
+
+/* Villager Grid */
+.villager-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+  gap: 16px;
+  padding: 20px 0;
+  margin-bottom: 24px;
+}
+
+.villager-icon-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+
+.villager-icon-wrapper:hover {
+  transform: scale(1.1);
+}
+
+.villager-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #3e3e42;
+  transition: all 0.2s;
+  background: #1e1e1e;
+}
+
+.villager-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.villager-icon-name {
+  font-size: 11px;
+  color: #aaa;
+  margin-top: 4px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 70px;
+}
+
+/* Preference Ring Colors */
+.villager-icon.ring-love {
+  border-color: #dc2626;
+  box-shadow: 0 0 10px #dc2626, 0 0 20px rgba(220, 38, 38, 0.4);
+}
+
+.villager-icon.ring-like {
+  border-color: #22c55e;
+  box-shadow: 0 0 10px #22c55e, 0 0 20px rgba(34, 197, 94, 0.4);
+}
+
+.villager-icon.ring-neutral {
+  border-color: #64748b;
+}
+
+.villager-icon.ring-dislike {
+  border-color: #f97316;
+  box-shadow: 0 0 10px #f97316, 0 0 20px rgba(249, 115, 22, 0.4);
+}
+
+.villager-icon.ring-hate {
+  border-color: #7c3aed;
+  box-shadow: 0 0 10px #7c3aed, 0 0 20px rgba(124, 58, 237, 0.4);
+}
+
+/* Result Container */
+.result-container {
+  margin-bottom: 32px;
+}
+
+.result-card {
+  background-color: #252526;
+  border: 1px solid #3e3e42;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.result-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.result-villager,
+.result-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.result-portrait {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 3px solid #3e3e42;
+  object-fit: cover;
+}
+
+.result-name {
+  font-size: 20px;
+  font-weight: 600;
+  color: #e8e6e3;
+}
+
+.result-preference {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Preference Colors */
+.result-preference.love {
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+  color: white;
+}
+
+.result-preference.like {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: white;
+}
+
+.result-preference.neutral {
+  background: linear-gradient(135deg, #64748b, #475569);
+  color: white;
+}
+
+.result-preference.dislike {
+  background: linear-gradient(135deg, #f97316, #ea580c);
+  color: white;
+}
+
+.result-preference.hate {
+  background: linear-gradient(135deg, #7c3aed, #6d28d9);
+  color: white;
+}
+
+.result-body {
+  padding: 20px 24px;
+  background-color: #1e1e1e;
+  border-top: 1px solid #3e3e42;
+}
+
+.result-points {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.result-points.positive {
+  color: #22c55e;
+}
+
+.result-points.negative {
+  color: #ef4444;
+}
+
+.result-reason {
+  margin: 0;
+  color: #9d9d9d;
+  font-size: 14px;
+}
+
+/* Gift Info Section */
+.gift-info-section {
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid #3e3e42;
+}
+
+.gift-info-section h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #e8e6e3;
+  margin: 0 0 16px 0;
+}
+
+.points-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+}
+
+@media (max-width: 700px) {
+  .points-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .villager-grid {
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    gap: 12px;
+  }
+
+  .villager-icon {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 500px) {
+  .points-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.points-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 12px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.points-item.love {
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+  color: white;
+}
+
+.points-item.like {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: white;
+}
+
+.points-item.neutral {
+  background: linear-gradient(135deg, #64748b, #475569);
+  color: white;
+}
+
+.points-item.dislike {
+  background: linear-gradient(135deg, #f97316, #ea580c);
+  color: white;
+}
+
+.points-item.hate {
+  background: linear-gradient(135deg, #7c3aed, #6d28d9);
+  color: white;
+}
+
+.points-label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+  opacity: 0.9;
+}
+
+.points-value {
+  font-size: 20px;
+  font-weight: 700;
+}
