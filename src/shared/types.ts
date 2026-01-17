@@ -499,6 +499,7 @@ export interface Item {
   description: string;
   sellPrice: number;
   edibility?: number;        // HP/Energy restored (-1 for inedible)
+  icon?: string;             // Path to sprite image
 
   // Source information
   forageLocations?: ItemLocation[];
@@ -576,6 +577,7 @@ export interface Crop {
   seasons: Season[];
   seedPrice: number;
   sellPrice: number;        // Base sell price
+  icon?: string;            // Path to sprite image
   daysToMaturity: number;
   regrowthDays?: number;    // For multi-harvest crops
   extraYieldChance?: number; // e.g., 0.25 for 25% chance of extra crop
@@ -721,4 +723,132 @@ export interface StatFilter {
   category?: StatCategory;
   searchTerm?: string;
   levelableOnly?: boolean;
+}
+
+// Fishing Data Types
+
+/**
+ * Fish behavior pattern in the fishing minigame
+ */
+export type FishBehavior = 'mixed' | 'smooth' | 'sinker' | 'floater' | 'dart';
+
+/**
+ * Fish location/category type
+ */
+export type FishLocationType = 'ocean' | 'river' | 'lake' | 'pond' | 'mine' | 'desert' | 'island' | 'night-market' | 'secret-woods' | 'sewers' | 'volcano';
+
+/**
+ * Location where a fish can be caught
+ */
+export interface FishCatchLocation {
+  area: string;                  // Display name (e.g., "Ocean", "Mountain Lake")
+  locationType: FishLocationType;
+  seasons: Season[] | 'all';     // Which seasons, or 'all' for year-round
+  timeOfDay: string;             // e.g., "6am-7pm", "Any"
+  weather: 'any' | 'sunny' | 'rainy';
+  condition?: string;            // Special conditions (e.g., "Rain only", "Level 10 required")
+}
+
+/**
+ * Complete fish information
+ */
+export interface Fish {
+  id: string;
+  name: string;
+  description: string;
+  sellPrice: number;
+  edibility: number;             // Energy restored when eaten
+  icon?: string;                 // Path to sprite image
+
+  // Fishing-specific data
+  difficulty: number;            // 0-110 scale (Legend is 110)
+  behavior: FishBehavior;
+  minSize: number;               // Minimum size in inches
+  maxSize: number;               // Maximum size in inches
+
+  // Location data
+  locations: FishCatchLocation[];
+
+  // Flags
+  isLegendary?: boolean;
+  isCrabPot?: boolean;
+  requiredFishingLevel?: number; // Minimum fishing level to catch
+
+  // Usage information
+  usedInRecipes?: string[];
+  usedInBundles?: string[];
+
+  // Tips
+  trapBobberRecommended?: boolean;
+  catchTip?: string;
+}
+
+/**
+ * Fishing rod information
+ */
+export interface FishingRod {
+  id: string;
+  name: string;
+  description: string;
+  cost: number | string;         // Number or "Free" / "Special"
+  requirement: string;           // Level or condition required
+  canUseBait: boolean;
+  canUseTackle: boolean;
+  tackleSlots?: number;          // For Advanced Iridium Rod
+  notes?: string;
+}
+
+/**
+ * Bait type information
+ */
+export interface Bait {
+  id: string;
+  name: string;
+  description: string;
+  effect: string;
+  biteTimeReduction: string;     // e.g., "-50%", "-62.5%"
+  craftingRecipe?: string;
+  purchaseLocation?: string;
+  purchasePrice?: number;
+}
+
+/**
+ * Tackle type information
+ */
+export interface Tackle {
+  id: string;
+  name: string;
+  description: string;
+  effect: string;
+  bestFor?: string;              // What situations it's best for
+  craftingRecipe?: string;
+  purchaseLocation?: string;
+  purchasePrice?: number;
+  durability?: number;           // Number of uses
+}
+
+/**
+ * Fishing profession information
+ */
+export interface FishingProfession {
+  id: string;
+  name: string;
+  level: 5 | 10;
+  description: string;
+  effect: string;
+  prerequisite?: string;         // For level 10, which level 5 profession is required
+}
+
+/**
+ * Fish filter options
+ */
+export interface FishFilter {
+  searchTerm?: string;
+  locationType?: FishLocationType | 'all';
+  season?: Season | 'all';
+  weather?: 'any' | 'sunny' | 'rainy' | 'all';
+  timeOfDay?: 'morning' | 'afternoon' | 'evening' | 'night' | 'all';
+  difficulty?: 'easy' | 'medium' | 'hard' | 'legendary' | 'all';
+  showLegendary?: boolean;
+  showCrabPot?: boolean;
 }

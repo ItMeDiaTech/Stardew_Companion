@@ -22,7 +22,8 @@
       "Bash(timeout:*)",
       "WebFetch(domain:mobbin.com)",
       "WebFetch(domain:www.justinmind.com)",
-      "Bash(git log:*)"
+      "Bash(git log:*)",
+      "Bash(gh release create:*)"
     ],
     "deny": [],
     "ask": []

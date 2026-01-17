@@ -25,62 +25,6 @@
     margin: 0;
 }
 
-/* Navigation Bar */
-.navbar {
-    display: flex;
-    gap: 8px;
-    padding: 12px 24px;
-    background-color: #2d2d30;
-    border-bottom: 1px solid #3e3e42;
-    overflow-x: auto;
-    flex-wrap: nowrap;
-}
-
-.navbar::-webkit-scrollbar {
-    height: 6px;
-}
-
-.navbar::-webkit-scrollbar-track {
-    background: #2d2d30;
-}
-
-.navbar::-webkit-scrollbar-thumb {
-    background: #3e3e42;
-    border-radius: 3px;
-}
-
-.navbar::-webkit-scrollbar-thumb:hover {
-    background: #4e4e52;
-}
-
-.nav-link {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 16px;
-    color: #ccc;
-    text-decoration: none;
-    border-radius: 4px;
-    font-size: 14px;
-    transition: all 0.2s;
-    white-space: nowrap;
-    flex-shrink: 0;
-}
-
-.nav-link:hover {
-    background-color: #3e3e42;
-    color: #fff;
-}
-
-.nav-link.active {
-    background-color: #007acc;
-    color: #fff;
-}
-
-.nav-link svg {
-    flex-shrink: 0;
-}
-
 /* Controls */
 .calendar-controls {
     margin-bottom: 24px;

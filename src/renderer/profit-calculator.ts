@@ -318,12 +318,19 @@ function renderResults() {
     const processedSellPrice = useProcessed && calc.processedRevenue ?
       Math.round(calc.processedRevenue / (calc.maxHarvests || 1)) : null;
 
+    const iconPath = calc.crop.icon || `./assets/crops/${calc.crop.id}.png`;
+
     return `
       <tr class="${rowClass}">
         <td>
-          <span class="crop-name">${calc.crop.name}</span>
-          ${badges}
-          <span class="crop-type">${calc.crop.type}</span>
+          <div class="crop-cell">
+            <img src="${iconPath}" alt="${calc.crop.name}" class="crop-icon">
+            <div class="crop-info">
+              <span class="crop-name">${calc.crop.name}</span>
+              ${badges}
+              <span class="crop-type">${calc.crop.type}</span>
+            </div>
+          </div>
         </td>
         <td>${calc.crop.seedPrice}g</td>
         <td>
@@ -339,6 +346,14 @@ function renderResults() {
       </tr>
     `;
   }).join('');
+
+  // Handle broken images - hide them gracefully
+  const icons = document.querySelectorAll('.crop-icon') as NodeListOf<HTMLImageElement>;
+  icons.forEach(img => {
+    img.onerror = function() {
+      (this as HTMLImageElement).style.display = 'none';
+    };
+  });
 }
 
 // Start the app

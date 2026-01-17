@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   target: 'electron-renderer',
@@ -10,7 +11,9 @@ module.exports = {
     shops: './src/renderer/shops.ts',
     calendar: './src/renderer/calendar.ts',
     crafting: './src/renderer/crafting.ts',
+    cooking: './src/renderer/cooking.ts',
     items: './src/renderer/items.ts',
+    fishing: './src/renderer/fishing.ts',
     notes: './src/renderer/notes.ts',
     tasks: './src/renderer/tasks.ts',
     'profit-calculator': './src/renderer/profit-calculator.ts',
@@ -41,7 +44,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        use: [MiniCssExtractPlugin.loader, 'css-loader']
       },
       {
         test: /\.(png|jpg|jpeg|gif|svg)$/,
@@ -53,6 +56,9 @@ module.exports = {
     ]
   },
   plugins: [
+    new MiniCssExtractPlugin({
+      filename: '[name].css'
+    }),
     new HtmlWebpackPlugin({
       template: './src/renderer/index.html',
       filename: 'index.html',
@@ -79,9 +85,19 @@ module.exports = {
       chunks: ['crafting']
     }),
     new HtmlWebpackPlugin({
+      template: './src/renderer/cooking.html',
+      filename: 'cooking.html',
+      chunks: ['cooking']
+    }),
+    new HtmlWebpackPlugin({
       template: './src/renderer/items.html',
       filename: 'items.html',
       chunks: ['items']
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/renderer/fishing.html',
+      filename: 'fishing.html',
+      chunks: ['fishing']
     }),
     new HtmlWebpackPlugin({
       template: './src/renderer/notes.html',

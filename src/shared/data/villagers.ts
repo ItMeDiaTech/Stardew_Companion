@@ -18,6 +18,7 @@ export const VILLAGERS: Villager[] = [
     location: '1 River Road (George & Evelyn\'s House)',
     lovedGifts: [
       'Complete Breakfast',
+      'Jack Be Nimble, Jack Be Thick',
       'Salmon Dinner',
     ],
     likedGifts: [
@@ -115,10 +116,12 @@ export const VILLAGERS: Villager[] = [
       'Super Cucumber',
     ],
     hatedGifts: [
+      'Amaranth',
       'Holly',
       'Quartz',
       'Salmonberry',
       'Sea Cucumber',
+      'Super Cucumber',
     ],
     schedule: {
       general: 'Lives in his cabin on the beach, often found writing',
@@ -204,7 +207,9 @@ export const VILLAGERS: Villager[] = [
       'Rice Pudding',
     ],
     hatedGifts: [
-      'Quartz',
+      'Coral',
+      'Nautilus Shell',
+      'Rainbow Shell',
       'Salmonberry',
       'Spice Berry',
     ],
@@ -301,8 +306,19 @@ export const VILLAGERS: Villager[] = [
       'Winter Root',
     ],
     hatedGifts: [
-      'Holly',
-      'Quartz',
+      'Bone Fragment',
+      'Cinder Shard',
+      'Coal',
+      'Copper Bar',
+      'Duck Mayonnaise',
+      'Gold Bar',
+      'Gold Ore',
+      'Iridium Bar',
+      'Iridium Ore',
+      'Iron Bar',
+      'Mayonnaise',
+      'Pickles',
+      'Refined Quartz',
     ],
     schedule: {
       general: 'Often found at home, around town, or at work',
@@ -406,7 +422,13 @@ export const VILLAGERS: Villager[] = [
       'Winter Root',
     ],
     hatedGifts: [
-      'Quartz',
+      'All Artisan Goods (except Coffee, Green Tea, Oil)',
+      'All Eggs (except Void Egg)',
+      'Clay',
+      'Complete Breakfast',
+      'Farmer\'s Lunch',
+      'Omelet',
+      'Piña Colada',
     ],
     schedule: {
       general: 'Usually in his basement room working on the computer',
@@ -478,6 +500,7 @@ export const VILLAGERS: Villager[] = [
       'Winter Root',
     ],
     hatedGifts: [
+      'Pickles',
       'Quartz',
     ],
     schedule: {
@@ -518,6 +541,7 @@ export const VILLAGERS: Villager[] = [
       'Banana Pudding',
       'Blackberry Cobbler',
       'Chocolate Cake',
+      'Monster Compendium',
       'Pufferfish',
       'Pumpkin',
       'Spicy Eel',
@@ -607,7 +631,11 @@ export const VILLAGERS: Villager[] = [
       'Spicy Eel',
     ],
     hatedGifts: [
+      'Fish Taco',
       'Holly',
+      'Maki Roll',
+      'Salmon Dinner',
+      'Sashimi',
     ],
     schedule: {
       general: 'Works at Stardrop Saloon in evenings',
@@ -646,6 +674,7 @@ export const VILLAGERS: Villager[] = [
       'Fruit Salad',
       'Pink Cake',
       'Sunflower',
+      'All Universal Loves (except Prismatic Shard)',
     ],
     likedGifts: [
       'Daffodil',
@@ -672,7 +701,10 @@ export const VILLAGERS: Villager[] = [
       'Winter Root',
     ],
     hatedGifts: [
-      'Daffodil',
+      'All Fish',
+      'Clay',
+      'Prismatic Shard',
+      'Wild Horseradish',
     ],
     schedule: {
       general: 'Often found around town taking photos',
@@ -757,10 +789,11 @@ export const VILLAGERS: Villager[] = [
       'Void Egg',
     ],
     hatedGifts: [
-      'Fried Egg',
-      'Ice Cream',
-      'Pink Cake',
-      'Rice Pudding',
+      'Bread',
+      'Hashbrowns',
+      'Pancakes',
+      'Pizza',
+      'Void Egg',
     ],
     schedule: {
       general: 'Artist living in Cindersap Forest cottage',
@@ -1099,9 +1132,7 @@ export const VILLAGERS: Villager[] = [
       'Wild Horseradish',
     ],
     hatedGifts: [
-      'Clay',
       'Holly',
-      'Wild Horseradish',
     ],
     schedule: {
       general: 'Works at the Blacksmith, visits Saloon in evenings',
@@ -1146,7 +1177,6 @@ export const VILLAGERS: Villager[] = [
     ],
     hatedGifts: [
       'Holly',
-      'Quartz',
     ],
     schedule: {
       general: 'Studies wildlife at his laboratory, spends time outdoors',
@@ -1219,8 +1249,7 @@ export const VILLAGERS: Villager[] = [
       'Winter Root',
     ],
     hatedGifts: [
-      'Holly',
-      'Quartz',
+      'All Universal Hates',
     ],
     schedule: {
       general: 'Always in The Mines',
@@ -1263,11 +1292,17 @@ export const VILLAGERS: Villager[] = [
       'Wild Horseradish',
     ],
     hatedGifts: [
+      'All Fish (except Clam, Cockle, Mussel, Oyster)',
       'Clay',
+      'Fried Eel',
+      'Garlic',
       'Holly',
+      'Maki Roll',
       'Salmonberry',
+      'Sashimi',
       'Spice Berry',
-      'Wild Horseradish',
+      'Spicy Eel',
+      'Trout Soup',
     ],
     schedule: {
       general: 'Tends to home and gardens in town square',
@@ -1338,10 +1373,9 @@ export const VILLAGERS: Villager[] = [
     ],
     hatedGifts: [
       'Clay',
+      'Dandelion',
       'Holly',
       'Quartz',
-      'Salmonberry',
-      'Wild Horseradish',
     ],
     schedule: {
       general: 'Watches TV at home, rarely leaves house',
@@ -1391,11 +1425,9 @@ export const VILLAGERS: Villager[] = [
       'Wild Horseradish',
     ],
     hatedGifts: [
-      'Clay',
+      'Coleslaw',
       'Holly',
       'Quartz',
-      'Salmonberry',
-      'Wild Horseradish',
     ],
     schedule: {
       general: 'Runs the Stardrop Saloon',
@@ -1462,11 +1494,9 @@ export const VILLAGERS: Villager[] = [
       'Winter Root',
     ],
     hatedGifts: [
-      'Clay',
-      'Holly',
-      'Quartz',
-      'Salmonberry',
-      'Wild Horseradish',
+      'Daffodil',
+      'Dandelion',
+      'Spice Berry',
     ],
     schedule: {
       general: 'Homemaker, takes care of family',
@@ -1534,12 +1564,11 @@ export const VILLAGERS: Villager[] = [
       'Snow Yam',
     ],
     hatedGifts: [
+      'All Milk',
       'Algae Soup',
       'Holly',
-      'Quartz',
       'Sashimi',
-      'Salmonberry',
-      'Wild Horseradish',
+      'Tortilla',
     ],
     schedule: {
       general: 'Returns in Year 2, struggles with readjustment',
@@ -1621,20 +1650,7 @@ export const VILLAGERS: Villager[] = [
       'Winter Root',
     ],
     hatedGifts: [
-      'Chanterelle',
-      'Common Mushroom',
-      'Daffodil',
-      'Dandelion',
-      'Ginger',
-      'Hazelnut',
       'Holly',
-      'Leek',
-      'Magma Cap',
-      'Morel',
-      'Purple Mushroom',
-      'Salmonberry',
-      'Snow Yam',
-      'Winter Root',
     ],
     schedule: {
       general: 'Always in the Sewers, never leaves',
@@ -1749,11 +1765,7 @@ export const VILLAGERS: Villager[] = [
       'Wild Horseradish',
     ],
     hatedGifts: [
-      'Clay',
       'Holly',
-      'Quartz',
-      'Salmonberry',
-      'Wild Horseradish',
     ],
     schedule: {
       general: 'Mayor duties, gardens at Manor, visits townspeople',
@@ -1827,12 +1839,8 @@ export const VILLAGERS: Villager[] = [
       'Treasure Chest',
     ],
     hatedGifts: [
-      'Bread',
+      'All Cooking (except Blueberry Tart, Dish O\' The Sea, Trout Soup, Yam)',
       'Holly',
-      'Maki Roll',
-      'Quartz',
-      'Salmon Dinner',
-      'Sashimi',
     ],
     schedule: {
       general: 'Lives in tent in The Mountains, forages and explores',
@@ -1898,11 +1906,7 @@ export const VILLAGERS: Villager[] = [
       'Wild Horseradish',
     ],
     hatedGifts: [
-      'Clay',
       'Holly',
-      'Quartz',
-      'Salmonberry',
-      'Wild Horseradish',
     ],
     schedule: {
       general: 'Runs ranch shop, visits town',
@@ -1968,11 +1972,9 @@ export const VILLAGERS: Villager[] = [
       'All Eggs',
     ],
     hatedGifts: [
-      'Clay',
       'Holly',
-      'Quartz',
-      'Salmonberry',
-      'Wild Horseradish',
+      'Octopus',
+      'Squid',
     ],
     schedule: {
       general: 'Bus driver once service restored, frequents Saloon',
@@ -2024,11 +2026,9 @@ export const VILLAGERS: Villager[] = [
       'Tortilla',
     ],
     hatedGifts: [
-      'Clay',
+      'All Milk',
       'Holly',
-      'Quartz',
-      'Salmonberry',
-      'Wild Horseradish',
+      'Tortilla',
     ],
     schedule: {
       general: 'Operates General Store',
@@ -2076,11 +2076,7 @@ export const VILLAGERS: Villager[] = [
       'All Universal Dislikes (except Hardwood)',
     ],
     hatedGifts: [
-      'Clay',
       'Holly',
-      'Quartz',
-      'Salmonberry',
-      'Wild Horseradish',
     ],
     schedule: {
       general: 'Works at Carpenter\'s Shop',
@@ -2140,11 +2136,7 @@ export const VILLAGERS: Villager[] = [
       'All Universal Dislikes',
     ],
     hatedGifts: [
-      'Clay',
       'Holly',
-      'Quartz',
-      'Salmonberry',
-      'Wild Horseradish',
     ],
     schedule: {
       general: 'Always at the Oasis in Calico Desert',
@@ -2213,11 +2205,7 @@ export const VILLAGERS: Villager[] = [
       'Winter Root',
     ],
     hatedGifts: [
-      'Algae Soup',
       'Holly',
-      'Quartz',
-      'Salmonberry',
-      'Wild Horseradish',
     ],
     schedule: {
       general: 'Fisherman, runs Fish Shop',
@@ -2284,12 +2272,7 @@ export const VILLAGERS: Villager[] = [
       'All Milk',
     ],
     hatedGifts: [
-      'Clay',
-      'Complete Breakfast',
       'Holly',
-      'Quartz',
-      'Salmonberry',
-      'Wild Horseradish',
     ],
     schedule: {
       general: 'Always in Wizard\'s Tower, never leaves',
@@ -2340,11 +2323,13 @@ export const VILLAGERS: Villager[] = [
       'All Vegetables (except Hops and Wheat)',
     ],
     hatedGifts: [
-      'Clay',
+      'Beer',
       'Holly',
-      'Quartz',
-      'Salmonberry',
-      'Wild Horseradish',
+      'Hops',
+      'Mead',
+      'Pale Ale',
+      'Piña Colada',
+      'Wine',
     ],
     schedule: {
       general: 'Lives at Marnie\'s Ranch, plays outside',
@@ -2432,11 +2417,13 @@ export const VILLAGERS: Villager[] = [
       'Most Vegetables (except Hops, Tea Leaves, & Wheat)',
     ],
     hatedGifts: [
-      'Clay',
+      'Beer',
       'Holly',
-      'Quartz',
-      'Salmonberry',
-      'Wild Horseradish',
+      'Hops',
+      'Mead',
+      'Pale Ale',
+      'Piña Colada',
+      'Wine',
     ],
     schedule: {
       general: 'Imaginative child, loves to play',

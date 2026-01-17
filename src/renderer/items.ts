@@ -118,6 +118,14 @@ function setupEventListeners() {
 function displayItems(items: Item[]) {
   itemsGrid.innerHTML = items.map(item => createItemCard(item)).join('');
 
+  // Handle broken images - hide them gracefully
+  const icons = document.querySelectorAll('.item-icon') as NodeListOf<HTMLImageElement>;
+  icons.forEach(img => {
+    img.onerror = function() {
+      (this as HTMLImageElement).style.display = 'none';
+    };
+  });
+
   // Add click handlers
   const itemCards = document.querySelectorAll('.item-card');
   itemCards.forEach((card, index) => {
@@ -125,15 +133,42 @@ function displayItems(items: Item[]) {
   });
 }
 
+function getIconPath(item: Item): string {
+  if (item.icon) return item.icon;
+  // Map category to folder
+  const folderMap: Record<string, string> = {
+    'minerals': 'items/minerals',
+    'artifacts': 'items/artifacts',
+    'forage': 'items/forage',
+    'fish': 'fish',
+    'crops': 'crops',
+    'cooking': 'items/cooking',
+    'resources': 'items/resources',
+    'boots': 'items/boots',
+    'weapons': 'items/weapons',
+    'rings': 'items/rings',
+    'artisan': 'items/artisan',
+    'animal-products': 'items/animal-products',
+    'seeds': 'items/seeds',
+    'geodes': 'items/geodes',
+  };
+  const folder = folderMap[item.category] || 'items';
+  return `./assets/${folder}/${item.id}.png`;
+}
+
 function createItemCard(item: Item): string {
   const sources = getItemSources(item);
   const sourcesPreview = sources.slice(0, 2).join(', ');
   const moreSourcesCount = sources.length > 2 ? sources.length - 2 : 0;
+  const iconPath = getIconPath(item);
 
   return `
     <div class="item-card" data-item-id="${item.id}">
       <div class="item-card-header">
-        <h3>${item.name}</h3>
+        <div class="item-title-row">
+          <img src="${iconPath}" alt="${item.name}" class="item-icon">
+          <h3>${item.name}</h3>
+        </div>
         <div class="item-badges">
           <span class="category-badge category-${item.category}">${formatCategory(item.category)}</span>
           ${item.rarity ? `<span class="rarity-badge rarity-${item.rarity}">${formatRarity(item.rarity)}</span>` : ''}
