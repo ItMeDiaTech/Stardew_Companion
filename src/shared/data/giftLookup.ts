@@ -3,10 +3,10 @@
  *
  * Determines how a villager feels about receiving a specific item as a gift.
  * Follows Stardew Valley's actual gift preference resolution order.
+ * Data sourced from: https://stardewvalleywiki.com/Friendship
  */
 
 import { Villager } from '../types';
-import { UNIVERSAL_GIFTS } from './universalGifts';
 
 export type GiftPreference = 'love' | 'like' | 'neutral' | 'dislike' | 'hate';
 
@@ -16,33 +16,133 @@ export interface GiftLookupResult {
   reason: string;
 }
 
-// Item category mappings for "All X" pattern matching
+// ============================================================================
+// UNIVERSAL GIFT EXCEPTIONS
+// Items that override their category's default preference
+// ============================================================================
+
+const GIFT_EXCEPTIONS = {
+  // Items from "liked" categories that are actually HATED
+  hatedOverrides: [
+    'Poppy',           // Flower → Hate
+    'Strange Bun',     // Cooking → Hate
+    'Seafoam Pudding', // Cooking → Hate
+    'Void Mayonnaise', // Artisan → Hate
+    'Carp',            // Fish → Hate (not just dislike)
+    'Snail',           // Fish → Hate (not just dislike)
+  ],
+
+  // Items from "hated" categories that are actually DISLIKED
+  dislikedOverrides: [
+    'Solar Essence',   // Monster Loot → Dislike (not hate)
+    'Void Essence',    // Monster Loot → Dislike (not hate)
+    'Driftwood',       // Trash → Dislike (not hate)
+    'Oil',             // Artisan → Dislike (not like)
+    'Unmilled Rice',   // Vegetable → Dislike (not like)
+  ],
+
+  // Items from "liked" categories that are actually NEUTRAL
+  neutralOverrides: [
+    'Fried Egg',       // Cooking → Neutral
+    'Bread',           // Cooking → Neutral
+    'Hops',            // Vegetable → Neutral
+    'Tea Leaves',      // Vegetable → Neutral
+    'Wheat',           // Vegetable → Neutral
+  ],
+};
+
+// ============================================================================
+// ITEM CATEGORIES
+// ============================================================================
+
 const ITEM_CATEGORIES: Record<string, string[]> = {
-  eggs: [
-    'Egg', 'Large Egg', 'Brown Egg', 'Large Brown Egg', 'Duck Egg',
-    'Void Egg', 'Dinosaur Egg', 'Ostrich Egg', 'Golden Egg', 'Parrot Egg'
+  // Universal loves - exact list from wiki
+  universalLoves: [
+    'Golden Pumpkin', 'Magic Rock Candy', 'Pearl',
+    'Prismatic Shard', "Rabbit's Foot", 'Stardrop Tea'
   ],
-  fruits: [
-    'Apple', 'Apricot', 'Banana', 'Blackberry', 'Blueberry', 'Cactus Fruit',
-    'Cherry', 'Coconut', 'Cranberries', 'Crystal Fruit', 'Grape', 'Hot Pepper',
-    'Mango', 'Melon', 'Orange', 'Peach', 'Pineapple', 'Pomegranate', 'Powdermelon',
-    'Qi Fruit', 'Rhubarb', 'Salmonberry', 'Spice Berry', 'Starfruit',
-    'Strawberry', 'Wild Plum'
+
+  // Gems - universally LIKED (except Prismatic Shard which is loved)
+  gems: [
+    'Diamond', 'Emerald', 'Ruby', 'Amethyst', 'Topaz', 'Jade', 'Aquamarine'
   ],
+
+  // Foraged minerals - universally LIKED (Quartz varies by villager)
+  foragedMinerals: [
+    'Earth Crystal', 'Frozen Tear', 'Fire Quartz'
+  ],
+
+  // Fruit tree fruits - universally LIKED
+  fruitTreeFruits: [
+    'Apple', 'Apricot', 'Banana', 'Cherry', 'Mango',
+    'Orange', 'Peach', 'Pomegranate'
+  ],
+
+  // Flowers - universally LIKED (except Poppy which is hated)
+  flowers: [
+    'Blue Jazz', 'Crocus', 'Daffodil', 'Fairy Rose',
+    'Summer Spangle', 'Sunflower', 'Sweet Pea', 'Tulip'
+    // Poppy is in hatedOverrides
+  ],
+
+  // Vegetables - universally LIKED (with exceptions in overrides)
   vegetables: [
     'Amaranth', 'Artichoke', 'Beet', 'Bok Choy', 'Broccoli', 'Carrot',
-    'Cauliflower', 'Corn', 'Eggplant', 'Garlic', 'Green Bean', 'Hops',
+    'Cauliflower', 'Corn', 'Eggplant', 'Garlic', 'Green Bean',
     'Kale', 'Parsnip', 'Potato', 'Pumpkin', 'Radish', 'Red Cabbage',
-    'Summer Squash', 'Tea Leaves', 'Taro Root', 'Tomato', 'Unmilled Rice',
-    'Wheat', 'Yam'
+    'Summer Squash', 'Taro Root', 'Tomato', 'Yam'
+    // Hops, Tea Leaves, Wheat are in neutralOverrides
+    // Unmilled Rice is in dislikedOverrides
   ],
-  flowers: [
-    'Blue Jazz', 'Crocus', 'Daffodil', 'Fairy Rose', 'Poppy',
-    'Summer Spangle', 'Sunflower', 'Sweet Pea', 'Tulip'
+
+  // Artisan goods - universally LIKED (with exceptions)
+  artisanGoods: [
+    'Aged Roe', 'Beer', 'Caviar', 'Cheese', 'Cloth', 'Coffee',
+    'Dinosaur Mayonnaise', 'Duck Mayonnaise', 'Goat Cheese', 'Green Tea',
+    'Honey', 'Jelly', 'Juice', 'Mayonnaise', 'Mead', 'Pale Ale',
+    'Pickles', 'Truffle Oil', 'Wine'
+    // Oil is in dislikedOverrides
+    // Void Mayonnaise is in hatedOverrides
   ],
+
+  // Cooking - universally LIKED (with exceptions)
+  cooking: [
+    'Algae Soup', 'Artichoke Dip', "Autumn's Bounty", 'Baked Fish',
+    'Banana Pudding', 'Bean Hotpot', 'Blackberry Cobbler', 'Blueberry Tart',
+    'Bruschetta', 'Carp Surprise', 'Cheese Cauliflower', 'Chowder',
+    'Chocolate Cake', 'Coleslaw', 'Complete Breakfast', 'Cookie',
+    'Crab Cakes', 'Cranberry Candy', 'Cranberry Sauce', 'Crispy Bass',
+    "Dish O' The Sea", 'Eggplant Parmesan', 'Escargot', "Farmer's Lunch",
+    'Fiddlehead Risotto', 'Fish Stew', 'Fish Taco', 'Fried Calamari',
+    'Fried Eel', 'Fried Mushroom', 'Fruit Salad',
+    'Ginger Ale', 'Glazed Yams', 'Hashbrowns', 'Ice Cream', 'Lobster Bisque',
+    'Lucky Lunch', 'Maki Roll', 'Mango Sticky Rice', 'Maple Bar',
+    "Miner's Treat", 'Omelet', 'Pale Broth', 'Pancakes', 'Parsnip Soup',
+    'Pepper Poppers', 'Pink Cake', 'Pizza', 'Plum Pudding', 'Poi',
+    'Poppyseed Muffin', 'Pumpkin Pie', 'Pumpkin Soup', 'Radish Salad',
+    'Red Plate', 'Rhubarb Pie', 'Rice Pudding', 'Roasted Hazelnuts',
+    'Roots Platter', 'Salad', 'Salmon Dinner', 'Sashimi',
+    'Shrimp Cocktail', 'Spaghetti', 'Spicy Eel', 'Squid Ink Ravioli',
+    'Stir Fry', 'Stuffing', 'Super Meal', 'Survival Burger',
+    'Tom Kha Soup', 'Tortilla', 'Triple Shot Espresso', 'Tropical Curry',
+    'Trout Soup', 'Vegetable Medley'
+    // Fried Egg, Bread are in neutralOverrides
+    // Strange Bun, Seafoam Pudding are in hatedOverrides
+  ],
+
+  // Additional universal likes
+  universalLikesOther: [
+    'Life Elixir', 'Maple Syrup', 'Piña Colada', 'Rainbow Shell', 'Treasure Chest'
+  ],
+
+  // ============================================================================
+  // DISLIKED CATEGORIES
+  // ============================================================================
+
+  // Fish - universally DISLIKED (except Carp & Snail which are hated)
   fish: [
     'Albacore', 'Anchovy', 'Angler', 'Blobfish', 'Blue Discus', 'Bream',
-    'Bullhead', 'Carp', 'Catfish', 'Chub', 'Cockle', 'Crab', 'Crayfish',
+    'Bullhead', 'Catfish', 'Chub', 'Cockle', 'Crab', 'Crayfish',
     'Crimsonfish', 'Dorado', 'Eel', 'Flounder', 'Ghostfish', 'Glacierfish',
     'Glacierfish Jr.', 'Goby', 'Halibut', 'Herring', 'Ice Pip', 'Largemouth Bass',
     'Lava Eel', 'Legend', 'Legend II', 'Lingcod', 'Lionfish', 'Lobster',
@@ -50,58 +150,256 @@ const ITEM_CATEGORIES: Record<string, string[]> = {
     'Octopus', 'Oyster', 'Perch', 'Periwinkle', 'Pike', 'Pufferfish',
     'Radioactive Carp', 'Rainbow Trout', 'Red Mullet', 'Red Snapper',
     'Salmon', 'Sandfish', 'Sardine', 'Scorpion Carp', 'Sea Cucumber',
-    'Sea Urchin', 'Shad', 'Shrimp', 'Slimejack', 'Smallmouth Bass', 'Snail',
+    'Sea Urchin', 'Shad', 'Shrimp', 'Slimejack', 'Smallmouth Bass',
     'Son of Crimsonfish', 'Spook Fish', 'Squid', 'Stingray', 'Stonefish',
     'Sturgeon', 'Sunfish', 'Super Cucumber', 'Tiger Trout', 'Tilapia',
     'Tuna', 'Void Salmon', 'Walleye', 'Woodskip', 'Clam'
+    // Carp, Snail are in hatedOverrides
   ],
-  milk: [
-    'Milk', 'Large Milk', 'Goat Milk', 'Large Goat Milk'
+
+  // Geode minerals - universally DISLIKED
+  geodeMinerals: [
+    'Tigerseye', 'Opal', 'Fire Opal', 'Alamite', 'Bixite', 'Baryte',
+    'Aerinite', 'Calcite', 'Dolomite', 'Esperite', 'Fluorapatite',
+    'Geminite', 'Helvite', 'Jamborite', 'Jagoite', 'Kyanite', 'Lunarite',
+    'Malachite', 'Neptunite', 'Lemon Stone', 'Nekoite', 'Orpiment',
+    'Petrified Slime', 'Thunder Egg', 'Pyrite', 'Ocean Stone',
+    'Ghost Crystal', 'Jasper', 'Celestine', 'Marble', 'Sandstone',
+    'Granite', 'Basalt', 'Limestone', 'Soapstone', 'Hematite',
+    'Mudstone', 'Obsidian', 'Slate', 'Fairy Stone', 'Star Shards'
   ],
-  artisanGoods: [
-    'Aged Roe', 'Beer', 'Caviar', 'Cheese', 'Cloth', 'Coffee',
-    'Dinosaur Mayonnaise', 'Duck Mayonnaise', 'Goat Cheese', 'Green Tea',
-    'Honey', 'Jelly', 'Juice', 'Mayonnaise', 'Mead', 'Oil', 'Pale Ale',
-    'Pickles', 'Truffle Oil', 'Void Mayonnaise', 'Wine'
+
+  // Artifacts - universally DISLIKED
+  artifacts: [
+    'Amphibian Fossil', 'Ancient Doll', 'Ancient Drum', 'Ancient Seed',
+    'Ancient Sword', 'Arrowhead', 'Bone Flute', 'Chewing Stick',
+    'Chicken Statue', 'Chipped Amphora', 'Dinosaur Egg', 'Dried Starfish',
+    'Dwarf Gadget', 'Dwarf Scroll I', 'Dwarf Scroll II', 'Dwarf Scroll III',
+    'Dwarf Scroll IV', 'Dwarvish Helm', 'Elvish Jewelry', 'Glass Shards',
+    'Golden Mask', 'Golden Relic', 'Nautilus Fossil', 'Ornamental Fan',
+    'Palm Fossil', 'Prehistoric Handaxe', 'Prehistoric Rib', 'Prehistoric Scapula',
+    'Prehistoric Skull', 'Prehistoric Tibia', 'Prehistoric Tool', 'Prehistoric Vertebra',
+    'Rare Disc', 'Rusty Cog', 'Rusty Spoon', 'Rusty Spur', 'Skeletal Hand',
+    'Skeletal Tail', 'Strange Doll (green)', 'Strange Doll (yellow)', 'Trilobite'
   ],
-  cooking: [
-    'Algae Soup', 'Artichoke Dip', 'Autumn\'s Bounty', 'Baked Fish',
-    'Banana Pudding', 'Bean Hotpot', 'Blackberry Cobbler', 'Blueberry Tart',
-    'Bread', 'Bruschetta', 'Carp Surprise', 'Cheese Cauliflower', 'Chowder',
-    'Chocolate Cake', 'Coleslaw', 'Complete Breakfast', 'Cookie',
-    'Crab Cakes', 'Cranberry Candy', 'Cranberry Sauce', 'Crispy Bass',
-    'Dish O\' The Sea', 'Eggplant Parmesan', 'Escargot', 'Farmer\'s Lunch',
-    'Fiddlehead Risotto', 'Fish Stew', 'Fish Taco', 'Fried Calamari',
-    'Fried Eel', 'Fried Egg', 'Fried Mushroom', 'Fruit Salad',
-    'Ginger Ale', 'Glazed Yams', 'Hashbrowns', 'Ice Cream', 'Lobster Bisque',
-    'Lucky Lunch', 'Maki Roll', 'Mango Sticky Rice', 'Maple Bar',
-    'Miner\'s Treat', 'Omelet', 'Pale Broth', 'Pancakes', 'Parsnip Soup',
-    'Pepper Poppers', 'Pink Cake', 'Pizza', 'Plum Pudding', 'Poi',
-    'Poppyseed Muffin', 'Pumpkin Pie', 'Pumpkin Soup', 'Radish Salad',
-    'Red Plate', 'Rhubarb Pie', 'Rice Pudding', 'Roasted Hazelnuts',
-    'Roots Platter', 'Salad', 'Salmon Dinner', 'Sashimi', 'Seafoam Pudding',
-    'Shrimp Cocktail', 'Spaghetti', 'Spicy Eel', 'Squid Ink Ravioli',
-    'Stir Fry', 'Strange Bun', 'Stuffing', 'Super Meal', 'Survival Burger',
-    'Tom Kha Soup', 'Tortilla', 'Triple Shot Espresso', 'Tropical Curry',
-    'Trout Soup', 'Vegetable Medley'
+
+  // Geodes - universally DISLIKED
+  geodes: [
+    'Geode', 'Frozen Geode', 'Magma Geode', 'Omni Geode'
   ],
-  books: [
-    'Price Catalogue', 'Mapping Cave Systems', 'Way Of The Wind pt. 1',
-    'Way Of The Wind pt. 2', 'Monster Compendium', 'Friendship 101',
-    'Jack Be Nimble, Jack Be Thick', 'Woody\'s Secret', 'The Alleyway Buffet',
-    'The Art O\' Crabbing', 'Dwarvish Safety Manual', 'Jewels Of The Sea',
-    'Raccoon Journal', 'Stardew Valley Almanac', 'Bait And Bobber',
-    'Ol\' Slitherlegs', 'Animal Catalogue', 'Queen Of Sauce Cookbook',
-    'The Diamond Hunter', 'Woodcutter\'s Weekly', 'Book Of Stars',
-    'Horse: The Book', 'Combat Quarterly'
-  ]
+
+  // Seeds - universally DISLIKED
+  seeds: [
+    'Parsnip Seeds', 'Bean Starter', 'Cauliflower Seeds', 'Potato Seeds',
+    'Melon Seeds', 'Tomato Seeds', 'Blueberry Seeds', 'Corn Seeds',
+    'Pumpkin Seeds', 'Cranberry Seeds', 'Ancient Seeds', 'Rare Seed',
+    'Strawberry Seeds', 'Starfruit Seeds', 'Mixed Seeds', 'Fiber Seeds',
+    'Kale Seeds', 'Jazz Seeds', 'Garlic Seeds', 'Rice Shoot',
+    'Rhubarb Seeds', 'Tulip Seeds', 'Pepper Seeds', 'Wheat Seeds',
+    'Radish Seeds', 'Red Cabbage Seeds', 'Artichoke Seeds', 'Bok Choy Seeds',
+    'Amaranth Seeds', 'Grape Starter', 'Yam Seeds', 'Eggplant Seeds',
+    'Fairy Seeds', 'Sunflower Seeds', 'Spangle Seeds', 'Poppy Seeds',
+    'Hops Starter', 'Beet Seeds', 'Cactus Seeds', 'Taro Tuber',
+    'Pineapple Seeds', 'Mango Sapling', 'Banana Sapling', 'Qi Bean',
+    'Carrot Seeds', 'Summer Squash Seeds', 'Broccoli Seeds', 'Powdermelon Seeds'
+  ],
+
+  // Building materials - universally DISLIKED
+  buildingMaterials: [
+    'Wood', 'Stone', 'Hardwood', 'Clay', 'Copper Bar', 'Iron Bar',
+    'Gold Bar', 'Iridium Bar', 'Fiber', 'Copper Ore', 'Iron Ore',
+    'Gold Ore', 'Iridium Ore', 'Coal', 'Battery Pack', 'Moss'
+  ],
+
+  // ============================================================================
+  // HATED CATEGORIES
+  // ============================================================================
+
+  // Monster loot - universally HATED (except Solar/Void Essence which are disliked)
+  monsterLoot: [
+    'Bat Wing', 'Bug Meat', 'Slime', 'Bone Fragment', 'Squid Ink'
+    // Solar Essence, Void Essence are in dislikedOverrides
+  ],
+
+  // Trash - universally HATED (except Driftwood which is disliked)
+  trash: [
+    'Trash', 'Soggy Newspaper', 'Broken CD', 'Broken Glasses',
+    'Joja Cola', 'Rotten Plant'
+    // Driftwood is in dislikedOverrides
+  ],
+
+  // Bait - universally HATED
+  bait: [
+    'Bait', 'Magnet', 'Magic Bait', 'Wild Bait',
+    'Challenge Bait', 'Deluxe Bait'
+  ],
+
+  // Fossils - universally HATED
+  fossils: [
+    'Fossilized Leg', 'Fossilized Ribs', 'Fossilized Skull',
+    'Fossilized Spine', 'Fossilized Tail', 'Mummified Bat',
+    'Mummified Frog', 'Snake Skull', 'Snake Vertebrae'
+  ],
 };
 
-// Shellfish that are exceptions to fish hate for some villagers
-const SHELLFISH = ['Clam', 'Cockle', 'Mussel', 'Oyster', 'Crab', 'Lobster', 'Crayfish', 'Shrimp', 'Snail', 'Periwinkle'];
+// ============================================================================
+// HELPER FUNCTIONS
+// ============================================================================
+
+/**
+ * Check if an item is in a specific category (case-insensitive)
+ */
+function isInCategory(itemName: string, categoryKey: string): boolean {
+  const category = ITEM_CATEGORIES[categoryKey];
+  if (!category) return false;
+
+  const normalizedItem = itemName.toLowerCase().trim();
+  return category.some(item => item.toLowerCase() === normalizedItem);
+}
+
+/**
+ * Check if an item is in any of the specified categories
+ */
+function isInAnyCategory(itemName: string, categoryKeys: string[]): boolean {
+  return categoryKeys.some(key => isInCategory(itemName, key));
+}
+
+/**
+ * Check if an item is in an exception list (case-insensitive)
+ */
+function isInExceptionList(itemName: string, exceptionList: string[]): boolean {
+  const normalizedItem = itemName.toLowerCase().trim();
+  return exceptionList.some(item => item.toLowerCase() === normalizedItem);
+}
+
+/**
+ * Check if an item matches any entry in a villager's gift list
+ * Handles exact matches and "All X (except Y)" patterns
+ */
+function checkGiftList(giftList: string[], itemName: string): boolean {
+  const normalizedItem = itemName.toLowerCase().trim();
+
+  for (const giftEntry of giftList) {
+    const normalizedEntry = giftEntry.toLowerCase().trim();
+
+    // Exact match
+    if (normalizedEntry === normalizedItem) {
+      return true;
+    }
+
+    // "All X" pattern matching for villager-specific preferences
+    if (normalizedEntry.startsWith('all ')) {
+      if (matchesCategoryPattern(giftEntry, itemName)) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
+/**
+ * Match items against "All X (except Y, Z)" patterns for villager preferences
+ */
+function matchesCategoryPattern(pattern: string, itemName: string): boolean {
+  const normalizedPattern = pattern.toLowerCase().trim();
+  const normalizedItem = itemName.toLowerCase().trim();
+
+  // Extract exceptions if present
+  const exceptMatch = normalizedPattern.match(/\(except ([^)]+)\)/i);
+  const exceptions: string[] = exceptMatch
+    ? exceptMatch[1].split(',').map(e => e.trim().toLowerCase())
+    : [];
+
+  // Check if item is in exception list
+  if (exceptions.some(exc => normalizedItem.includes(exc) || exc.includes(normalizedItem))) {
+    return false;
+  }
+
+  // Get the category name (remove "all " prefix and exceptions)
+  const categoryPart = normalizedPattern.replace(/\(except [^)]+\)/i, '').replace('all ', '').trim();
+
+  // Map pattern keywords to category keys
+  const categoryMappings: Record<string, string> = {
+    'egg': 'eggs',
+    'fruit': 'fruits',
+    'vegetable': 'vegetables',
+    'flower': 'flowers',
+    'fish': 'fish',
+    'milk': 'milk',
+    'artisan': 'artisanGoods',
+    'cooking': 'cooking',
+    'cooked': 'cooking',
+    'book': 'books',
+    'gem': 'gems',
+    'universal love': 'universalLoves',
+    'universal like': 'universalLikesOther',
+  };
+
+  for (const [keyword, categoryKey] of Object.entries(categoryMappings)) {
+    if (categoryPart.includes(keyword)) {
+      return isInCategory(itemName, categoryKey);
+    }
+  }
+
+  return false;
+}
+
+/**
+ * Check universal gift categories for an item
+ * Uses exception-based system for accuracy
+ */
+function checkUniversalGifts(itemName: string): GiftLookupResult | null {
+  // Step 1: Check explicit exceptions FIRST (they override categories)
+  if (isInExceptionList(itemName, GIFT_EXCEPTIONS.hatedOverrides)) {
+    return { preference: 'hate', points: -40, reason: `${itemName} is universally hated` };
+  }
+  if (isInExceptionList(itemName, GIFT_EXCEPTIONS.dislikedOverrides)) {
+    return { preference: 'dislike', points: -20, reason: `${itemName} is universally disliked` };
+  }
+  if (isInExceptionList(itemName, GIFT_EXCEPTIONS.neutralOverrides)) {
+    return { preference: 'neutral', points: 20, reason: `${itemName} is universally neutral` };
+  }
+
+  // Step 2: Check universal loves (exact list)
+  if (isInCategory(itemName, 'universalLoves')) {
+    return { preference: 'love', points: 80, reason: `${itemName} is universally loved` };
+  }
+
+  // Step 3: Check category memberships for HATES first (higher impact)
+  const hateCategories = ['monsterLoot', 'trash', 'bait', 'fossils'];
+  if (isInAnyCategory(itemName, hateCategories)) {
+    return { preference: 'hate', points: -40, reason: `${itemName} is universally hated` };
+  }
+
+  // Step 4: Check category memberships for DISLIKES
+  const dislikeCategories = ['fish', 'artifacts', 'geodeMinerals', 'geodes', 'seeds', 'buildingMaterials'];
+  if (isInAnyCategory(itemName, dislikeCategories)) {
+    return { preference: 'dislike', points: -20, reason: `${itemName} is universally disliked` };
+  }
+
+  // Step 5: Check category memberships for LIKES
+  const likeCategories = ['gems', 'foragedMinerals', 'fruitTreeFruits', 'flowers', 'vegetables', 'artisanGoods', 'cooking', 'universalLikesOther'];
+  if (isInAnyCategory(itemName, likeCategories)) {
+    return { preference: 'like', points: 45, reason: `${itemName} is universally liked` };
+  }
+
+  // Not a universal gift - will fall through to neutral
+  return null;
+}
+
+// ============================================================================
+// MAIN LOOKUP FUNCTION
+// ============================================================================
 
 /**
  * Main lookup function - determines villager's preference for an item
+ * Resolution order (following Stardew Valley's actual system):
+ * 1. Villager's individual loved gifts
+ * 2. Villager's individual hated gifts
+ * 3. Villager's individual liked gifts
+ * 4. Villager's individual disliked gifts
+ * 5. Universal gift preferences (with exceptions)
+ * 6. Default to neutral
  */
 export function lookupGiftPreference(villager: Villager, itemName: string): GiftLookupResult {
   const normalizedItem = itemName.trim();
@@ -145,10 +443,7 @@ export function lookupGiftPreference(villager: Villager, itemName: string): Gift
   // Step 5: Check universal gifts
   const universalResult = checkUniversalGifts(normalizedItem);
   if (universalResult) {
-    return {
-      ...universalResult,
-      reason: `${universalResult.reason} (Universal ${universalResult.preference})`
-    };
+    return universalResult;
   }
 
   // Step 6: Default to neutral
@@ -157,168 +452,6 @@ export function lookupGiftPreference(villager: Villager, itemName: string): Gift
     points: 20,
     reason: `${villager.name} has no strong feelings about ${normalizedItem}.`
   };
-}
-
-/**
- * Check if an item matches any entry in a gift list
- */
-function checkGiftList(giftList: string[], itemName: string): boolean {
-  for (const giftEntry of giftList) {
-    if (matchesGiftEntry(giftEntry, itemName)) {
-      return true;
-    }
-  }
-  return false;
-}
-
-/**
- * Check if an item matches a specific gift entry
- * Handles exact matches and "All X (except Y)" patterns
- */
-function matchesGiftEntry(giftEntry: string, itemName: string): boolean {
-  const normalizedEntry = giftEntry.toLowerCase().trim();
-  const normalizedItem = itemName.toLowerCase().trim();
-
-  // Case 1: Exact match
-  if (normalizedEntry === normalizedItem) {
-    return true;
-  }
-
-  // Case 2: "All X" or "All X (except Y, Z)" pattern
-  if (normalizedEntry.startsWith('all ')) {
-    return matchesCategoryPattern(giftEntry, itemName);
-  }
-
-  return false;
-}
-
-/**
- * Match items against "All X (except Y, Z)" patterns
- */
-function matchesCategoryPattern(pattern: string, itemName: string): boolean {
-  const normalizedPattern = pattern.toLowerCase().trim();
-  const normalizedItem = itemName.toLowerCase().trim();
-
-  // Extract exceptions if present
-  const exceptMatch = normalizedPattern.match(/\(except ([^)]+)\)/i);
-  const exceptions: string[] = exceptMatch
-    ? exceptMatch[1].split(',').map(e => e.trim().toLowerCase())
-    : [];
-
-  // Check if item is in exception list
-  if (exceptions.some(exc => normalizedItem.includes(exc) || exc.includes(normalizedItem))) {
-    return false;
-  }
-
-  // Get the category name (remove "all " prefix and exceptions)
-  const categoryPart = normalizedPattern.replace(/\(except [^)]+\)/i, '').replace('all ', '').trim();
-
-  // Check universal categories
-  if (categoryPart.includes('universal love')) {
-    return isInUniversalCategory(itemName, 'loves');
-  }
-  if (categoryPart.includes('universal like')) {
-    return isInUniversalCategory(itemName, 'likes');
-  }
-  if (categoryPart.includes('universal dislike')) {
-    return isInUniversalCategory(itemName, 'dislikes');
-  }
-  if (categoryPart.includes('universal hate')) {
-    return isInUniversalCategory(itemName, 'hates');
-  }
-  if (categoryPart.includes('universal neutral')) {
-    return isInUniversalCategory(itemName, 'neutrals');
-  }
-
-  // Check item type categories
-  if (categoryPart.includes('egg')) {
-    return isInCategory(itemName, 'eggs');
-  }
-  if (categoryPart.includes('fruit')) {
-    return isInCategory(itemName, 'fruits');
-  }
-  if (categoryPart.includes('vegetable')) {
-    return isInCategory(itemName, 'vegetables');
-  }
-  if (categoryPart.includes('flower')) {
-    return isInCategory(itemName, 'flowers');
-  }
-  if (categoryPart.includes('fish')) {
-    // Handle shellfish exceptions separately
-    if (exceptions.length > 0 && SHELLFISH.some(s => s.toLowerCase() === normalizedItem)) {
-      // Check if this shellfish is in the exceptions
-      if (exceptions.some(exc => normalizedItem.includes(exc))) {
-        return false;
-      }
-    }
-    return isInCategory(itemName, 'fish');
-  }
-  if (categoryPart.includes('milk')) {
-    return isInCategory(itemName, 'milk');
-  }
-  if (categoryPart.includes('artisan good') || categoryPart.includes('artisan')) {
-    return isInCategory(itemName, 'artisanGoods');
-  }
-  if (categoryPart.includes('cooking') || categoryPart.includes('cooked')) {
-    return isInCategory(itemName, 'cooking');
-  }
-  if (categoryPart.includes('book')) {
-    return isInCategory(itemName, 'books');
-  }
-
-  return false;
-}
-
-/**
- * Check if an item is in a specific category
- */
-function isInCategory(itemName: string, categoryKey: string): boolean {
-  const category = ITEM_CATEGORIES[categoryKey];
-  if (!category) return false;
-
-  const normalizedItem = itemName.toLowerCase().trim();
-  return category.some(cat => cat.toLowerCase() === normalizedItem);
-}
-
-/**
- * Check if an item is in a universal gift category
- */
-function isInUniversalCategory(itemName: string, category: 'loves' | 'likes' | 'neutrals' | 'dislikes' | 'hates'): boolean {
-  const categoryItems = UNIVERSAL_GIFTS[category].items;
-  const normalizedItem = itemName.toLowerCase().trim();
-
-  return categoryItems.some(item => {
-    const normalizedCat = item.toLowerCase();
-    // Exact match
-    if (normalizedCat === normalizedItem) return true;
-    // Skip category references like "All Fish", "Most Cooked Dishes"
-    if (normalizedCat.startsWith('all ') || normalizedCat.startsWith('most ')) return false;
-    return false;
-  });
-}
-
-/**
- * Check universal gift categories for an item
- */
-function checkUniversalGifts(itemName: string): GiftLookupResult | null {
-  // Check in order of impact
-  if (isInUniversalCategory(itemName, 'loves')) {
-    return { preference: 'love', points: 80, reason: `${itemName} is a Universal Love` };
-  }
-  if (isInUniversalCategory(itemName, 'hates')) {
-    return { preference: 'hate', points: -40, reason: `${itemName} is a Universal Hate` };
-  }
-  if (isInUniversalCategory(itemName, 'likes')) {
-    return { preference: 'like', points: 45, reason: `${itemName} is a Universal Like` };
-  }
-  if (isInUniversalCategory(itemName, 'dislikes')) {
-    return { preference: 'dislike', points: -20, reason: `${itemName} is a Universal Dislike` };
-  }
-  if (isInUniversalCategory(itemName, 'neutrals')) {
-    return { preference: 'neutral', points: 20, reason: `${itemName} is a Universal Neutral` };
-  }
-
-  return null;
 }
 
 /**
