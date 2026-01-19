@@ -25,8 +25,12 @@
     margin: 0;
 }
 
-/* Controls */
+/* Controls - Enhanced Toolbar Style */
 .calendar-controls {
+    background: #1e1e1e;
+    border: 1px solid #3e3e42;
+    border-radius: 8px;
+    padding: 16px;
     margin-bottom: 24px;
     display: flex;
     flex-direction: column;
@@ -45,26 +49,28 @@
     align-items: center;
     gap: 8px;
     padding: 12px 20px;
-    background-color: #1e1e1e;
+    background-color: #252526;
     border: 1px solid #3e3e42;
-    border-radius: 6px;
+    border-radius: 8px;
     color: #ccc;
     cursor: pointer;
     font-size: 14px;
     font-weight: 500;
-    transition: all 0.2s;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .season-tab:hover {
     background-color: #2d2d30;
-    border-color: #007acc;
+    border-color: #555;
     color: #fff;
+    transform: translateY(-2px);
 }
 
 .season-tab.active {
     background-color: #007acc;
     border-color: #007acc;
     color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 122, 204, 0.3);
 }
 
 .season-tab svg {
@@ -73,26 +79,30 @@
 
 /* Spring colors */
 .season-tab[data-season="Spring"].active {
-    background-color: #81c784;
+    background: linear-gradient(135deg, #66bb6a 0%, #81c784 100%);
     border-color: #81c784;
+    box-shadow: 0 4px 12px rgba(129, 199, 132, 0.3);
 }
 
 /* Summer colors */
 .season-tab[data-season="Summer"].active {
-    background-color: #ffb74d;
+    background: linear-gradient(135deg, #ffa726 0%, #ffb74d 100%);
     border-color: #ffb74d;
+    box-shadow: 0 4px 12px rgba(255, 183, 77, 0.3);
 }
 
 /* Fall colors */
 .season-tab[data-season="Fall"].active {
-    background-color: #ff8a65;
+    background: linear-gradient(135deg, #ff7043 0%, #ff8a65 100%);
     border-color: #ff8a65;
+    box-shadow: 0 4px 12px rgba(255, 138, 101, 0.3);
 }
 
 /* Winter colors */
 .season-tab[data-season="Winter"].active {
-    background-color: #64b5f6;
+    background: linear-gradient(135deg, #42a5f5 0%, #64b5f6 100%);
     border-color: #64b5f6;
+    box-shadow: 0 4px 12px rgba(100, 181, 246, 0.3);
 }
 
 /* Event Type Filters */
@@ -104,23 +114,23 @@
 
 .event-filter {
     padding: 8px 16px;
-    background-color: #1e1e1e;
+    background-color: #252526;
     border: 1px solid #3e3e42;
-    border-radius: 4px;
+    border-radius: 6px;
     color: #ccc;
     cursor: pointer;
     font-size: 13px;
-    transition: all 0.2s;
+    transition: all 0.2s ease;
 }
 
 .event-filter:hover {
     background-color: #2d2d30;
-    border-color: #007acc;
+    border-color: #555;
     color: #fff;
 }
 
 .event-filter.active {
-    background-color: #007acc;
+    background-color: #094771;
     border-color: #007acc;
     color: #fff;
 }
@@ -138,14 +148,16 @@
     transform: translateY(-50%);
     color: #888;
     pointer-events: none;
+    width: 16px;
+    height: 16px;
 }
 
 .search-box input {
     width: 100%;
     padding: 10px 12px 10px 40px;
-    background-color: #1e1e1e;
+    background-color: #252526;
     border: 1px solid #3e3e42;
-    border-radius: 4px;
+    border-radius: 6px;
     color: #e0e0e0;
     font-size: 14px;
     outline: none;
@@ -154,13 +166,14 @@
 
 .search-box input:focus {
     border-color: #007acc;
+    box-shadow: 0 0 0 3px rgba(0, 122, 204, 0.15);
 }
 
-/* Calendar Grid */
+/* Calendar Grid - Section Container Style */
 .calendar-grid-container {
-    background-color: #1e1e1e;
+    background: linear-gradient(180deg, #2d2d30 0%, #252526 100%);
     border: 1px solid #3e3e42;
-    border-radius: 8px;
+    border-radius: 12px;
     padding: 24px;
     margin-bottom: 24px;
 }
@@ -173,21 +186,24 @@
 
 .calendar-day {
     min-height: 100px;
-    background-color: #252526;
+    background-color: #1e1e1e;
     border: 1px solid #3e3e42;
-    border-radius: 4px;
+    border-radius: 6px;
     padding: 8px;
     display: flex;
     flex-direction: column;
-    transition: all 0.2s;
+    transition: all 0.3s ease;
 }
 
 .calendar-day.has-events {
-    border-color: #007acc;
+    border-color: rgba(0, 122, 204, 0.5);
+    background: linear-gradient(135deg, #1e1e1e 0%, rgba(0, 122, 204, 0.05) 100%);
 }
 
 .calendar-day:hover {
-    background-color: #2d2d30;
+    background-color: #252526;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .day-number {

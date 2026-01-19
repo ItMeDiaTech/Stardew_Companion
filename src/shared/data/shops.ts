@@ -119,7 +119,13 @@ export const SHOPS: Shop[] = [
       { id: 'deluxe_barn', name: 'Deluxe Barn', price: 25000, category: 'upgrade', description: 'Deluxe barn (300 wood, 200 stone required)' },
       { id: 'silo', name: 'Silo', price: 100, category: 'upgrade', description: 'Hay storage (100 stone, 10 clay, 5 copper bars required)' },
       { id: 'shed', name: 'Shed', price: 15000, category: 'upgrade', description: 'Storage building (300 wood required)' },
+      { id: 'big_shed', name: 'Big Shed', price: 20000, category: 'upgrade', description: 'Upgraded shed (550 wood, 300 stone required)' },
       { id: 'fish_pond', name: 'Fish Pond', price: 5000, category: 'upgrade', description: 'Raise fish (200 stone, 5 seaweed, 5 green algae required)' },
+      { id: 'mill', name: 'Mill', price: 2500, category: 'upgrade', description: 'Mill wheat, beets, rice (150 wood, 50 stone, 4 cloth required)' },
+      { id: 'stable', name: 'Stable', price: 10000, category: 'upgrade', description: 'Keep and ride a horse (100 hardwood, 5 iron bars required)' },
+      { id: 'well', name: 'Well', price: 1000, category: 'upgrade', description: 'Refill watering can (75 stone required)' },
+      { id: 'slime_hutch', name: 'Slime Hutch', price: 10000, category: 'upgrade', description: 'Raise up to 20 slimes (500 stone, 10 refined quartz, 1 iridium bar required)' },
+      { id: 'shipping_bin', name: 'Shipping Bin', price: 250, category: 'upgrade', description: 'Additional shipping bin (150 wood required)' },
 
       // House upgrades
       { id: 'house_upgrade_1', name: 'House Upgrade 1', price: 10000, category: 'upgrade', description: 'Kitchen (450 wood required)' },

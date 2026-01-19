@@ -659,3 +659,617 @@ p {
 .status-right {
     text-align: right;
 }
+
+/* =====================================================
+   UI IMPROVEMENT UTILITIES - Phase 1 Foundation
+   ===================================================== */
+
+/* CSS Variables - Spacing Scale & Colors */
+:root {
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+    --space-2xl: 48px;
+
+    /* Accent colors for stat cards */
+    --accent-primary: #007acc;
+    --accent-success: #22c55e;
+    --accent-warning: #f59e0b;
+    --accent-danger: #ef4444;
+    --accent-info: #3b82f6;
+    --accent-purple: #8b5cf6;
+}
+
+/* =====================================================
+   Section Containers with Headers
+   ===================================================== */
+
+.section-container {
+    background: linear-gradient(180deg, #2d2d30 0%, #252526 100%);
+    border: 1px solid #3e3e42;
+    border-radius: 12px;
+    padding: 0;
+    margin-bottom: var(--space-lg);
+    overflow: hidden;
+}
+
+.section-header {
+    padding: var(--space-md) 20px;
+    background: linear-gradient(90deg, rgba(0, 122, 204, 0.12) 0%, transparent 100%);
+    border-bottom: 1px solid #3e3e42;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.section-header h2,
+.section-header h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+    color: #fff;
+}
+
+.section-header .section-icon {
+    width: 20px;
+    height: 20px;
+    color: #007acc;
+    flex-shrink: 0;
+}
+
+.section-header .section-count {
+    margin-left: auto;
+    font-size: 13px;
+    color: #888;
+    font-weight: 500;
+}
+
+.section-body {
+    padding: 20px;
+}
+
+/* Section header color variants */
+.section-header.success {
+    background: linear-gradient(90deg, rgba(34, 197, 94, 0.12) 0%, transparent 100%);
+}
+.section-header.success .section-icon { color: #22c55e; }
+
+.section-header.warning {
+    background: linear-gradient(90deg, rgba(245, 158, 11, 0.12) 0%, transparent 100%);
+}
+.section-header.warning .section-icon { color: #f59e0b; }
+
+.section-header.danger {
+    background: linear-gradient(90deg, rgba(239, 68, 68, 0.12) 0%, transparent 100%);
+}
+.section-header.danger .section-icon { color: #ef4444; }
+
+.section-header.info {
+    background: linear-gradient(90deg, rgba(59, 130, 246, 0.12) 0%, transparent 100%);
+}
+.section-header.info .section-icon { color: #3b82f6; }
+
+.section-header.purple {
+    background: linear-gradient(90deg, rgba(139, 92, 246, 0.12) 0%, transparent 100%);
+}
+.section-header.purple .section-icon { color: #8b5cf6; }
+
+/* =====================================================
+   Controls Toolbar
+   ===================================================== */
+
+.controls-toolbar {
+    background: #1e1e1e;
+    border: 1px solid #3e3e42;
+    border-radius: 8px;
+    padding: var(--space-md);
+    margin-bottom: 20px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.controls-toolbar .search-box {
+    flex: 1;
+    min-width: 200px;
+    max-width: 400px;
+    position: relative;
+}
+
+.controls-toolbar .search-box input {
+    width: 100%;
+    padding: 10px 12px 10px 40px;
+    background: #252526;
+    border: 1px solid #3e3e42;
+    border-radius: 6px;
+    color: #e0e0e0;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.controls-toolbar .search-box input:focus {
+    border-color: #007acc;
+    box-shadow: 0 0 0 3px rgba(0, 122, 204, 0.15);
+}
+
+.controls-toolbar .search-box svg {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    pointer-events: none;
+    width: 16px;
+    height: 16px;
+}
+
+.controls-toolbar .filter-group {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.controls-toolbar .filter-btn,
+.controls-toolbar .filter-select {
+    padding: 10px 16px;
+    background: #252526;
+    border: 1px solid #3e3e42;
+    border-radius: 6px;
+    color: #ccc;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.controls-toolbar .filter-btn:hover,
+.controls-toolbar .filter-select:hover {
+    background: #2d2d30;
+    border-color: #555;
+}
+
+.controls-toolbar .filter-btn.active {
+    background: #094771;
+    border-color: #007acc;
+    color: #fff;
+}
+
+/* =====================================================
+   Dividers
+   ===================================================== */
+
+.divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #3e3e42, transparent);
+    margin: var(--space-lg) 0;
+    border: none;
+}
+
+.divider-solid {
+    height: 1px;
+    background: #3e3e42;
+    margin: var(--space-lg) 0;
+    border: none;
+}
+
+.divider-vertical {
+    width: 1px;
+    height: 24px;
+    background: linear-gradient(180deg, transparent, #3e3e42, transparent);
+    margin: 0 var(--space-md);
+}
+
+/* =====================================================
+   Bento Grid Layout
+   ===================================================== */
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(140px, auto);
+    gap: var(--space-md);
+}
+
+.bento-item {
+    background: linear-gradient(135deg, #1e1e1e 0%, #252526 100%);
+    border: 1px solid #3e3e42;
+    border-radius: 12px;
+    padding: 20px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+.bento-item:hover {
+    border-color: #007acc;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 122, 204, 0.12);
+}
+
+.bento-item.large {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.bento-item.wide {
+    grid-column: span 2;
+}
+
+.bento-item.tall {
+    grid-row: span 2;
+}
+
+/* Responsive bento grid */
+@media (max-width: 1200px) {
+    .bento-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .bento-item.large {
+        grid-column: span 2;
+        grid-row: span 2;
+    }
+}
+
+@media (max-width: 900px) {
+    .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .bento-item.large {
+        grid-column: span 2;
+        grid-row: span 1;
+    }
+    .bento-item.wide {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 600px) {
+    .bento-grid {
+        grid-template-columns: 1fr;
+    }
+    .bento-item.large,
+    .bento-item.wide {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+}
+
+/* =====================================================
+   Card Hierarchy - Primary & Secondary
+   ===================================================== */
+
+.card-primary {
+    background: linear-gradient(135deg, #2d2d30 0%, #252526 100%);
+    border: 1px solid #3e3e42;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-primary:hover {
+    border-color: #007acc;
+    box-shadow: 0 8px 24px rgba(0, 122, 204, 0.12);
+    transform: translateY(-4px);
+}
+
+.card-secondary {
+    background: rgba(45, 45, 48, 0.5);
+    border: 1px solid rgba(62, 62, 66, 0.5);
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.card-secondary:hover {
+    background: rgba(45, 45, 48, 0.8);
+    border-color: #3e3e42;
+}
+
+/* =====================================================
+   Glassmorphism for Modals
+   ===================================================== */
+
+.modal-glass {
+    background: rgba(37, 37, 38, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.modal-section {
+    background: rgba(30, 30, 30, 0.6);
+    border: 1px solid rgba(62, 62, 66, 0.5);
+    border-radius: 8px;
+    padding: var(--space-md);
+    margin-bottom: var(--space-md);
+}
+
+.modal-section:last-child {
+    margin-bottom: 0;
+}
+
+/* =====================================================
+   Stat Cards with Accent Colors
+   ===================================================== */
+
+.stat-card-accent {
+    background: linear-gradient(135deg, #1e1e1e 0%, #252526 100%);
+    border: 1px solid #3e3e42;
+    border-radius: 12px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.stat-card-accent::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--card-accent, #007acc);
+}
+
+.stat-card-accent:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.stat-card-accent.primary { --card-accent: #007acc; }
+.stat-card-accent.success { --card-accent: #22c55e; }
+.stat-card-accent.warning { --card-accent: #f59e0b; }
+.stat-card-accent.danger { --card-accent: #ef4444; }
+.stat-card-accent.info { --card-accent: #3b82f6; }
+.stat-card-accent.purple { --card-accent: #8b5cf6; }
+
+.stat-card-accent .stat-value {
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 4px;
+}
+
+.stat-card-accent .stat-label {
+    font-size: 13px;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* =====================================================
+   Enhanced Badge Styles
+   ===================================================== */
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.badge-icon {
+    width: 12px;
+    height: 12px;
+}
+
+.badge-primary { background: #007acc; color: #fff; }
+.badge-success { background: #22c55e; color: #fff; }
+.badge-warning { background: #f59e0b; color: #fff; }
+.badge-danger { background: #ef4444; color: #fff; }
+.badge-info { background: #3b82f6; color: #fff; }
+.badge-purple { background: #8b5cf6; color: #fff; }
+.badge-neutral { background: #64748b; color: #fff; }
+
+/* =====================================================
+   Empty State
+   ===================================================== */
+
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-2xl);
+    text-align: center;
+    color: #888;
+}
+
+.empty-state-icon {
+    width: 64px;
+    height: 64px;
+    color: #555;
+    margin-bottom: var(--space-md);
+}
+
+.empty-state-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #ccc;
+    margin-bottom: var(--space-sm);
+}
+
+.empty-state-text {
+    font-size: 14px;
+    color: #888;
+    max-width: 300px;
+}
+
+/* =====================================================
+   Bento Feature Cards (Home Page)
+   ===================================================== */
+
+.feature-card-bento {
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card-bento::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #007acc, #0099ff);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.feature-card-bento:hover::before {
+    transform: scaleX(1);
+}
+
+.feature-card-bento.accent-success::before {
+    background: linear-gradient(90deg, #22c55e, #4ade80);
+}
+
+.feature-card-bento.accent-danger::before {
+    background: linear-gradient(90deg, #ef4444, #f87171);
+}
+
+.feature-card-bento h3 {
+    font-size: 18px;
+    color: #fff;
+    margin: 0 0 8px 0;
+    font-weight: 600;
+}
+
+.feature-card-bento p {
+    font-size: 13px;
+    color: #999;
+    margin: 0;
+    line-height: 1.5;
+    flex: 1;
+}
+
+/* Large bento card (2x2) */
+.bento-item.large.feature-card-bento {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.bento-item.large.feature-card-bento h3 {
+    font-size: 24px;
+    margin: 16px 0 12px 0;
+}
+
+.bento-item.large.feature-card-bento p {
+    font-size: 15px;
+    max-width: 280px;
+}
+
+/* Wide bento card (2x1) */
+.bento-item.wide.feature-card-bento {
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.bento-item.wide.feature-card-bento .feature-icon-medium {
+    flex-shrink: 0;
+}
+
+.bento-item.wide.feature-card-bento h3 {
+    margin-bottom: 4px;
+}
+
+/* Feature icons for bento cards */
+.feature-icon-large {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #007acc 0%, #0099ff 100%);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    transition: transform 0.3s ease;
+}
+
+.feature-card-bento:hover .feature-icon-large {
+    transform: scale(1.1) rotate(3deg);
+}
+
+.feature-icon-medium {
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, #007acc 0%, #0099ff 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    transition: transform 0.3s ease;
+}
+
+.feature-card-bento:hover .feature-icon-medium {
+    transform: scale(1.08) rotate(3deg);
+}
+
+.feature-icon-small {
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, #007acc 0%, #0099ff 100%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    margin-bottom: 12px;
+    transition: transform 0.3s ease;
+}
+
+.feature-card-bento:hover .feature-icon-small {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* Accent color variants for icons */
+.feature-card-bento.accent-success .feature-icon-large,
+.feature-card-bento.accent-success .feature-icon-medium,
+.feature-card-bento.accent-success .feature-icon-small {
+    background: linear-gradient(135deg, #22c55e 0%, #4ade80 100%);
+}
+
+.feature-card-bento.accent-danger .feature-icon-large,
+.feature-card-bento.accent-danger .feature-icon-medium,
+.feature-card-bento.accent-danger .feature-icon-small {
+    background: linear-gradient(135deg, #ef4444 0%, #f87171 100%);
+}
+
+/* Feature badge */
+.feature-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    background: rgba(0, 122, 204, 0.2);
+    color: #4fc3f7;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: auto;
+}
+
+.feature-badge.success {
+    background: rgba(34, 197, 94, 0.2);
+    color: #4ade80;
+}
+
+.feature-badge.danger {
+    background: rgba(239, 68, 68, 0.2);
+    color: #f87171;
+}

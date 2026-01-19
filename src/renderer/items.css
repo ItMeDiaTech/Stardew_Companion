@@ -23,8 +23,12 @@
   font-size: 14px;
 }
 
-/* Controls */
+/* Controls - Enhanced Toolbar Style */
 .items-controls {
+  background: #1e1e1e;
+  border: 1px solid #3e3e42;
+  border-radius: 8px;
+  padding: 16px;
   margin-bottom: 24px;
   display: flex;
   flex-direction: column;
@@ -35,16 +39,24 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  background: #2d2d30;
+  background: #252526;
   border: 1px solid #3e3e42;
-  border-radius: 4px;
-  padding: 8px 12px;
+  border-radius: 6px;
+  padding: 10px 12px;
   flex: 1;
+  transition: all 0.2s ease;
+}
+
+.search-box:focus-within {
+  border-color: #007acc;
+  box-shadow: 0 0 0 3px rgba(0, 122, 204, 0.15);
 }
 
 .search-box svg {
   color: #9d9d9d;
   flex-shrink: 0;
+  width: 16px;
+  height: 16px;
 }
 
 .search-box input {
@@ -70,24 +82,26 @@
 .filter-select {
   flex: 1;
   min-width: 180px;
-  background: #2d2d30;
+  background: #252526;
   border: 1px solid #3e3e42;
-  border-radius: 4px;
-  padding: 8px 12px;
+  border-radius: 6px;
+  padding: 10px 12px;
   color: #e8e6e3;
   font-size: 14px;
   font-family: inherit;
   cursor: pointer;
   outline: none;
+  transition: all 0.2s ease;
 }
 
 .filter-select:hover {
-  background: #333337;
-  border-color: #007acc;
+  background: #2d2d30;
+  border-color: #555;
 }
 
 .filter-select:focus {
   border-color: #007acc;
+  box-shadow: 0 0 0 3px rgba(0, 122, 204, 0.15);
 }
 
 /* Items Grid */
@@ -99,19 +113,20 @@
 }
 
 .item-card {
-  background: #2d2d30;
+  background: linear-gradient(135deg, #1e1e1e 0%, #252526 100%);
   border: 1px solid #3e3e42;
-  border-radius: 6px;
+  border-radius: 10px;
   padding: 16px;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .item-card:hover {
-  background: #333337;
+  background: linear-gradient(135deg, #252526 0%, #2d2d30 100%);
   border-color: #007acc;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 122, 204, 0.12);
 }
 
 .item-card-header {
@@ -261,14 +276,16 @@
 }
 
 .modal-content {
-  background: #252526;
-  border: 1px solid #3e3e42;
-  border-radius: 8px;
+  background: rgba(37, 37, 38, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
   max-width: 700px;
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
 
 .modal-header {
@@ -363,10 +380,10 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
-  background: #2d2d30;
+  background: rgba(30, 30, 30, 0.6);
   padding: 12px;
-  border-radius: 6px;
-  border: 1px solid #3e3e42;
+  border-radius: 8px;
+  border: 1px solid rgba(62, 62, 66, 0.5);
 }
 
 .info-label {
@@ -412,10 +429,10 @@
   display: flex;
   align-items: start;
   gap: 8px;
-  background: #2d2d30;
+  background: rgba(30, 30, 30, 0.6);
   padding: 10px 12px;
-  border-radius: 4px;
-  border: 1px solid #3e3e42;
+  border-radius: 6px;
+  border: 1px solid rgba(62, 62, 66, 0.5);
 }
 
 .source-item svg {
