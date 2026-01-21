@@ -11,7 +11,7 @@ export interface CookingIngredient {
 export interface CookingBuff {
   type: string;
   value: number;
-  duration: number; // in minutes
+  duration: number; // in seconds
 }
 
 export interface CookingRecipe {
@@ -69,6 +69,7 @@ export const COOKING_RECIPES: CookingRecipe[] = [
     energy: 90,
     health: 40,
     sellPrice: 80,
+    buffs: [{ type: 'Foraging', value: 2, duration: 671 }],
     unlockMethod: 'queen_of_sauce',
     unlockDetails: 'Queen of Sauce - Year 1, Summer 14'
   },
@@ -83,6 +84,7 @@ export const COOKING_RECIPES: CookingRecipe[] = [
     energy: 90,
     health: 40,
     sellPrice: 120,
+    buffs: [{ type: 'Farming', value: 1, duration: 335 }],
     unlockMethod: 'queen_of_sauce',
     unlockDetails: 'Queen of Sauce - Year 2, Spring 14'
   },
@@ -100,8 +102,8 @@ export const COOKING_RECIPES: CookingRecipe[] = [
     health: 90,
     sellPrice: 350,
     buffs: [
-      { type: 'Farming', value: 2, duration: 7 },
-      { type: 'Max Energy', value: 50, duration: 7 }
+      { type: 'Farming', value: 2, duration: 420 },
+      { type: 'Max Energy', value: 50, duration: 420 }
     ],
     unlockMethod: 'queen_of_sauce',
     unlockDetails: 'Queen of Sauce - Year 2, Spring 21'
@@ -117,7 +119,7 @@ export const COOKING_RECIPES: CookingRecipe[] = [
     energy: 200,
     health: 90,
     sellPrice: 150,
-    buffs: [{ type: 'Farming', value: 3, duration: 5.35 }],
+    buffs: [{ type: 'Farming', value: 3, duration: 335 }],
     unlockMethod: 'skill',
     unlockDetails: 'Farming Level 3'
   },
@@ -237,6 +239,10 @@ export const COOKING_RECIPES: CookingRecipe[] = [
     energy: 175,
     health: 78,
     sellPrice: 250,
+    buffs: [
+      { type: 'Farming', value: 2, duration: 420 },
+      { type: 'Max Energy', value: 30, duration: 420 }
+    ],
     unlockMethod: 'friendship',
     unlockDetails: 'Sandy at 7 Hearts'
   },
@@ -251,6 +257,7 @@ export const COOKING_RECIPES: CookingRecipe[] = [
     energy: 100,
     health: 45,
     sellPrice: 100,
+    buffs: [{ type: 'Fishing', value: 1, duration: 279 }],
     unlockMethod: 'queen_of_sauce',
     unlockDetails: 'Queen of Sauce - Year 1, Fall 14'
   },
@@ -266,8 +273,8 @@ export const COOKING_RECIPES: CookingRecipe[] = [
     health: 90,
     sellPrice: 300,
     buffs: [
-      { type: 'Defense', value: 2, duration: 7.41 },
-      { type: 'Luck', value: 2, duration: 7.41 }
+      { type: 'Defense', value: 2, duration: 461 },
+      { type: 'Luck', value: 2, duration: 461 }
     ],
     unlockMethod: 'friendship',
     unlockDetails: 'Robin at 7 Hearts'
@@ -304,6 +311,10 @@ export const COOKING_RECIPES: CookingRecipe[] = [
     energy: 100,
     health: 45,
     sellPrice: 100,
+    buffs: [
+      { type: 'Max Energy', value: 30, duration: 420 },
+      { type: 'Magnetism', value: 32, duration: 420 }
+    ],
     unlockMethod: 'friendship',
     unlockDetails: 'Clint at 7 Hearts'
   },
@@ -318,6 +329,7 @@ export const COOKING_RECIPES: CookingRecipe[] = [
     energy: 225,
     health: 101,
     sellPrice: 135,
+    buffs: [{ type: 'Fishing', value: 1, duration: 1007 }],
     unlockMethod: 'friendship',
     unlockDetails: 'Willy at 3 Hearts'
   },
@@ -334,6 +346,7 @@ export const COOKING_RECIPES: CookingRecipe[] = [
     energy: 225,
     health: 101,
     sellPrice: 175,
+    buffs: [{ type: 'Fishing', value: 3, duration: 1007 }],
     unlockMethod: 'friendship',
     unlockDetails: 'Willy at 7 Hearts'
   },
@@ -349,8 +362,8 @@ export const COOKING_RECIPES: CookingRecipe[] = [
     health: 101,
     sellPrice: 205,
     buffs: [
-      { type: 'Fishing', value: 3, duration: 16.47 },
-      { type: 'Max Energy', value: 50, duration: 16.47 }
+      { type: 'Fishing', value: 3, duration: 1007 },
+      { type: 'Max Energy', value: 50, duration: 1007 }
     ],
     unlockMethod: 'queen_of_sauce',
     unlockDetails: 'Queen of Sauce - Year 2, Winter 14',
@@ -414,8 +427,8 @@ export const COOKING_RECIPES: CookingRecipe[] = [
     health: 23,
     sellPrice: 200,
     buffs: [
-      { type: 'Farming', value: 2, duration: 7 },
-      { type: 'Speed', value: 1, duration: 7 }
+      { type: 'Farming', value: 2, duration: 420 },
+      { type: 'Speed', value: 1, duration: 420 }
     ],
     unlockMethod: 'friendship',
     unlockDetails: 'Shane at 3 Hearts',
@@ -447,8 +460,8 @@ export const COOKING_RECIPES: CookingRecipe[] = [
     health: 78,
     sellPrice: 200,
     buffs: [
-      { type: 'Mining', value: 1, duration: 4.39 },
-      { type: 'Defense', value: 3, duration: 4.39 }
+      { type: 'Mining', value: 1, duration: 279 },
+      { type: 'Defense', value: 3, duration: 279 }
     ],
     unlockMethod: 'friendship',
     unlockDetails: 'Lewis at 7 Hearts'
@@ -464,7 +477,7 @@ export const COOKING_RECIPES: CookingRecipe[] = [
     energy: 240,
     health: 108,
     sellPrice: 400,
-    buffs: [{ type: 'Max Energy', value: 50, duration: 3.3 }],
+    buffs: [{ type: 'Max Energy', value: 50, duration: 210 }],
     unlockMethod: 'friendship',
     unlockDetails: 'Emily at 7 Hearts'
   },
@@ -525,6 +538,7 @@ export const COOKING_RECIPES: CookingRecipe[] = [
     energy: 170,
     health: 76,
     sellPrice: 165,
+    buffs: [{ type: 'Defense', value: 2, duration: 335 }],
     unlockMethod: 'friendship',
     unlockDetails: 'Pam at 7 Hearts'
   },
@@ -539,7 +553,7 @@ export const COOKING_RECIPES: CookingRecipe[] = [
     energy: 125,
     health: 56,
     sellPrice: 100,
-    buffs: [{ type: 'Attack', value: 3, duration: 5.35 }],
+    buffs: [{ type: 'Attack', value: 3, duration: 335 }],
     unlockMethod: 'skill',
     unlockDetails: 'Combat Level 3'
   },
@@ -555,7 +569,7 @@ export const COOKING_RECIPES: CookingRecipe[] = [
     energy: 125,
     health: 56,
     sellPrice: 180,
-    buffs: [{ type: 'Foraging', value: 3, duration: 5.35 }],
+    buffs: [{ type: 'Foraging', value: 3, duration: 335 }],
     unlockMethod: 'skill',
     unlockDetails: 'Foraging Level 2'
   },
@@ -602,7 +616,7 @@ export const COOKING_RECIPES: CookingRecipe[] = [
     energy: 100,
     health: 45,
     sellPrice: 120,
-    buffs: [{ type: 'Luck', value: 1, duration: 7 }],
+    buffs: [{ type: 'Luck', value: 1, duration: 420 }],
     unlockMethod: 'friendship',
     unlockDetails: 'George at 3 Hearts'
   },
@@ -618,8 +632,8 @@ export const COOKING_RECIPES: CookingRecipe[] = [
     health: 51,
     sellPrice: 175,
     buffs: [
-      { type: 'Luck', value: 1, duration: 7 },
-      { type: 'Speed', value: 1, duration: 7 }
+      { type: 'Luck', value: 1, duration: 420 },
+      { type: 'Speed', value: 1, duration: 420 }
     ],
     unlockMethod: 'friendship',
     unlockDetails: 'George at 7 Hearts',
@@ -679,6 +693,7 @@ export const COOKING_RECIPES: CookingRecipe[] = [
     energy: 165,
     health: 74,
     sellPrice: 500,
+    buffs: [{ type: 'Fishing', value: 2, duration: 420 }],
     unlockMethod: 'friendship',
     unlockDetails: 'Linus at 7 Hearts',
     lovedBy: ['Sebastian']
@@ -695,6 +710,7 @@ export const COOKING_RECIPES: CookingRecipe[] = [
     energy: 90,
     health: 40,
     sellPrice: 150,
+    buffs: [{ type: 'Magnetism', value: 64, duration: 420 }],
     unlockMethod: 'friendship',
     unlockDetails: 'Kent at 3 Hearts'
   },
@@ -709,7 +725,7 @@ export const COOKING_RECIPES: CookingRecipe[] = [
     energy: 125,
     health: 56,
     sellPrice: 220,
-    buffs: [{ type: 'Fishing', value: 3, duration: 5.35 }],
+    buffs: [{ type: 'Fishing', value: 3, duration: 335 }],
     unlockMethod: 'skill',
     unlockDetails: 'Fishing Level 3'
   },
@@ -737,6 +753,10 @@ export const COOKING_RECIPES: CookingRecipe[] = [
     energy: 225,
     health: 101,
     sellPrice: 275,
+    buffs: [
+      { type: 'Speed', value: 1, duration: 1007 },
+      { type: 'Defense', value: 1, duration: 1007 }
+    ],
     unlockMethod: 'queen_of_sauce',
     unlockDetails: 'Queen of Sauce - Year 2, Fall 21'
   },
@@ -751,6 +771,7 @@ export const COOKING_RECIPES: CookingRecipe[] = [
     energy: 225,
     health: 101,
     sellPrice: 125,
+    buffs: [{ type: 'Fishing', value: 2, duration: 1007 }],
     unlockMethod: 'friendship',
     unlockDetails: 'Willy at 5 Hearts'
   },
@@ -766,7 +787,7 @@ export const COOKING_RECIPES: CookingRecipe[] = [
     energy: 175,
     health: 78,
     sellPrice: 300,
-    buffs: [{ type: 'Fishing', value: 4, duration: 10 }],
+    buffs: [{ type: 'Fishing', value: 4, duration: 210 }],
     unlockMethod: 'skill',
     unlockDetails: 'Fishing Level 9'
   },
@@ -782,6 +803,10 @@ export const COOKING_RECIPES: CookingRecipe[] = [
     energy: 225,
     health: 101,
     sellPrice: 160,
+    buffs: [
+      { type: 'Fishing', value: 1, duration: 602 },
+      { type: 'Luck', value: 1, duration: 602 }
+    ],
     unlockMethod: 'queen_of_sauce',
     unlockDetails: 'Queen of Sauce - Year 2, Winter 28'
   },
@@ -799,6 +824,7 @@ export const COOKING_RECIPES: CookingRecipe[] = [
     energy: 135,
     health: 60,
     sellPrice: 250,
+    buffs: [{ type: 'Attack', value: 2, duration: 420 }],
     unlockMethod: 'friendship',
     unlockDetails: 'Demetrius at 3 Hearts'
   },
@@ -831,7 +857,7 @@ export const COOKING_RECIPES: CookingRecipe[] = [
     energy: 100,
     health: 45,
     sellPrice: 250,
-    buffs: [{ type: 'Luck', value: 3, duration: 11.11 }],
+    buffs: [{ type: 'Luck', value: 3, duration: 671 }],
     unlockMethod: 'queen_of_sauce',
     unlockDetails: 'Queen of Sauce - Year 2, Spring 28'
   },
@@ -848,8 +874,8 @@ export const COOKING_RECIPES: CookingRecipe[] = [
     health: 72,
     sellPrice: 220,
     buffs: [
-      { type: 'Speed', value: 1, duration: 3.3 },
-      { type: 'Max Energy', value: 40, duration: 3.3 }
+      { type: 'Speed', value: 1, duration: 210 },
+      { type: 'Max Energy', value: 40, duration: 210 }
     ],
     unlockMethod: 'friendship',
     unlockDetails: 'Kent at 7 Hearts'
@@ -867,8 +893,8 @@ export const COOKING_RECIPES: CookingRecipe[] = [
     health: 56,
     sellPrice: 200,
     buffs: [
-      { type: 'Mining', value: 3, duration: 5.35 },
-      { type: 'Magnetism', value: 32, duration: 5.35 }
+      { type: 'Mining', value: 3, duration: 335 },
+      { type: 'Magnetism', value: 32, duration: 335 }
     ],
     unlockMethod: 'skill',
     unlockDetails: 'Mining Level 3'
@@ -1059,8 +1085,8 @@ export const COOKING_RECIPES: CookingRecipe[] = [
     health: 99,
     sellPrice: 350,
     buffs: [
-      { type: 'Defense', value: 2, duration: 7.41 },
-      { type: 'Foraging', value: 2, duration: 7.41 }
+      { type: 'Defense', value: 2, duration: 461 },
+      { type: 'Foraging', value: 2, duration: 461 }
     ],
     unlockMethod: 'friendship',
     unlockDetails: 'Demetrius at 7 Hearts'
@@ -1076,6 +1102,7 @@ export const COOKING_RECIPES: CookingRecipe[] = [
     energy: 125,
     health: 56,
     sellPrice: 120,
+    buffs: [{ type: 'Mining', value: 2, duration: 210 }],
     unlockMethod: 'friendship',
     unlockDetails: 'Gus at 7 Hearts'
   },
@@ -1133,8 +1160,9 @@ export const COOKING_RECIPES: CookingRecipe[] = [
     health: 101,
     sellPrice: 300,
     buffs: [
-      { type: 'Farming', value: 1, duration: 16.47 },
-      { type: 'Fishing', value: 1, duration: 16.47 }
+      { type: 'Farming', value: 1, duration: 1007 },
+      { type: 'Fishing', value: 1, duration: 1007 },
+      { type: 'Mining', value: 1, duration: 1007 }
     ],
     unlockMethod: 'queen_of_sauce',
     unlockDetails: 'Queen of Sauce - Year 2, Summer 14'
@@ -1149,7 +1177,7 @@ export const COOKING_RECIPES: CookingRecipe[] = [
     energy: 200,
     health: 0,
     sellPrice: 450,
-    buffs: [{ type: 'Speed', value: 1, duration: 4.12 }],
+    buffs: [{ type: 'Speed', value: 1, duration: 252 }],
     unlockMethod: 'purchase',
     unlockDetails: 'Purchase from Stardrop Saloon for 5,000g'
   },
@@ -1164,6 +1192,7 @@ export const COOKING_RECIPES: CookingRecipe[] = [
     energy: 50,
     health: 22,
     sellPrice: 200,
+    buffs: [{ type: 'Luck', value: 1, duration: 300 }],
     unlockMethod: 'special',
     unlockDetails: 'Dig up on Ginger Island'
   },
@@ -1181,6 +1210,11 @@ export const COOKING_RECIPES: CookingRecipe[] = [
     energy: 150,
     health: 67,
     sellPrice: 260,
+    buffs: [
+      { type: 'Mining', value: 1, duration: 301 },
+      { type: 'Luck', value: 1, duration: 301 },
+      { type: 'Defense', value: 1, duration: 301 }
+    ],
     unlockMethod: 'special',
     unlockDetails: 'Dig up on Ginger Island'
   },
@@ -1196,6 +1230,7 @@ export const COOKING_RECIPES: CookingRecipe[] = [
     energy: 228,
     health: 102,
     sellPrice: 250,
+    buffs: [{ type: 'Defense', value: 3, duration: 301 }],
     unlockMethod: 'special',
     unlockDetails: 'Dig up on Ginger Island'
   },
@@ -1222,6 +1257,7 @@ export const COOKING_RECIPES: CookingRecipe[] = [
     energy: 300,
     health: 135,
     sellPrice: 500,
+    buffs: [{ type: 'Foraging', value: 4, duration: 301 }],
     unlockMethod: 'special',
     unlockDetails: 'Dig up on Ginger Island'
   }

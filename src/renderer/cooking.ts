@@ -12,6 +12,13 @@ declare global {
 type UnlockMethod = 'default' | 'queen_of_sauce' | 'friendship' | 'purchase' | 'skill' | 'special';
 type SortOption = 'name' | 'energy' | 'price' | 'ingredients';
 
+// Helper function to format duration from seconds to "Xm Ys" format
+function formatDuration(seconds: number): string {
+  const mins = Math.floor(seconds / 60);
+  const secs = seconds % 60;
+  return secs > 0 ? `${mins}m ${secs}s` : `${mins}m`;
+}
+
 // DOM Elements
 const searchInput = document.getElementById('search-input') as HTMLInputElement;
 const unlockFilter = document.getElementById('unlock-filter') as HTMLSelectElement;
@@ -263,7 +270,7 @@ function openRecipeModal(recipe: CookingRecipe) {
         <div class="buff-item-details">
           <span class="buff-item-name">${buff.type}</span>
           <span class="buff-item-value">+${buff.value}</span>
-          <span class="buff-item-duration">${buff.duration}m duration</span>
+          <span class="buff-item-duration">${formatDuration(buff.duration)}</span>
         </div>
       </div>
     `).join('');
